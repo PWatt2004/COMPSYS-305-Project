@@ -1,0 +1,181 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk_25'
+Slack : -6.337
+TNS   : -209.136
+
+Type  : Slow 1100mV 85C Model Setup 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -3.833
+TNS   : -259.223
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -1.735
+TNS   : -2.390
+
+Type  : Slow 1100mV 85C Model Hold 'clk_25'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.591
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.655
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -1.704
+TNS   : -27.168
+
+Type  : Slow 1100mV 85C Model Removal 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.853
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.710
+TNS   : -2.383
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -0.538
+TNS   : -70.104
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_25'
+Slack : -0.538
+TNS   : -69.370
+
+Type  : Slow 1100mV 0C Model Setup 'clk_25'
+Slack : -6.668
+TNS   : -208.441
+
+Type  : Slow 1100mV 0C Model Setup 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -3.848
+TNS   : -246.218
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -1.670
+TNS   : -2.333
+
+Type  : Slow 1100mV 0C Model Hold 'clk_25'
+Slack : 0.349
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.579
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.712
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -1.589
+TNS   : -25.312
+
+Type  : Slow 1100mV 0C Model Removal 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.814
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.731
+TNS   : -2.458
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -0.538
+TNS   : -69.185
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_25'
+Slack : -0.538
+TNS   : -68.153
+
+Type  : Fast 1100mV 85C Model Setup 'clk_25'
+Slack : -2.998
+TNS   : -80.115
+
+Type  : Fast 1100mV 85C Model Setup 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -1.608
+TNS   : -98.292
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -0.794
+TNS   : -0.794
+
+Type  : Fast 1100mV 85C Model Hold 'clk_25'
+Slack : 0.103
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.255
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.301
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -0.790
+TNS   : -12.592
+
+Type  : Fast 1100mV 85C Model Removal 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.365
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.638
+TNS   : -1.681
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_25'
+Slack : 0.002
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.041
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk_25'
+Slack : -2.790
+TNS   : -69.612
+
+Type  : Fast 1100mV 0C Model Setup 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -1.393
+TNS   : -84.544
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -0.646
+TNS   : -0.646
+
+Type  : Fast 1100mV 0C Model Hold 'clk_25'
+Slack : 0.068
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.227
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.285
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : -0.689
+TNS   : -10.991
+
+Type  : Fast 1100mV 0C Model Removal 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.329
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.580
+TNS   : -1.535
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_25'
+Slack : 0.047
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.054
+TNS   : 0.000
+
+------------------------------------------------------------

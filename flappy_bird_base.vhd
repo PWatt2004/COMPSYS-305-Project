@@ -1,0 +1,88 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity flappy_bird_base is
+    port (
+        CLOCK_50    : in  std_logic;
+        RESET_N     : in  std_logic;
+        PS2_CLK     : inout std_logic;
+        PS2_DAT     : inout std_logic;
+        VGA_R       : out std_logic_vector(3 downto 0);
+        VGA_G       : out std_logic_vector(3 downto 0);
+        VGA_B       : out std_logic_vector(3 downto 0);
+        VGA_HS      : out std_logic;
+        VGA_VS      : out std_logic
+    );
+end flappy_bird_base;
+
+architecture top of flappy_bird_base is
+
+    signal clk_25      : std_logic;
+    signal red, green, blue : std_logic;
+    signal pixel_row, pixel_column : std_logic_vector(9 downto 0);
+    signal mouse_row, mouse_col : std_logic_vector(9 downto 0);
+    signal left_button, right_button : std_logic;
+
+begin
+
+    -- Divide 50MHz clock to 25MHz for VGA
+    clk_divider : process(CLOCK_50)
+    variable counter : std_logic := '0';
+    begin
+        if rising_edge(CLOCK_50) then
+            counter := not counter;
+            clk_25 <= counter;
+        end if;
+    end process;
+
+    -- Instantiate VGA sync generator
+    vga_inst : entity work.vga_sync
+        port map (
+            clock_25Mhz     => clk_25,
+            red             => red,
+            green           => green,
+            blue            => blue,
+            red_out         => VGA_R(3),
+            green_out       => VGA_G(3),
+            blue_out        => VGA_B(3),
+            horiz_sync_out  => VGA_HS,
+            vert_sync_out   => VGA_VS,
+            pixel_row       => pixel_row,
+            pixel_column    => pixel_column
+        );
+
+    -- Instantiate mouse controller
+    mouse_inst : entity work.mouse
+        port map (
+            clock_25Mhz     => clk_25,
+            reset           => not RESET_N,
+            mouse_data      => PS2_DAT,
+            mouse_clk       => PS2_CLK,
+            left_button     => left_button,
+            right_button    => right_button,
+            mouse_cursor_row => mouse_row,
+            mouse_cursor_column => mouse_col
+        );
+
+    -- Very simple cursor-following red dot
+    ball_logic : process(pixel_row, pixel_column, mouse_row, mouse_col)
+        variable size : integer := 5;
+    begin
+        if abs(to_integer(pixel_column) - to_integer(mouse_col)) < size and
+           abs(to_integer(pixel_row) - to_integer(mouse_row)) < size then
+            red   <= '1';
+            green <= '0';
+            blue  <= '0';
+        else
+            red   <= '0';
+            green <= '0';
+            blue  <= '0';
+        end if;
+    end process;
+
+    -- Connect lower bits of color to 0 (only using MSB for color)
+    VGA_R(2 downto 0) <= (others => '0');
+    VGA_G(2 downto 0) <= (others => '0');
+    VGA_B(2 downto 0) <= (others => '0');
+
+end top;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_bird_base
-Fri May 09 14:49:06 2025
+Fri May 09 16:14:10 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -13,16 +13,20 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |flappy_bird_base|MOUSE:mouse_inst|mouse_state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Port Connectivity Checks: "MOUSE:mouse_inst"
- 14. Port Connectivity Checks: "VGA_SYNC:vga_inst"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |flappy_bird_base|MOUSE:mouse_inst|mouse_state
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
+ 15. Parameter Settings for User Entity Instance: text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "MOUSE:mouse_inst"
+ 18. Port Connectivity Checks: "VGA_SYNC:vga_inst"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -48,16 +52,16 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 09 14:49:06 2025           ;
+; Analysis & Synthesis Status     ; Successful - Fri May 09 16:14:10 2025           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                ;
 ; Top-level Entity Name           ; flappy_bird_base                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 164                                             ;
+; Total registers                 ; 165                                             ;
 ; Total pins                      ; 18                                              ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0                                               ;
+; Total block memory bits         ; 4,096                                           ;
 ; Total DSP Blocks                ; 0                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -173,15 +177,27 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                  ; Library ;
-+-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
-; flappy_bird_base.vhd              ; yes             ; User VHDL File  ; C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd              ;         ;
-; MiniprojectResources/vga_sync.vhd ; yes             ; User VHDL File  ; C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd ;         ;
-; MiniprojectResources/mouse.vhd    ; yes             ; User VHDL File  ; C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd    ;         ;
-+-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
++-----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path  ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                         ; Library ;
++-----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; TextDisplay.vhd                   ; yes             ; User VHDL File               ; C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd                   ;         ;
+; flappy_bird_base.vhd              ; yes             ; User VHDL File               ; C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd              ;         ;
+; MiniprojectResources/vga_sync.vhd ; yes             ; User VHDL File               ; C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd ;         ;
+; MiniprojectResources/mouse.vhd    ; yes             ; User VHDL File               ; C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd    ;         ;
+; MiniprojectResources/char_rom.vhd ; yes             ; User VHDL File               ; C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd ;         ;
+; altsyncram.tdf                    ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                     ;         ;
+; stratix_ram_block.inc             ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                              ;         ;
+; lpm_mux.inc                       ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                        ;         ;
+; lpm_decode.inc                    ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                     ;         ;
+; aglobal181.inc                    ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                                     ;         ;
+; a_rdenreg.inc                     ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                      ;         ;
+; altrom.inc                        ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altrom.inc                                         ;         ;
+; altram.inc                        ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altram.inc                                         ;         ;
+; altdpram.inc                      ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.inc                                       ;         ;
+; db/altsyncram_d5g1.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/db/altsyncram_d5g1.tdf            ;         ;
++-----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------------------------+
@@ -189,38 +205,53 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------------+
 ; Resource                                    ; Usage                             ;
 +---------------------------------------------+-----------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 118                               ;
+; Estimate of Logic utilization (ALMs needed) ; 125                               ;
 ;                                             ;                                   ;
-; Combinational ALUT usage for logic          ; 197                               ;
-;     -- 7 input functions                    ; 1                                 ;
-;     -- 6 input functions                    ; 26                                ;
-;     -- 5 input functions                    ; 21                                ;
-;     -- 4 input functions                    ; 18                                ;
-;     -- <=3 input functions                  ; 131                               ;
+; Combinational ALUT usage for logic          ; 208                               ;
+;     -- 7 input functions                    ; 3                                 ;
+;     -- 6 input functions                    ; 25                                ;
+;     -- 5 input functions                    ; 29                                ;
+;     -- 4 input functions                    ; 21                                ;
+;     -- <=3 input functions                  ; 130                               ;
 ;                                             ;                                   ;
-; Dedicated logic registers                   ; 164                               ;
+; Dedicated logic registers                   ; 165                               ;
 ;                                             ;                                   ;
 ; I/O pins                                    ; 18                                ;
+; Total MLAB memory bits                      ; 0                                 ;
+; Total block memory bits                     ; 4096                              ;
 ;                                             ;                                   ;
 ; Total DSP Blocks                            ; 0                                 ;
 ;                                             ;                                   ;
 ; Maximum fan-out node                        ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;
 ; Maximum fan-out                             ; 89                                ;
-; Total fan-out                               ; 1236                              ;
-; Average fan-out                             ; 3.10                              ;
+; Total fan-out                               ; 1376                              ;
+; Average fan-out                             ; 3.28                              ;
 +---------------------------------------------+-----------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name      ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+------------------+--------------+
-; |flappy_bird_base          ; 197 (49)            ; 164 (2)                   ; 0                 ; 0          ; 18   ; 0            ; |flappy_bird_base                   ; flappy_bird_base ; work         ;
-;    |MOUSE:mouse_inst|      ; 105 (105)           ; 116 (116)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst  ; MOUSE            ; work         ;
-;    |VGA_SYNC:vga_inst|     ; 43 (43)             ; 46 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst ; VGA_SYNC         ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                  ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                        ; Entity Name      ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; |flappy_bird_base                            ; 208 (49)            ; 165 (2)                   ; 4096              ; 0          ; 18   ; 0            ; |flappy_bird_base                                                                                                          ; flappy_bird_base ; work         ;
+;    |MOUSE:mouse_inst|                        ; 105 (105)           ; 116 (116)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst                                                                                         ; MOUSE            ; work         ;
+;    |VGA_SYNC:vga_inst|                       ; 44 (44)             ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst                                                                                        ; VGA_SYNC         ; work         ;
+;    |text_display:text_inst|                  ; 10 (8)              ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|text_display:text_inst                                                                                   ; text_display     ; work         ;
+;       |char_rom:char_inst|                   ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|text_display:text_inst|char_rom:char_inst                                                                ; char_rom         ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component                                ; altsyncram       ; work         ;
+;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1  ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                  ;
++---------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------+
+; Name                                                                                                                ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF        ;
++---------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------+
+; text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096 ; tcgrom.mif ;
++---------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------+
 
 
 Encoding Type:  One-Hot
@@ -243,7 +274,6 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; VGA_SYNC:vga_inst|green_out            ; Stuck at GND due to stuck port data_in ;
 ; VGA_SYNC:vga_inst|blue_out             ; Stuck at GND due to stuck port data_in ;
 ; MOUSE:mouse_inst|CHAROUT[4..7]         ; Stuck at VCC due to stuck port data_in ;
 ; MOUSE:mouse_inst|CHAROUT[3]            ; Stuck at GND due to stuck port data_in ;
@@ -252,7 +282,7 @@ Encoding Type:  One-Hot
 ; MOUSE:mouse_inst|SHIFTOUT[10]          ; Stuck at VCC due to stuck port data_in ;
 ; MOUSE:mouse_inst|cursor_row[9]         ; Stuck at GND due to stuck port data_in ;
 ; VGA_SYNC:vga_inst|pixel_row[9]         ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 13 ;                                        ;
+; Total Number of Removed Registers = 12 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -261,7 +291,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 164   ;
+; Total registers                              ; 165   ;
 ; Number of registers using Synchronous Clear  ; 28    ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 42    ;
@@ -291,13 +321,103 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|new_cursor_column[2] ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|new_cursor_column[5] ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[9]          ;
 ; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[9]     ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[8]     ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[1]        ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[5]        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[6]     ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[9]        ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[7]        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                 ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                       ;
++------------------------------------+----------------------+------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                    ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                    ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                             ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer                                             ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer                                             ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                    ;
+; WIDTH_B                            ; 1                    ; Untyped                                                    ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                    ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                    ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                    ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                    ;
+; INIT_FILE                          ; tcgrom.mif           ; Untyped                                                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                    ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                    ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                    ;
+; CBXI_PARAMETER                     ; altsyncram_d5g1      ; Untyped                                                    ;
++------------------------------------+----------------------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                      ;
++-------------------------------------------+---------------------------------------------------------------------------+
+; Name                                      ; Value                                                                     ;
++-------------------------------------------+---------------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                         ;
+; Entity Instance                           ; text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                       ;
+;     -- WIDTH_A                            ; 8                                                                         ;
+;     -- NUMWORDS_A                         ; 512                                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                              ;
+;     -- WIDTH_B                            ; 1                                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                 ;
++-------------------------------------------+---------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -312,12 +432,11 @@ Encoding Type:  One-Hot
 
 +-----------------------------------------------+
 ; Port Connectivity Checks: "VGA_SYNC:vga_inst" ;
-+-------+-------+----------+--------------------+
-; Port  ; Type  ; Severity ; Details            ;
-+-------+-------+----------+--------------------+
-; green ; Input ; Info     ; Stuck at GND       ;
-; blue  ; Input ; Info     ; Stuck at GND       ;
-+-------+-------+----------+--------------------+
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; blue ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
 
 
 +-----------------------------------------------------+
@@ -325,38 +444,39 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 164                         ;
+; arriav_ff             ; 165                         ;
 ;     CLR               ; 9                           ;
 ;     ENA               ; 55                          ;
 ;     ENA CLR           ; 33                          ;
 ;     ENA SCLR          ; 18                          ;
 ;     ENA SLD           ; 20                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 19                          ;
+;     plain             ; 20                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 197                         ;
+; arriav_lcell_comb     ; 208                         ;
 ;     arith             ; 65                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 32                          ;
 ;         2 data inputs ; 31                          ;
-;     extend            ; 1                           ;
-;         7 data inputs ; 1                           ;
-;     normal            ; 99                          ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 108                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 7                           ;
 ;         2 data inputs ; 12                          ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 18                          ;
-;         5 data inputs ; 21                          ;
-;         6 data inputs ; 26                          ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 21                          ;
+;         5 data inputs ; 29                          ;
+;         6 data inputs ; 25                          ;
 ;     shared            ; 32                          ;
 ;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 28                          ;
 ; boundary_port         ; 18                          ;
+; stratixv_ram_block    ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 2.89                        ;
+; Max LUT depth         ; 6.10                        ;
+; Average LUT depth     ; 2.92                        ;
 +-----------------------+-----------------------------+
 
 
@@ -375,53 +495,79 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Fri May 09 14:49:00 2025
+    Info: Processing started: Fri May 09 16:14:02 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file textdisplay.vhd
+    Info (12022): Found design unit 1: text_display-Behavioral File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd Line: 14
+    Info (12023): Found entity 1: text_display File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file flappy_bird_base.vhd
-    Info (12022): Found design unit 1: flappy_bird_base-top File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Info (12023): Found entity 1: flappy_bird_base File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 5
+    Info (12022): Found design unit 1: flappy_bird_base-top File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
+    Info (12023): Found entity 1: flappy_bird_base File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/vga_sync.vhd
-    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 13
-    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 7
+    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 13
+    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/mouse.vhd
-    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 18
-    Info (12023): Found entity 1: MOUSE File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 9
+    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 18
+    Info (12023): Found entity 1: MOUSE File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/char_rom.vhd
-    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 20
-    Info (12023): Found entity 1: char_rom File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 9
+    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 20
+    Info (12023): Found entity 1: char_rom File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 14
-    Info (12023): Found entity 1: bouncy_ball File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 7
+    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 14
+    Info (12023): Found entity 1: bouncy_ball File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/ball.vhd
-    Info (12022): Found design unit 1: ball-behavior File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 14
-    Info (12023): Found entity 1: ball File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 7
+    Info (12022): Found design unit 1: ball-behavior File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 14
+    Info (12023): Found entity 1: ball File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 7
 Info (12127): Elaborating entity "flappy_bird_base" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(25): object "left_button" assigned a value but never read File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 25
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(25): object "right_button" assigned a value but never read File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 25
-Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(70): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 70
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 40
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 56
-Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 155
-Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 156
-Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 157
-Info (13000): Registers with preset signals will power-up high File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 146
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(25): object "left_button" assigned a value but never read File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 25
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(25): object "right_button" assigned a value but never read File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 25
+Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(79): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 79
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 41
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 57
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 157
+Info (12128): Elaborating entity "text_display" for hierarchy "text_display:text_inst" File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 69
+Warning (10036): Verilog HDL or VHDL warning at TextDisplay.vhd(45): object "char_index" assigned a value but never read File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at TextDisplay.vhd(63): signal "char_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd Line: 63
+Info (12128): Elaborating entity "char_rom" for hierarchy "text_display:text_inst|char_rom:char_inst" File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd Line: 72
+Info (12128): Elaborating entity "altsyncram" for hierarchy "text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component" File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component" File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
+Info (12133): Instantiated megafunction "text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "tcgrom.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone III"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "512"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
+    Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/db/altsyncram_d5g1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "text_display:text_inst|char_rom:char_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (13000): Registers with preset signals will power-up high File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
-    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -656,15 +802,16 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 280 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 300 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 14 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 262 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 252 warnings
-    Info: Peak virtual memory: 4967 megabytes
-    Info: Processing ended: Fri May 09 14:49:06 2025
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:12
+    Info (21061): Implemented 274 logic cells
+    Info (21064): Implemented 8 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 253 warnings
+    Info: Peak virtual memory: 4964 megabytes
+    Info: Processing ended: Fri May 09 16:14:10 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:14
 
 

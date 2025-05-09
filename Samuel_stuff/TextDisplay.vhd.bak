@@ -1,0 +1,88 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity text_display is
+    port (
+        clk         : in  std_logic;
+        pixel_row   : in  std_logic_vector(9 downto 0);
+        pixel_col   : in  std_logic_vector(9 downto 0);
+        text_on     : out std_logic
+    );
+end entity;
+
+architecture Behavioral of text_display is
+
+    -- Character ROM
+    component char_rom
+        port (
+            character_address : in  std_logic_vector(5 downto 0);
+            font_row          : in  std_logic_vector(2 downto 0);
+            font_col          : in  std_logic_vector(2 downto 0);
+            clock             : in  std_logic;
+            rom_mux_output    : out std_logic
+        );
+    end component;
+
+    -- Customizable message
+    constant MESSAGE : string := "FLAPPY BIRD";  -- <== CHANGE THIS LINE
+    constant CHAR_COUNT : integer := MESSAGE'length;
+
+    -- Convert MESSAGE string into an array of ASCII values
+    type char_array is array(0 to CHAR_COUNT - 1) of std_logic_vector(5 downto 0);
+    function str_to_ascii(s: string) return char_array is
+        variable result : char_array;
+    begin
+        for i in 0 to s'length - 1 loop
+            result(i) := std_logic_vector(to_unsigned(character'pos(s(i + 1)), 6));
+        end loop;
+        return result;
+    end function;
+
+    constant ascii_chars : char_array := str_to_ascii(MESSAGE);
+
+    -- VGA character grid logic
+    signal char_index    : integer range 0 to CHAR_COUNT - 1;
+    signal char_code     : std_logic_vector(5 downto 0);
+    signal font_row      : std_logic_vector(2 downto 0);
+    signal font_col      : std_logic_vector(2 downto 0);
+    signal char_x        : integer;
+    signal char_y        : integer;
+    signal char_bit      : std_logic;
+
+begin
+
+    process(pixel_row, pixel_col)
+    begin
+        char_y    <= to_integer(unsigned(pixel_row(6 downto 3)));  -- 8 px per char height
+        char_x    <= to_integer(unsigned(pixel_col(6 downto 3)));  -- 8 px per char width
+
+        font_row  <= pixel_row(2 downto 0);
+        font_col  <= pixel_col(2 downto 0);
+    end process;
+
+    process(char_x)
+    begin
+        if char_x < CHAR_COUNT and char_y = 0 then
+            char_index <= char_x;
+            char_code  <= ascii_chars(char_x);
+        else
+            char_code  <= "100000";  -- space = 32
+        end if;
+    end process;
+
+    -- ROM Access
+    char_inst: char_rom
+        port map (
+            character_address => char_code,
+            font_row          => font_row,
+            font_col          => font_col,
+            clock             => clk,
+            rom_mux_output    => char_bit
+        );
+
+    -- Output pixel
+    text_on <= char_bit when (char_x < CHAR_COUNT and char_y = 0) else '0';
+
+end architecture;
+

@@ -1,0 +1,56 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff
+Eflappy_bird_base
+w1746759831
+Z1 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
+Z2 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z3 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+!i122 1
+R0
+8C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd
+FC:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd
+l0
+L5 1
+V7R;IfdQAGD5A^ZPaeBMG83
+!s100 RX^3^@ze;h_ZAe;NPgn253
+Z4 OL;C;2022.1;75
+32
+Z5 !s110 1746761042
+!i10b 1
+Z6 !s108 1746761042.000000
+!s90 -reportprogress|300|-work|work|C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd|
+!s107 C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd|
+!i113 0
+Z7 o-work work
+Z8 tExplicit 1 CvgOpt 0
+Etext_display
+w1746761027
+R1
+R2
+R3
+!i122 2
+R0
+8C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd
+FC:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd
+l0
+L5 1
+V1cDzDh@YTNbYmG^B;[_]Q2
+!s100 G_ab:hfN16iG2<5ZFcQH62
+R4
+32
+R5
+!i10b 1
+R6
+!s90 -reportprogress|300|-work|work|C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd|
+!s107 C:/Users/pwat943/Documents/GitHub/COMPSYS-305-Project/Samuel_stuff/TextDisplay.vhd|
+!i113 0
+R7
+R8

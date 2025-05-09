@@ -23,6 +23,7 @@ architecture top of flappy_bird_base is
     signal pixel_row, pixel_column : std_logic_vector(9 downto 0);
     signal mouse_row, mouse_col : std_logic_vector(9 downto 0);
     signal left_button, right_button : std_logic;
+    signal text_pixel : std_logic;
 
 begin
 
@@ -65,15 +66,28 @@ begin
             mouse_cursor_column => mouse_col
         );
 
+     text_inst: entity work.text_display
+        port map (
+            clk        => clk_25,
+            pixel_row  => pixel_row,
+            pixel_col  => pixel_column,
+            text_on    => text_pixel
+        );
+
     -- Very simple cursor-following red dot
-    ball_logic : process(pixel_row, pixel_column, mouse_row, mouse_col)
+    ball_logic : process(pixel_row, pixel_column, mouse_row, mouse_col, text_pixel)
         variable size : integer := 5;
     begin
-        if abs(to_integer(unsigned(pixel_column)) - to_integer(unsigned(mouse_col))) < size and
-           abs(to_integer(unsigned(pixel_row)) - to_integer(unsigned(mouse_row))) < size then
+    -- Text takes priority
+        if text_pixel = '1' then
+            red   <= '1';
+            green <= '1';
+            blue  <= '0';  -- Yellow text
+        elsif abs(to_integer(unsigned(pixel_column)) - to_integer(unsigned(mouse_col))) < size and
+              abs(to_integer(unsigned(pixel_row)) - to_integer(unsigned(mouse_row))) < size then
             red   <= '1';
             green <= '0';
-            blue  <= '0';
+            blue  <= '0';  -- Red ball
         else
             red   <= '0';
             green <= '0';

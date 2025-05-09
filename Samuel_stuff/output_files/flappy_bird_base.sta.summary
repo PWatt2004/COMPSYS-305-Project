@@ -3,179 +3,179 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1100mV 85C Model Setup 'clk_25'
-Slack : -6.337
-TNS   : -209.136
+Slack : -5.824
+TNS   : -266.335
 
 Type  : Slow 1100mV 85C Model Setup 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : -3.833
-TNS   : -259.223
+Slack : -4.467
+TNS   : -283.879
 
 Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -1.735
-TNS   : -2.390
+Slack : -1.756
+TNS   : -2.405
 
 Type  : Slow 1100mV 85C Model Hold 'clk_25'
-Slack : 0.353
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.591
+Slack : 0.220
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.655
+Slack : 0.560
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.611
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Recovery 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : -1.704
-TNS   : -27.168
+Slack : -1.381
+TNS   : -21.998
 
 Type  : Slow 1100mV 85C Model Removal 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.853
+Slack : 0.428
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.710
-TNS   : -2.383
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_25'
+Slack : -2.636
+TNS   : -122.545
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
 Slack : -0.538
-TNS   : -70.104
+TNS   : -72.212
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_25'
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -0.538
-TNS   : -69.370
+TNS   : -1.962
 
 Type  : Slow 1100mV 0C Model Setup 'clk_25'
-Slack : -6.668
-TNS   : -208.441
+Slack : -6.105
+TNS   : -262.917
 
 Type  : Slow 1100mV 0C Model Setup 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : -3.848
-TNS   : -246.218
+Slack : -4.306
+TNS   : -268.240
 
 Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -1.670
-TNS   : -2.333
+Slack : -1.712
+TNS   : -2.357
 
 Type  : Slow 1100mV 0C Model Hold 'clk_25'
-Slack : 0.349
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
-Slack : 0.579
+Slack : 0.290
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.712
+Slack : 0.531
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.595
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Recovery 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : -1.589
-TNS   : -25.312
+Slack : -1.261
+TNS   : -20.062
 
 Type  : Slow 1100mV 0C Model Removal 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.814
+Slack : 0.406
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.731
-TNS   : -2.458
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_25'
+Slack : -2.636
+TNS   : -119.555
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
 Slack : -0.538
-TNS   : -69.185
+TNS   : -71.624
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_25'
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -0.538
-TNS   : -68.153
+TNS   : -2.016
 
 Type  : Fast 1100mV 85C Model Setup 'clk_25'
-Slack : -2.998
-TNS   : -80.115
+Slack : -2.688
+TNS   : -106.374
 
 Type  : Fast 1100mV 85C Model Setup 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : -1.608
-TNS   : -98.292
+Slack : -2.029
+TNS   : -113.812
 
 Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -0.794
-TNS   : -0.794
+Slack : -0.742
+TNS   : -0.742
 
 Type  : Fast 1100mV 85C Model Hold 'clk_25'
-Slack : 0.103
+Slack : -0.077
+TNS   : -0.077
+
+Type  : Fast 1100mV 85C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.157
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.255
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.301
+Slack : 0.267
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Recovery 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : -0.790
-TNS   : -12.592
+Slack : -0.518
+TNS   : -8.240
 
 Type  : Fast 1100mV 85C Model Removal 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.365
+Slack : 0.099
 TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.638
-TNS   : -1.681
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_25'
-Slack : 0.002
-TNS   : 0.000
+Slack : -2.174
+TNS   : -39.979
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.431
+TNS   : -1.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.041
-TNS   : 0.000
+Slack : -0.068
+TNS   : -1.913
 
 Type  : Fast 1100mV 0C Model Setup 'clk_25'
-Slack : -2.790
-TNS   : -69.612
+Slack : -2.528
+TNS   : -92.155
 
 Type  : Fast 1100mV 0C Model Setup 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : -1.393
-TNS   : -84.544
+Slack : -1.732
+TNS   : -97.060
 
 Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -0.646
-TNS   : -0.646
+Slack : -0.606
+TNS   : -0.606
 
 Type  : Fast 1100mV 0C Model Hold 'clk_25'
-Slack : 0.068
+Slack : -0.091
+TNS   : -0.091
+
+Type  : Fast 1100mV 0C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
+Slack : 0.165
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
-Slack : 0.227
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Hold 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.285
+Slack : 0.238
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Recovery 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : -0.689
-TNS   : -10.991
+Slack : -0.464
+TNS   : -7.393
 
 Type  : Fast 1100mV 0C Model Removal 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.329
+Slack : 0.115
 TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.580
-TNS   : -1.535
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_25'
-Slack : 0.047
-TNS   : 0.000
+Slack : -2.174
+TNS   : -36.615
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.418
+TNS   : -0.983
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'MOUSE:mouse_inst|MOUSE_CLK_FILTER'
-Slack : 0.054
-TNS   : 0.000
+Slack : -0.026
+TNS   : -0.605
 
 ------------------------------------------------------------

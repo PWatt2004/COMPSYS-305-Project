@@ -1,0 +1,36 @@
+- Fall logic:
+
+initialize velocity as v = 0
+           acceleration by gravity as g = 9.81 m/s^2
+                                           ^ would need to convert this into PPS (pixels per second)
+           max velocity as v_max = 10 (for now)
+           position of the bird as y = centre of the screen 
+
+process(clk) <- step would probs need to be con-current
+    on next Clk cycle if v < v_max
+        v = v + g <= updating velocity 
+        y = y + v <= updating position 
+              ^ (adding makes it go down)
+    end if
+end process
+
+- On click fly logic:
+
+initialize a signal C as standard logic 1 <- not clicked 
+                    assuming acitve low ^
+           a signal Fv as signed integer -3 <- flying velocity as 
+ 
+process(clk) <- this one might need to be sequential
+    on next Clk cycle and if signal C = '0'
+        v = v + Fv <- this makes the bird shoot up
+        after this gravity/ falling logic takes over
+    elsif 
+        falling logic persists
+    end if
+end process
+        
+
+
+        
+
+

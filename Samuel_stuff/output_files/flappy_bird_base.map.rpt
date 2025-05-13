@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_bird_base
-Fri May 09 14:49:06 2025
+Tue May 13 14:42:00 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -48,13 +48,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 09 14:49:06 2025           ;
+; Analysis & Synthesis Status     ; Successful - Tue May 13 14:42:00 2025           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                ;
 ; Top-level Entity Name           ; flappy_bird_base                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 164                                             ;
+; Total registers                 ; 175                                             ;
 ; Total pins                      ; 18                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
@@ -173,42 +173,42 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                  ; Library ;
-+-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
-; flappy_bird_base.vhd              ; yes             ; User VHDL File  ; C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd              ;         ;
-; MiniprojectResources/vga_sync.vhd ; yes             ; User VHDL File  ; C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd ;         ;
-; MiniprojectResources/mouse.vhd    ; yes             ; User VHDL File  ; C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd    ;         ;
-+-----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++-----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                        ; Library ;
++-----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; flappy_bird_base.vhd              ; yes             ; User VHDL File  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd              ;         ;
+; MiniprojectResources/vga_sync.vhd ; yes             ; User VHDL File  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd ;         ;
+; MiniprojectResources/mouse.vhd    ; yes             ; User VHDL File  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd    ;         ;
++-----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                     ;
-+---------------------------------------------+-----------------------------------+
-; Resource                                    ; Usage                             ;
-+---------------------------------------------+-----------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 118                               ;
-;                                             ;                                   ;
-; Combinational ALUT usage for logic          ; 197                               ;
-;     -- 7 input functions                    ; 1                                 ;
-;     -- 6 input functions                    ; 26                                ;
-;     -- 5 input functions                    ; 21                                ;
-;     -- 4 input functions                    ; 18                                ;
-;     -- <=3 input functions                  ; 131                               ;
-;                                             ;                                   ;
-; Dedicated logic registers                   ; 164                               ;
-;                                             ;                                   ;
-; I/O pins                                    ; 18                                ;
-;                                             ;                                   ;
-; Total DSP Blocks                            ; 0                                 ;
-;                                             ;                                   ;
-; Maximum fan-out node                        ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;
-; Maximum fan-out                             ; 89                                ;
-; Total fan-out                               ; 1236                              ;
-; Average fan-out                             ; 3.10                              ;
-+---------------------------------------------+-----------------------------------+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimate of Logic utilization (ALMs needed) ; 160    ;
+;                                             ;        ;
+; Combinational ALUT usage for logic          ; 290    ;
+;     -- 7 input functions                    ; 1      ;
+;     -- 6 input functions                    ; 18     ;
+;     -- 5 input functions                    ; 20     ;
+;     -- 4 input functions                    ; 18     ;
+;     -- <=3 input functions                  ; 233    ;
+;                                             ;        ;
+; Dedicated logic registers                   ; 175    ;
+;                                             ;        ;
+; I/O pins                                    ; 18     ;
+;                                             ;        ;
+; Total DSP Blocks                            ; 0      ;
+;                                             ;        ;
+; Maximum fan-out node                        ; clk_25 ;
+; Maximum fan-out                             ; 75     ;
+; Total fan-out                               ; 1426   ;
+; Average fan-out                             ; 2.83   ;
++---------------------------------------------+--------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -216,9 +216,9 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name      ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+------------------+--------------+
-; |flappy_bird_base          ; 197 (49)            ; 164 (2)                   ; 0                 ; 0          ; 18   ; 0            ; |flappy_bird_base                   ; flappy_bird_base ; work         ;
-;    |MOUSE:mouse_inst|      ; 105 (105)           ; 116 (116)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst  ; MOUSE            ; work         ;
-;    |VGA_SYNC:vga_inst|     ; 43 (43)             ; 46 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst ; VGA_SYNC         ; work         ;
+; |flappy_bird_base          ; 290 (194)           ; 175 (65)                  ; 0                 ; 0          ; 18   ; 0            ; |flappy_bird_base                   ; flappy_bird_base ; work         ;
+;    |MOUSE:mouse_inst|      ; 49 (49)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst  ; MOUSE            ; work         ;
+;    |VGA_SYNC:vga_inst|     ; 47 (47)             ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst ; VGA_SYNC         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -243,16 +243,15 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; VGA_SYNC:vga_inst|green_out            ; Stuck at GND due to stuck port data_in ;
 ; VGA_SYNC:vga_inst|blue_out             ; Stuck at GND due to stuck port data_in ;
 ; MOUSE:mouse_inst|CHAROUT[4..7]         ; Stuck at VCC due to stuck port data_in ;
 ; MOUSE:mouse_inst|CHAROUT[3]            ; Stuck at GND due to stuck port data_in ;
 ; MOUSE:mouse_inst|CHAROUT[2]            ; Stuck at VCC due to stuck port data_in ;
 ; MOUSE:mouse_inst|CHAROUT[0,1]          ; Stuck at GND due to stuck port data_in ;
 ; MOUSE:mouse_inst|SHIFTOUT[10]          ; Stuck at VCC due to stuck port data_in ;
-; MOUSE:mouse_inst|cursor_row[9]         ; Stuck at GND due to stuck port data_in ;
+; bird_y[31]                             ; Stuck at GND due to stuck port data_in ;
 ; VGA_SYNC:vga_inst|pixel_row[9]         ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 13 ;                                        ;
+; Total Number of Removed Registers = 12 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -261,63 +260,62 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 164   ;
-; Number of registers using Synchronous Clear  ; 28    ;
-; Number of registers using Synchronous Load   ; 20    ;
-; Number of registers using Asynchronous Clear ; 42    ;
+; Total registers                              ; 175   ;
+; Number of registers using Synchronous Clear  ; 47    ;
+; Number of registers using Synchronous Load   ; 32    ;
+; Number of registers using Asynchronous Clear ; 43    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 126   ;
+; Number of registers using Clock Enable       ; 69    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; MOUSE:mouse_inst|send_char             ; 3       ;
-; MOUSE:mouse_inst|SHIFTOUT[3]           ; 1       ;
-; MOUSE:mouse_inst|SHIFTOUT[5]           ; 1       ;
-; MOUSE:mouse_inst|SHIFTOUT[6]           ; 1       ;
-; MOUSE:mouse_inst|SHIFTOUT[7]           ; 1       ;
-; MOUSE:mouse_inst|SHIFTOUT[8]           ; 1       ;
-; Total number of inverted registers = 6 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; bird_y[4]                               ; 2       ;
+; bird_y[5]                               ; 2       ;
+; bird_y[6]                               ; 2       ;
+; bird_y[7]                               ; 2       ;
+; MOUSE:mouse_inst|send_char              ; 3       ;
+; MOUSE:mouse_inst|SHIFTOUT[3]            ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[5]            ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[6]            ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[7]            ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[8]            ; 1       ;
+; Total number of inverted registers = 10 ;         ;
++-----------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|new_cursor_column[2] ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[9]          ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[9]     ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[8]     ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[1]        ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[5]        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[7] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MOUSE:mouse_inst"                                                                           ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; left_button  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; right_button ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MOUSE:mouse_inst"                                                                                  ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                ; Type   ; Severity ; Details                                                                             ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
+; right_button        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; mouse_cursor_row    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; mouse_cursor_column ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------+
 ; Port Connectivity Checks: "VGA_SYNC:vga_inst" ;
-+-------+-------+----------+--------------------+
-; Port  ; Type  ; Severity ; Details            ;
-+-------+-------+----------+--------------------+
-; green ; Input ; Info     ; Stuck at GND       ;
-; blue  ; Input ; Info     ; Stuck at GND       ;
-+-------+-------+----------+--------------------+
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; blue ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
 
 
 +-----------------------------------------------------+
@@ -325,38 +323,39 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 164                         ;
-;     CLR               ; 9                           ;
-;     ENA               ; 55                          ;
-;     ENA CLR           ; 33                          ;
-;     ENA SCLR          ; 18                          ;
-;     ENA SLD           ; 20                          ;
-;     SCLR              ; 10                          ;
-;     plain             ; 19                          ;
+; arriav_ff             ; 175                         ;
+;     CLR               ; 12                          ;
+;     ENA               ; 28                          ;
+;     ENA CLR           ; 31                          ;
+;     ENA SCLR          ; 10                          ;
+;     SCLR              ; 37                          ;
+;     SLD               ; 32                          ;
+;     plain             ; 25                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 197                         ;
-;     arith             ; 65                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 32                          ;
-;         2 data inputs ; 31                          ;
+; arriav_lcell_comb     ; 290                         ;
+;     arith             ; 149                         ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 72                          ;
+;         2 data inputs ; 43                          ;
+;         3 data inputs ; 31                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 99                          ;
+;     normal            ; 108                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 7                           ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 14                          ;
+;         2 data inputs ; 33                          ;
+;         3 data inputs ; 11                          ;
 ;         4 data inputs ; 18                          ;
-;         5 data inputs ; 21                          ;
-;         6 data inputs ; 26                          ;
+;         5 data inputs ; 20                          ;
+;         6 data inputs ; 18                          ;
 ;     shared            ; 32                          ;
-;         0 data inputs ; 3                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 28                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 9                           ;
 ; boundary_port         ; 18                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 2.89                        ;
+; Max LUT depth         ; 10.80                       ;
+; Average LUT depth     ; 5.95                        ;
 +-----------------------+-----------------------------+
 
 
@@ -375,53 +374,55 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Fri May 09 14:49:00 2025
+    Info: Processing started: Tue May 13 14:41:54 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file flappy_bird_base.vhd
-    Info (12022): Found design unit 1: flappy_bird_base-top File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Info (12023): Found entity 1: flappy_bird_base File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 5
+    Info (12022): Found design unit 1: flappy_bird_base-top File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
+    Info (12023): Found entity 1: flappy_bird_base File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/vga_sync.vhd
-    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 13
-    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 7
+    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 13
+    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/mouse.vhd
-    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 18
-    Info (12023): Found entity 1: MOUSE File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 9
+    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 18
+    Info (12023): Found entity 1: MOUSE File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/char_rom.vhd
-    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 20
-    Info (12023): Found entity 1: char_rom File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 9
+    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 20
+    Info (12023): Found entity 1: char_rom File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 14
-    Info (12023): Found entity 1: bouncy_ball File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 7
+    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 14
+    Info (12023): Found entity 1: bouncy_ball File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/ball.vhd
-    Info (12022): Found design unit 1: ball-behavior File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 14
-    Info (12023): Found entity 1: ball File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 7
+    Info (12022): Found design unit 1: ball-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 14
+    Info (12023): Found entity 1: ball File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 7
 Info (12127): Elaborating entity "flappy_bird_base" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(25): object "left_button" assigned a value but never read File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 25
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(25): object "right_button" assigned a value but never read File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 25
-Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(70): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 70
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 40
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 56
-Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 155
-Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 156
-Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 157
-Info (13000): Registers with preset signals will power-up high File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 146
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(24): object "mouse_row" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 24
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(24): object "mouse_col" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 24
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(25): object "right_button" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 25
+Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(108): used initial value expression for variable "bird_x" because variable was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 108
+Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(109): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 109
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(112): signal "bird_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 112
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 47
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 63
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 157
+Info (13000): Registers with preset signals will power-up high File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
-    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/ylee903/Documents/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 11
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -656,14 +657,14 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 280 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 389 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 14 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 262 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 252 warnings
-    Info: Peak virtual memory: 4967 megabytes
-    Info: Processing ended: Fri May 09 14:49:06 2025
+    Info (21061): Implemented 371 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 254 warnings
+    Info: Peak virtual memory: 4961 megabytes
+    Info: Processing ended: Tue May 13 14:42:00 2025
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:12
 

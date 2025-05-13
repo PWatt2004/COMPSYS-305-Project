@@ -1,2 +1,23 @@
 
 Samuel_stuff/db/*.rdr.flock
+# Ignore Quartus build output
+**/db/
+**/incremental_db/
+**/output_files/
+*.rpt
+*.qmsg
+*.sof
+*.summary
+*.done
+*.cdf
+*.jdi
+*.qws
+*.hdb
+*.cdb
+*.ddb
+*.tdb
+*.kpt
+*.bpm
+*.ammdb
+*.idb
+*.vpr.*

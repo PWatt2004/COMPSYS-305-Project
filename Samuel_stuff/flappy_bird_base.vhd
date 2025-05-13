@@ -37,8 +37,9 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL pipe_speed : INTEGER := 1;
     CONSTANT bird_x : INTEGER := 100;
     CONSTANT PIPE_INIT_X1 : INTEGER := 640;
-    CONSTANT PIPE_INIT_X2 : INTEGER := 640 + 213;
-    CONSTANT PIPE_INIT_X3 : INTEGER := 640 + 2 * 213;
+    CONSTANT PIPE_INIT_X2 : INTEGER := 640 + 160;
+    CONSTANT PIPE_INIT_X3 : INTEGER := 640 + 2 * 160;
+    CONSTANT PIPE_INIT_X4 : INTEGER := 640 + 3 * 160;
 
     SIGNAL vsync_internal : STD_LOGIC;
 
@@ -47,7 +48,9 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL pipe2_x, pipe2_gap_y : INTEGER;
     SIGNAL score_enable2 : STD_LOGIC;
     SIGNAL pipe3_x, pipe3_gap_y : INTEGER;
+    SIGNAL pipe4_x, pipe4_gap_y : INTEGER;
     SIGNAL score_enable3 : STD_LOGIC;
+    SIGNAL score_enable4 : STD_LOGIC;
 
     COMPONENT bird_controller
         PORT (
@@ -167,7 +170,6 @@ BEGIN
         );
 
     -- Pipe 3
-
     pipe3_inst : ENTITY work.pipe_controller
         PORT MAP(
             clk => vsync_internal,
@@ -179,6 +181,20 @@ BEGIN
             pipe_x_out => pipe3_x,
             pipe_gap_y_out => pipe3_gap_y,
             score_trigger => score_enable3
+        );
+
+    -- Pipe 4
+    pipe4_inst : ENTITY work.pipe_controller
+        PORT MAP(
+            clk => vsync_internal,
+            reset => NOT RESET_N,
+            bird_x => bird_x,
+            bird_y => bird_y,
+            pipe_speed => pipe_speed,
+            pipe_init_x => PIPE_INIT_X4,
+            pipe_x_out => pipe4_x,
+            pipe_gap_y_out => pipe4_gap_y,
+            score_trigger => score_enable4
         );
 
     digit_index <= to_integer(unsigned(pixel_column(8 DOWNTO 7)));
@@ -209,7 +225,7 @@ BEGIN
         IF rising_edge(vsync_internal) THEN
             IF RESET_N = '0' THEN
                 score <= 0;
-            ELSIF score_enable = '1' OR score_enable2 = '1' OR score_enable3 = '1' THEN
+            ELSIF score_enable = '1' OR score_enable2 = '1' OR score_enable3 = '1' OR score_enable4 = '1' THEN
                 score <= score + 1;
             END IF;
         END IF;
@@ -228,7 +244,10 @@ BEGIN
             (to_integer(unsigned(pixel_row)) < pipe2_gap_y OR to_integer(unsigned(pixel_row)) > pipe2_gap_y + 100)) OR
            (to_integer(unsigned(pixel_column)) >= pipe3_x AND
             to_integer(unsigned(pixel_column)) < pipe3_x + 20 AND
-            (to_integer(unsigned(pixel_row)) < pipe3_gap_y OR to_integer(unsigned(pixel_row)) > pipe3_gap_y + 100)) THEN
+            (to_integer(unsigned(pixel_row)) < pipe3_gap_y OR to_integer(unsigned(pixel_row)) > pipe3_gap_y + 100)) OR
+           (to_integer(unsigned(pixel_column)) >= pipe4_x AND
+            to_integer(unsigned(pixel_column)) < pipe4_x + 20 AND
+            (to_integer(unsigned(pixel_row)) < pipe4_gap_y OR to_integer(unsigned(pixel_row)) > pipe4_gap_y + 100)) THEN
             red <= '0'; green <= '1'; blue <= '0';
         END IF;
 

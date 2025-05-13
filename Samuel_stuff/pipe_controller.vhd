@@ -40,7 +40,7 @@ BEGIN
                 END IF;
 
                 IF pipe_x < -20 THEN
-                    pipe_x <= 640;
+                    pipe_x <= 160;
                     pipe_gap_y <= (pipe_gap_y * 73 + 19) MOD 300 + 60;
                     passed <= '0';
                 END IF;

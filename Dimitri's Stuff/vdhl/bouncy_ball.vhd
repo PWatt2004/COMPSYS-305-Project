@@ -3,68 +3,94 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity bouncy_ball is
-    Port (
+    port (
         clk         : in  std_logic;
         reset       : in  std_logic;
+        click       : in  std_logic;  -- Flap signal (mouse click)
         pixel_row   : in  std_logic_vector(9 downto 0);
         pixel_col   : in  std_logic_vector(9 downto 0);
-        mouse_click : in  std_logic;  -- New: input for left click
-        ball_on     : out std_logic
+        bird_on     : out std_logic
     );
 end bouncy_ball;
 
 architecture Behavioral of bouncy_ball is
-    signal bird_y        : integer range 0 to 479 := 240; -- bird's vertical position
-    signal bird_x        : integer := 100;               -- fixed horizontal position
-    signal velocity      : integer := 0;                 -- vertical velocity
-    constant gravity     : integer := 1;                 -- gravity pulling down
-    constant flap_force  : integer := -6;                -- upward force
-    constant max_speed   : integer := 6;
-    signal tick          : integer := 0;                 -- divider for slow updates
+
+    constant BIRD_WIDTH  : integer := 16;
+    constant BIRD_HEIGHT : integer := 16;
+    constant SCREEN_HEIGHT : integer := 480;
+    constant BIRD_X : integer := 100;
+
+    signal bird_y         : integer range 0 to SCREEN_HEIGHT - BIRD_HEIGHT := 200;
+    signal velocity       : integer range -10 to 10 := 0;
+    signal gravity        : integer := 1;
+    signal flap_strength  : integer := -5;
+
+    signal pixel_row_int  : integer;
+    signal pixel_col_int  : integer;
+
+    signal click_last     : std_logic := '0';
+    signal flap_trigger   : std_logic := '0';
+
 begin
+
+    -- Convert std_logic_vector to integer
+    pixel_row_int <= to_integer(unsigned(pixel_row));
+    pixel_col_int <= to_integer(unsigned(pixel_col));
+
+    -- Rising edge detection for click signal
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            click_last <= click;
+            if (click = '1' and click_last = '0') then
+                flap_trigger <= '1';
+            else
+                flap_trigger <= '0';
+            end if;
+        end if;
+    end process;
+
+    -- Vertical position update
     process(clk)
     begin
         if rising_edge(clk) then
             if reset = '1' then
-                bird_y   <= 240;
+                bird_y <= 200;
                 velocity <= 0;
             else
-                -- Slow down updates to ~60fps logic
-                if tick = 1 then
-                    tick <= 0;
-
-                    -- On mouse click, apply upward flap
-                    if mouse_click = '1' then
-                        velocity <= flap_force;
-                    else
-                        -- Gravity
-                        if velocity < max_speed then
-                            velocity <= velocity + gravity;
-                        end if;
-                    end if;
-
-                    -- Update position
-                    bird_y <= bird_y + velocity;
-
-                    -- Bounds checking
-                    if bird_y < 0 then
-                        bird_y <= 0;
-                        velocity <= 0;
-                    elsif bird_y > 479 then
-                        bird_y <= 479;
-                        velocity <= 0;
-                    end if;
+                -- On flap, apply upward velocity
+                if flap_trigger = '1' then
+                    velocity <= flap_strength;
                 else
-                    tick <= tick + 1;
+                    velocity <= velocity + gravity;
+                end if;
+
+                -- Clamp the velocity
+                if velocity > 5 then
+                    velocity <= 5;
+                elsif velocity < -8 then
+                    velocity <= -8;
+                end if;
+
+                -- Update position
+                bird_y <= bird_y + velocity;
+
+                -- Boundary conditions
+                if bird_y < 0 then
+                    bird_y <= 0;
+                    velocity <= 0;
+                elsif bird_y > SCREEN_HEIGHT - BIRD_HEIGHT then
+                    bird_y <= SCREEN_HEIGHT - BIRD_HEIGHT;
+                    velocity <= 0;
                 end if;
             end if;
         end if;
     end process;
 
-    -- Draw the bird as a square (8x8 pixels)
-    ball_on <= '1' when
-        (to_integer(unsigned(pixel_col)) >= bird_x and to_integer(unsigned(pixel_col)) < bird_x + 8) and
-        (to_integer(unsigned(pixel_row)) >= bird_y and to_integer(unsigned(pixel_row)) < bird_y + 8)
+    -- Output logic: draw the bird at BIRD_X and bird_y
+    bird_on <= '1' when
+        pixel_col_int >= BIRD_X and pixel_col_int < BIRD_X + BIRD_WIDTH and
+        pixel_row_int >= bird_y and pixel_row_int < bird_y + BIRD_HEIGHT
         else '0';
 
 end Behavioral;

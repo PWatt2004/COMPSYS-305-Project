@@ -28,30 +28,27 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL bird_y : INTEGER := 240;
     SIGNAL bird_velocity : INTEGER := 0;
 
-    --click to rise stuff
     SIGNAL vsync_internal : STD_LOGIC;
 
-    --pipes and screen stuff
-    SIGNAL pipe_x : INTEGER := 640; -- Pipe horizontal position (starts off screen)
-    SIGNAL pipe_gap_y : INTEGER := 200; -- Y position of the vertical gap in the pipe
-    SIGNAL pipe_speed : INTEGER := 1; -- Speed per frame (pixels)
+    CONSTANT pipe_spacing : integer := 240;
+    CONSTANT pipe_width   : integer := 20;
+    CONSTANT gap_size     : integer := 100;
 
-    --more pipe stuff
-    SIGNAL pipe2_x : INTEGER := 880;
+    SIGNAL pipe_x : INTEGER := 640;
+    SIGNAL pipe_gap_y : INTEGER := 200;
+
+    SIGNAL pipe2_x : INTEGER := 640 + pipe_spacing;
     SIGNAL pipe2_gap_y : INTEGER := 180;
 
-    --more pipe stuff2
-    constant pipe_spacing : integer := 240;  -- horizontal distance between pipes
-    constant pipe_width   : integer := 20;
-    constant gap_size     : integer := 100;
-    
+    SIGNAL pipe3_x : INTEGER := 640 + 2 * pipe_spacing;
+    SIGNAL pipe3_gap_y : INTEGER := 150;
 
+    SIGNAL pipe_speed : INTEGER := 1;
 
 BEGIN
 
     VGA_VS <= vsync_internal;
 
-    -- Divide 50MHz clock to 25MHz for VGA
     clk_divider : PROCESS (CLOCK_50)
         VARIABLE counter : STD_LOGIC := '0';
     BEGIN
@@ -61,7 +58,6 @@ BEGIN
         END IF;
     END PROCESS;
 
-    -- Instantiate VGA sync generator
     vga_inst : ENTITY work.vga_sync
         PORT MAP(
             clock_25Mhz => clk_25,
@@ -77,7 +73,6 @@ BEGIN
             pixel_column => pixel_column
         );
 
-    -- Instantiate mouse controller
     mouse_inst : ENTITY work.mouse
         PORT MAP(
             clock_25Mhz => clk_25,
@@ -90,7 +85,6 @@ BEGIN
             mouse_cursor_column => mouse_col
         );
 
-    -- Bird movement logic
     PROCESS (vsync_internal)
         VARIABLE temp_velocity : INTEGER;
         VARIABLE temp_y : INTEGER;
@@ -99,92 +93,76 @@ BEGIN
             temp_velocity := bird_velocity;
             temp_y := bird_y;
 
-            -- Apply gravity
             temp_velocity := temp_velocity + 1;
 
-            -- Jump if left button is pressed
             IF left_button = '1' THEN
-                temp_velocity := - 6;
+                temp_velocity := -6;
             END IF;
 
-            -- Apply velocity to position
             temp_y := temp_y + temp_velocity;
 
-            -- Clamp to screen
-            IF temp_y < 0 THEN
-                temp_y := 0;
-            END IF;
-            IF temp_y > 480 THEN
-                temp_y := 480;
-            END IF;
+            IF temp_y < 0 THEN temp_y := 0; END IF;
+            IF temp_y > 480 THEN temp_y := 480; END IF;
 
-            -- Assign final values back to signals
             bird_velocity <= temp_velocity;
             bird_y <= temp_y;
 
-            --pipe moving logic?
-            -- Move pipe left
             pipe_x <= pipe_x - pipe_speed;
+            IF pipe_x < -pipe_width THEN
+                pipe_x <= pipe3_x + pipe_spacing;
+                pipe_gap_y <= (bird_y * 37 + 113) MOD 300 + 60;
+            END IF;
 
-            -- Pipe 1 movement
-            pipe_x <= pipe_x - pipe_speed;
-            if pipe_x < -20 then
-                pipe_x <= 640;
-                pipe_gap_y <= (bird_y * 37 + 113) mod 300 + 60;
-            end if;
-
-            -- Pipe 2 movement
             pipe2_x <= pipe2_x - pipe_speed;
-            if pipe2_x < -20 then
-                pipe2_x <= 640;
-                pipe2_gap_y <= (bird_y * 53 + 71) mod 300 + 60;
-            end if;
+            IF pipe2_x < -pipe_width THEN
+                pipe2_x <= pipe_x + pipe_spacing;
+                pipe2_gap_y <= (bird_y * 53 + 71) MOD 300 + 60;
+            END IF;
 
+            pipe3_x <= pipe3_x - pipe_speed;
+            IF pipe3_x < -pipe_width THEN
+                pipe3_x <= pipe2_x + pipe_spacing;
+                pipe3_gap_y <= (bird_y * 97 + 83) MOD 300 + 60;
+            END IF;
         END IF;
-
     END PROCESS;
+
     draw_logic : PROCESS (pixel_row, pixel_column)
         VARIABLE bird_x : INTEGER := 100;
         VARIABLE size : INTEGER := 6;
-        CONSTANT pipe_width : INTEGER := 20;
-        CONSTANT gap_size : INTEGER := 100;
     BEGIN
-        -- Default background color (black)
-        red <= '0';
-        green <= '0';
-        blue <= '0';
+        red <= '0'; green <= '0'; blue <= '0';
 
-        -- Pipe logic first (so bird can be drawn on top if overlapping)
         IF to_integer(unsigned(pixel_column)) >= pipe_x AND
-            to_integer(unsigned(pixel_column)) < pipe_x + pipe_width THEN
+           to_integer(unsigned(pixel_column)) < pipe_x + pipe_width THEN
             IF to_integer(unsigned(pixel_row)) < pipe_gap_y OR
-                to_integer(unsigned(pixel_row)) > pipe_gap_y + gap_size THEN
-                red <= '0';
-                green <= '1';
-                blue <= '0'; -- Green pipe
+               to_integer(unsigned(pixel_row)) > pipe_gap_y + gap_size THEN
+                red <= '0'; green <= '1'; blue <= '0';
             END IF;
         END IF;
 
-        -- Pipe 2 drawing
-        if to_integer(unsigned(pixel_column)) >= pipe2_x and
-        to_integer(unsigned(pixel_column)) < pipe2_x + pipe_width then
-            if to_integer(unsigned(pixel_row)) < pipe2_gap_y or
-            to_integer(unsigned(pixel_row)) > pipe2_gap_y + gap_size then
-                red <= '0';
-                green <= '1';
-                blue <= '0';
-            end if;
-        end if;
+        IF to_integer(unsigned(pixel_column)) >= pipe2_x AND
+           to_integer(unsigned(pixel_column)) < pipe2_x + pipe_width THEN
+            IF to_integer(unsigned(pixel_row)) < pipe2_gap_y OR
+               to_integer(unsigned(pixel_row)) > pipe2_gap_y + gap_size THEN
+                red <= '0'; green <= '1'; blue <= '0';
+            END IF;
+        END IF;
 
-        -- Bird logic (can override pipe if overlapping)
+        IF to_integer(unsigned(pixel_column)) >= pipe3_x AND
+           to_integer(unsigned(pixel_column)) < pipe3_x + pipe_width THEN
+            IF to_integer(unsigned(pixel_row)) < pipe3_gap_y OR
+               to_integer(unsigned(pixel_row)) > pipe3_gap_y + gap_size THEN
+                red <= '0'; green <= '1'; blue <= '0';
+            END IF;
+        END IF;
+
         IF ABS(to_integer(unsigned(pixel_column)) - bird_x) < size AND
-            ABS(to_integer(unsigned(pixel_row)) - bird_y) < size THEN
-            red <= '1';
-            green <= '1';
-            blue <= '0'; -- Yellow bird
+           ABS(to_integer(unsigned(pixel_row)) - bird_y) < size THEN
+            red <= '1'; green <= '1'; blue <= '0';
         END IF;
     END PROCESS;
-    -- Connect lower bits of color to 0
+
     VGA_R(2 DOWNTO 0) <= (OTHERS => '0');
     VGA_G(2 DOWNTO 0) <= (OTHERS => '0');
     VGA_B(2 DOWNTO 0) <= (OTHERS => '0');

@@ -1,3 +1,5 @@
+
+Samuel_stuff/db/*.rdr.flock
 # Ignore Quartus build output
 **/db/
 **/incremental_db/
@@ -18,4 +20,5 @@
 *.bpm
 *.ammdb
 *.idb
+*.vpr.*
 *.vpr.*

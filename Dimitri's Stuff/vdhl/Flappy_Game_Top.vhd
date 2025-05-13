@@ -38,7 +38,7 @@ architecture Structural of flappy_game_top is
 
     -- Bird display signal
     signal bird_on       : std_logic;
-    signal red, green, blue : std_logic_vector(3 downto 0);
+    signal red, green, blue : std_logic;  -- FIXED to single-bit
 
 begin
 
@@ -53,54 +53,54 @@ begin
     end process;
 
     -- VGA controller
-vga_sync_inst : entity work.VGA_SYNC
-    port map (
-        clock_25Mhz      => clk_25mhz,
-        red              => red(0),
-        green            => green(0),
-        blue             => blue(0),
-        red_out          => VGA_R(0),
-        green_out        => VGA_G(0),
-        blue_out         => VGA_B(0),
-        horiz_sync_out   => VGA_HS,
-        vert_sync_out    => VGA_VS,
-        pixel_row        => pixel_row,
-        pixel_column     => pixel_col
-    );
-
+    vga_sync_inst : entity work.VGA_SYNC
+        port map (
+            clock_25Mhz      => clk_25mhz,
+            red              => red,
+            green            => green,
+            blue             => blue,
+            red_out          => VGA_R(0),
+            green_out        => VGA_G(0),
+            blue_out         => VGA_B(0),
+            horiz_sync_out   => VGA_HS,
+            vert_sync_out    => VGA_VS,
+            pixel_row        => pixel_row,
+            pixel_column     => pixel_col
+        );
 
     -- PS/2 mouse interface
-mouse_inst : entity work.MOUSE
-    port map (
-        clock_25Mhz        => clk_25mhz,
-        reset              => reset,
-        mouse_data         => PS2_DAT,
-        mouse_clk          => PS2_CLK,
-        left_button        => left_btn,
-        right_button       => right_btn,
-        mouse_cursor_row   => mouse_y,
-        mouse_cursor_column => mouse_x
-    );
+    mouse_inst : entity work.MOUSE
+        port map (
+            clock_25Mhz         => clk_25mhz,
+            reset               => reset,
+            mouse_data          => PS2_DAT,
+            mouse_clk           => PS2_CLK,
+            left_button         => left_btn,
+            right_button        => right_btn,
+            mouse_cursor_row    => mouse_y,
+            mouse_cursor_column => mouse_x
+        );
 
     -- Bird logic: treat the bird like a bouncing ball for now
     ball_inst : entity work.bouncy_ball
         port map (
-            clk         => clk_25mhz,
-            reset       => reset,
-            click       => left_btn, -- flap on mouse click
-            pixel_row   => pixel_row,
-            pixel_col   => pixel_col,
-            bird_on     => bird_on
+            clk        => clk_25mhz,
+            reset      => reset,
+            click      => left_btn,
+            pixel_row  => pixel_row,
+            pixel_col  => pixel_col,
+            bird_on    => bird_on
         );
 
--- Yellow bird: Red + Green on, Blue off
-red   <= bird_on;
-green <= bird_on;
-blue  <= '0';
+    -- Yellow bird: Red + Green on, Blue off
+    red   <= bird_on;
+    green <= bird_on;
+    blue  <= '0';
 
-
-    VGA_R <= red   when video_on = '1' else (others => '0');
-    VGA_G <= green when video_on = '1' else (others => '0');
-    VGA_B <= blue  when video_on = '1' else (others => '0');
+    -- Replicate single-bit color over 4-bit VGA outputs
+    VGA_R <= (others => red)   when video_on = '1' else (others => '0');
+    VGA_G <= (others => green) when video_on = '1' else (others => '0');
+    VGA_B <= (others => blue)  when video_on = '1' else (others => '0');
 
 end Structural;
+

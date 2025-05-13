@@ -35,6 +35,18 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL pipe_x : INTEGER := 640; -- Pipe horizontal position (starts off screen)
     SIGNAL pipe_gap_y : INTEGER := 200; -- Y position of the vertical gap in the pipe
     SIGNAL pipe_speed : INTEGER := 1; -- Speed per frame (pixels)
+
+    --more pipe stuff
+    SIGNAL pipe2_x : INTEGER := 880;
+    SIGNAL pipe2_gap_y : INTEGER := 180;
+
+    --more pipe stuff2
+    constant pipe_spacing : integer := 240;  -- horizontal distance between pipes
+    constant pipe_width   : integer := 20;
+    constant gap_size     : integer := 100;
+    
+
+
 BEGIN
 
     VGA_VS <= vsync_internal;
@@ -114,11 +126,19 @@ BEGIN
             -- Move pipe left
             pipe_x <= pipe_x - pipe_speed;
 
-            -- Reset pipe if it goes off screen
-            IF pipe_x <- 20 THEN
+            -- Pipe 1 movement
+            pipe_x <= pipe_x - pipe_speed;
+            if pipe_x < -20 then
                 pipe_x <= 640;
-                pipe_gap_y <= (bird_y * 37 + 113) MOD 300 + 60; -- random-looking height
-            END IF;
+                pipe_gap_y <= (bird_y * 37 + 113) mod 300 + 60;
+            end if;
+
+            -- Pipe 2 movement
+            pipe2_x <= pipe2_x - pipe_speed;
+            if pipe2_x < -20 then
+                pipe2_x <= 640;
+                pipe2_gap_y <= (bird_y * 53 + 71) mod 300 + 60;
+            end if;
 
         END IF;
 
@@ -144,6 +164,17 @@ BEGIN
                 blue <= '0'; -- Green pipe
             END IF;
         END IF;
+
+        -- Pipe 2 drawing
+        if to_integer(unsigned(pixel_column)) >= pipe2_x and
+        to_integer(unsigned(pixel_column)) < pipe2_x + pipe_width then
+            if to_integer(unsigned(pixel_row)) < pipe2_gap_y or
+            to_integer(unsigned(pixel_row)) > pipe2_gap_y + gap_size then
+                red <= '0';
+                green <= '1';
+                blue <= '0';
+            end if;
+        end if;
 
         -- Bird logic (can override pipe if overlapping)
         IF ABS(to_integer(unsigned(pixel_column)) - bird_x) < size AND

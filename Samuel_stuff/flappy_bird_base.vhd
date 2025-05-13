@@ -1,84 +1,89 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
-entity flappy_bird_base is
-    port (
-        CLOCK_50    : in  std_logic;
-        RESET_N     : in  std_logic;
-        PS2_CLK     : inout std_logic;
-        PS2_DAT     : inout std_logic;
-        VGA_R       : out std_logic_vector(3 downto 0);
-        VGA_G       : out std_logic_vector(3 downto 0);
-        VGA_B       : out std_logic_vector(3 downto 0);
-        VGA_HS      : out std_logic;
-        VGA_VS      : out std_logic
+ENTITY flappy_bird_base IS
+    PORT (
+        CLOCK_50 : IN STD_LOGIC;
+        RESET_N : IN STD_LOGIC;
+        PS2_CLK : INOUT STD_LOGIC;
+        PS2_DAT : INOUT STD_LOGIC;
+        VGA_R : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        VGA_G : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        VGA_B : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        VGA_HS : OUT STD_LOGIC;
+        VGA_VS : OUT STD_LOGIC
     );
-end flappy_bird_base;
+END flappy_bird_base;
 
-architecture top of flappy_bird_base is
+ARCHITECTURE top OF flappy_bird_base IS
 
-    signal clk_25 : std_logic;
-    signal red, green, blue : std_logic;
-    signal pixel_row, pixel_column : std_logic_vector(9 downto 0);
-    signal mouse_row, mouse_col : std_logic_vector(9 downto 0);
-    signal left_button, right_button : std_logic;
-    signal text_pixel : std_logic;
+    SIGNAL clk_25 : STD_LOGIC;
+    SIGNAL red, green, blue : STD_LOGIC;
+    SIGNAL pixel_row, pixel_column : STD_LOGIC_VECTOR(9 DOWNTO 0);
+    SIGNAL mouse_row, mouse_col : STD_LOGIC_VECTOR(9 DOWNTO 0);
+    SIGNAL left_button, right_button : STD_LOGIC;
+    SIGNAL text_pixel : STD_LOGIC;
 
-    signal bird_y : integer := 240;
-    signal bird_velocity : integer := 0;
+    SIGNAL bird_y : INTEGER := 240;
+    SIGNAL bird_velocity : INTEGER := 0;
 
-    signal vsync_internal : std_logic;
+    --click to rise stuff
+    SIGNAL vsync_internal : STD_LOGIC;
 
-begin
+    --pipes and screen stuff
+    SIGNAL pipe_x : INTEGER := 640; -- Pipe horizontal position (starts off screen)
+    SIGNAL pipe_gap_y : INTEGER := 200; -- Y position of the vertical gap in the pipe
+    SIGNAL pipe_speed : INTEGER := 1; -- Speed per frame (pixels)
+BEGIN
 
     VGA_VS <= vsync_internal;
 
     -- Divide 50MHz clock to 25MHz for VGA
-    clk_divider : process(CLOCK_50)
-        variable counter : std_logic := '0';
-    begin
-        if rising_edge(CLOCK_50) then
-            counter := not counter;
+    clk_divider : PROCESS (CLOCK_50)
+        VARIABLE counter : STD_LOGIC := '0';
+    BEGIN
+        IF rising_edge(CLOCK_50) THEN
+            counter := NOT counter;
             clk_25 <= counter;
-        end if;
-    end process;
+        END IF;
+    END PROCESS;
 
     -- Instantiate VGA sync generator
-    vga_inst : entity work.vga_sync
-        port map (
-            clock_25Mhz     => clk_25,
-            red             => red,
-            green           => green,
-            blue            => blue,
-            red_out         => VGA_R(3),
-            green_out       => VGA_G(3),
-            blue_out        => VGA_B(3),
-            horiz_sync_out  => VGA_HS,
-            vert_sync_out   => vsync_internal,
-            pixel_row       => pixel_row,
-            pixel_column    => pixel_column
+    vga_inst : ENTITY work.vga_sync
+        PORT MAP(
+            clock_25Mhz => clk_25,
+            red => red,
+            green => green,
+            blue => blue,
+            red_out => VGA_R(3),
+            green_out => VGA_G(3),
+            blue_out => VGA_B(3),
+            horiz_sync_out => VGA_HS,
+            vert_sync_out => vsync_internal,
+            pixel_row => pixel_row,
+            pixel_column => pixel_column
         );
 
     -- Instantiate mouse controller
-    mouse_inst : entity work.mouse
-        port map (
-            clock_25Mhz         => clk_25,
-            reset               => not RESET_N,
-            mouse_data          => PS2_DAT,
-            mouse_clk           => PS2_CLK,
-            left_button         => left_button,
-            right_button        => right_button,
-            mouse_cursor_row    => mouse_row,
+    mouse_inst : ENTITY work.mouse
+        PORT MAP(
+            clock_25Mhz => clk_25,
+            reset => NOT RESET_N,
+            mouse_data => PS2_DAT,
+            mouse_clk => PS2_CLK,
+            left_button => left_button,
+            right_button => right_button,
+            mouse_cursor_row => mouse_row,
             mouse_cursor_column => mouse_col
         );
 
     -- Bird movement logic
-    process(vsync_internal)
-    variable temp_velocity : integer;
-    variable temp_y : integer;
-    begin
-        if rising_edge(vsync_internal) then
+    PROCESS (vsync_internal)
+        VARIABLE temp_velocity : INTEGER;
+        VARIABLE temp_y : INTEGER;
+    BEGIN
+        IF rising_edge(vsync_internal) THEN
             temp_velocity := bird_velocity;
             temp_y := bird_y;
 
@@ -86,44 +91,71 @@ begin
             temp_velocity := temp_velocity + 1;
 
             -- Jump if left button is pressed
-            if left_button = '1' then
-                temp_velocity := -6;
-            end if;
+            IF left_button = '1' THEN
+                temp_velocity := - 6;
+            END IF;
 
             -- Apply velocity to position
             temp_y := temp_y + temp_velocity;
 
             -- Clamp to screen
-            if temp_y < 0 then temp_y := 0; end if;
-            if temp_y > 480 then temp_y := 480; end if;
+            IF temp_y < 0 THEN
+                temp_y := 0;
+            END IF;
+            IF temp_y > 480 THEN
+                temp_y := 480;
+            END IF;
 
             -- Assign final values back to signals
             bird_velocity <= temp_velocity;
             bird_y <= temp_y;
-        end if;
-    end process;
 
+            --pipe moving logic?
+            -- Move pipe left
+            pipe_x <= pipe_x - pipe_speed;
 
-    -- Bird drawing logic
-    ball_logic : process(pixel_row, pixel_column)
-        variable bird_x : integer := 100;
-        variable size : integer := 6;
-    begin
-        if abs(to_integer(unsigned(pixel_column)) - bird_x) < size and
-           abs(to_integer(unsigned(pixel_row)) - bird_y) < size then
-            red   <= '1';
+            -- Reset pipe if it goes off screen
+            IF pipe_x <- 20 THEN
+                pipe_x <= 640;
+                pipe_gap_y <= (bird_y * 37 + 113) MOD 300 + 60; -- random-looking height
+            END IF;
+
+        END IF;
+
+    END PROCESS;
+    draw_logic : PROCESS (pixel_row, pixel_column)
+        VARIABLE bird_x : INTEGER := 100;
+        VARIABLE size : INTEGER := 6;
+        CONSTANT pipe_width : INTEGER := 20;
+        CONSTANT gap_size : INTEGER := 100;
+    BEGIN
+        -- Default background color (black)
+        red <= '0';
+        green <= '0';
+        blue <= '0';
+
+        -- Pipe logic first (so bird can be drawn on top if overlapping)
+        IF to_integer(unsigned(pixel_column)) >= pipe_x AND
+            to_integer(unsigned(pixel_column)) < pipe_x + pipe_width THEN
+            IF to_integer(unsigned(pixel_row)) < pipe_gap_y OR
+                to_integer(unsigned(pixel_row)) > pipe_gap_y + gap_size THEN
+                red <= '0';
+                green <= '1';
+                blue <= '0'; -- Green pipe
+            END IF;
+        END IF;
+
+        -- Bird logic (can override pipe if overlapping)
+        IF ABS(to_integer(unsigned(pixel_column)) - bird_x) < size AND
+            ABS(to_integer(unsigned(pixel_row)) - bird_y) < size THEN
+            red <= '1';
             green <= '1';
-            blue  <= '0'; -- Yellow bird
-        else
-            red   <= '0';
-            green <= '0';
-            blue  <= '0';
-        end if;
-    end process;
-
+            blue <= '0'; -- Yellow bird
+        END IF;
+    END PROCESS;
     -- Connect lower bits of color to 0
-    VGA_R(2 downto 0) <= (others => '0');
-    VGA_G(2 downto 0) <= (others => '0');
-    VGA_B(2 downto 0) <= (others => '0');
+    VGA_R(2 DOWNTO 0) <= (OTHERS => '0');
+    VGA_G(2 DOWNTO 0) <= (OTHERS => '0');
+    VGA_B(2 DOWNTO 0) <= (OTHERS => '0');
 
-end top;
+END top;

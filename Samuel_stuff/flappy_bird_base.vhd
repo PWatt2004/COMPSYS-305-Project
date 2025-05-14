@@ -1,4 +1,4 @@
--- flappy_bird_base.vhd (refactored to use a single multi-pipe controller)
+-- flappy_bird_base.vhd (updated to use display_text with char_rom)
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
@@ -28,6 +28,31 @@ ARCHITECTURE top OF flappy_bird_base IS
             rom_mux_output    : OUT STD_LOGIC
         );
     END COMPONENT;
+<<<<<<< Updated upstream
+=======
+
+    COMPONENT background
+        PORT (
+            pixel_row     : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+            pixel_column  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+            bg_red        : OUT STD_LOGIC;
+            bg_green      : OUT STD_LOGIC;
+            bg_blue       : OUT STD_LOGIC
+        );
+    END COMPONENT;
+
+	component display_text
+		 port (
+			  clk               : in  std_logic;
+			  pixel_row         : in  std_logic_vector(9 downto 0);
+			  pixel_column      : in  std_logic_vector(9 downto 0);
+			  score             : in  std_logic_vector(11 downto 0);
+			  health_percentage : in  std_logic_vector(11 downto 0);
+			  text_rgb          : out std_logic_vector(11 downto 0);
+			  text_on           : out std_logic
+		 );
+	end component;
+>>>>>>> Stashed changes
 
     TYPE INTEGER_VECTOR IS ARRAY (NATURAL RANGE <>) OF INTEGER;
 
@@ -36,7 +61,6 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL pixel_row, pixel_column : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL mouse_row, mouse_col : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL left_button, right_button : STD_LOGIC;
-    SIGNAL text_pixel : STD_LOGIC;
 
     SIGNAL bird_y : INTEGER;
     SIGNAL bird_velocity : INTEGER;
@@ -51,6 +75,11 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL vsync_internal : STD_LOGIC;
 
     
+
+	signal text_on_signal : std_logic;
+	signal text_rgb_signal : std_logic_vector(11 downto 0);
+	signal score : std_logic_vector(11 downto 0) := (others => '0');
+	signal health_percentage : std_logic_vector(11 downto 0) := (others => '0');
 
 BEGIN
 
@@ -101,6 +130,18 @@ BEGIN
             bird_velocity => bird_velocity
         );
 
+<<<<<<< Updated upstream
+=======
+    background_inst : ENTITY work.background
+        PORT MAP(
+            pixel_row    => pixel_row,
+            pixel_column => pixel_column,
+            bg_red       => bg_red,
+            bg_green     => bg_green,
+            bg_blue      => bg_blue
+        );
+
+>>>>>>> Stashed changes
     pipe_ctrl_inst : ENTITY work.pipe_controller
         PORT MAP(
             clk => vsync_internal,
@@ -112,18 +153,26 @@ BEGIN
             pipe_y_out => pipe_y_out
         );
 
-    -- Decode pipe_x_out to pipe_x_array
+		display_text_inst : entity work.display_text
+			 port map (
+				  clk               => clk_25,
+				  pixel_row         => pixel_row,
+				  pixel_column      => pixel_column,
+				  score             => score,              -- std_logic_vector(11 downto 0)
+				  health_percentage => health_percentage, -- std_logic_vector(11 downto 0)
+				  text_rgb          => text_rgb_signal,
+				  text_on           => text_on_signal
+			 );
+		 
     pipe_x_array(0) <= to_integer(unsigned(pipe_x_out(9 downto 0)));
     pipe_x_array(1) <= to_integer(unsigned(pipe_x_out(19 downto 10)));
     pipe_x_array(2) <= to_integer(unsigned(pipe_x_out(29 downto 20)));
     pipe_x_array(3) <= to_integer(unsigned(pipe_x_out(39 downto 30)));
 
-    -- Decode pipe_y_out to pipe_y_array
     pipe_y_array(0) <= to_integer(unsigned(pipe_y_out(9 downto 0)));
     pipe_y_array(1) <= to_integer(unsigned(pipe_y_out(19 downto 10)));
     pipe_y_array(2) <= to_integer(unsigned(pipe_y_out(29 downto 20)));
     pipe_y_array(3) <= to_integer(unsigned(pipe_y_out(39 downto 30)));
-
 
     draw_logic : PROCESS (pixel_row, pixel_column)
         VARIABLE size : INTEGER := 6;
@@ -143,6 +192,11 @@ BEGIN
             red <= '1'; green <= '1'; blue <= '0';
         END IF;
 
+        IF text_on_signal = '1' THEN
+            red <= text_rgb_signal(11);
+            green <= text_rgb_signal(5);
+            blue <= text_rgb_signal(0);
+        END IF;
     END PROCESS;
 
     VGA_R(2 DOWNTO 0) <= (OTHERS => '0');

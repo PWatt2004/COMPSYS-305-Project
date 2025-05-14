@@ -50,11 +50,7 @@ ARCHITECTURE top OF flappy_bird_base IS
     CONSTANT bird_x : INTEGER := 100;
     SIGNAL vsync_internal : STD_LOGIC;
 
-    SIGNAL score : INTEGER RANGE 0 TO 999 := 0;
-    SIGNAL char_pixel : STD_LOGIC;
-    SIGNAL char_code  : STD_LOGIC_VECTOR(5 DOWNTO 0);
-    SIGNAL digit_index : INTEGER range 0 to 2;
-    SIGNAL score_ascii : STD_LOGIC_VECTOR(7 DOWNTO 0) := (others => '0');
+    
 
 BEGIN
 
@@ -128,39 +124,6 @@ BEGIN
     pipe_y_array(2) <= to_integer(unsigned(pipe_y_out(29 downto 20)));
     pipe_y_array(3) <= to_integer(unsigned(pipe_y_out(39 downto 30)));
 
-    digit_index <= to_integer(unsigned(pixel_column(8 DOWNTO 7)));
-
-    PROCESS(score, digit_index)
-        VARIABLE digit : INTEGER;
-    BEGIN
-        CASE digit_index IS
-            WHEN 0 => digit := (score / 100) MOD 10;
-            WHEN 1 => digit := (score / 10) MOD 10;
-            WHEN OTHERS => digit := score MOD 10;
-        END CASE;
-        score_ascii <= std_logic_vector(to_unsigned(48 + digit, 8));
-        char_code <= score_ascii(5 DOWNTO 0);
-    END PROCESS;
-
-    score_rom : char_rom
-        PORT MAP (
-            character_address => char_code,
-            font_row => pixel_row(5 DOWNTO 3),
-            font_col => pixel_column(5 DOWNTO 3),
-            clock => clk_25,
-            rom_mux_output => char_pixel
-        );
-
-    score_process : PROCESS (vsync_internal)
-    BEGIN
-        IF rising_edge(vsync_internal) THEN
-            IF RESET_N = '0' THEN
-                score <= 0;
-            ELSIF pipe_hit = '1' THEN
-                score <= score + 1;
-            END IF;
-        END IF;
-    END PROCESS;
 
     draw_logic : PROCESS (pixel_row, pixel_column)
         VARIABLE size : INTEGER := 6;
@@ -169,8 +132,8 @@ BEGIN
 
         FOR i IN 0 TO 3 LOOP
             IF (to_integer(unsigned(pixel_column)) >= pipe_x_array(i) AND
-                to_integer(unsigned(pixel_column)) < pipe_x_array(i) + 20 AND
-                (to_integer(unsigned(pixel_row)) < 200 OR to_integer(unsigned(pixel_row)) > 300)) THEN
+            to_integer(unsigned(pixel_column)) < pipe_x_array(i) + 20 AND
+            (to_integer(unsigned(pixel_row)) < pipe_y_array(i) OR to_integer(unsigned(pixel_row)) > pipe_y_array(i) + 100)) THEN
                 red <= '0'; green <= '1'; blue <= '0';
             END IF;
         END LOOP;
@@ -180,13 +143,6 @@ BEGIN
             red <= '1'; green <= '1'; blue <= '0';
         END IF;
 
-        IF to_integer(unsigned(pixel_row)) < 16 AND
-           to_integer(unsigned(pixel_column)) >= 272 AND
-           to_integer(unsigned(pixel_column)) < 368 THEN
-            IF char_pixel = '1' THEN
-                red <= '1'; green <= '1'; blue <= '1';
-            END IF;
-        END IF;
     END PROCESS;
 
     VGA_R(2 DOWNTO 0) <= (OTHERS => '0');

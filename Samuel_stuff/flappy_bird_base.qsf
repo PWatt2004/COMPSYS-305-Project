@@ -470,7 +470,6 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity D
 set_global_assignment -name VHDL_FILE flappy_bird_base.vhd
 set_global_assignment -name VHDL_FILE bird_controller.vhd
 set_global_assignment -name VHDL_FILE pipe_controller.vhd
-set_global_assignment -name VHDL_FILE TextDisplay.vhd
 set_global_assignment -name VHDL_FILE MiniprojectResources/vga_sync.vhd
 set_global_assignment -name VHDL_FILE MiniprojectResources/mouse.vhd
 set_global_assignment -name VHDL_FILE MiniprojectResources/char_rom.vhd

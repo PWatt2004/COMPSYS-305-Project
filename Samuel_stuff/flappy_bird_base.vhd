@@ -1,6 +1,4 @@
--- This is a modified version of flappy_bird_base.vhd that adds score incrementing
--- and modularizes the design into bird_controller and pipe_controller components.
-
+-- flappy_bird_base.vhd (refactored to use a single multi-pipe controller)
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
@@ -21,61 +19,6 @@ END flappy_bird_base;
 
 ARCHITECTURE top OF flappy_bird_base IS
 
-    SIGNAL clk_25 : STD_LOGIC;
-    SIGNAL red, green, blue : STD_LOGIC;
-    SIGNAL pixel_row, pixel_column : STD_LOGIC_VECTOR(9 DOWNTO 0);
-    SIGNAL mouse_row, mouse_col : STD_LOGIC_VECTOR(9 DOWNTO 0);
-    SIGNAL left_button, right_button : STD_LOGIC;
-    SIGNAL text_pixel : STD_LOGIC;
-
-    SIGNAL bird_y : INTEGER;
-    SIGNAL bird_velocity : INTEGER;
-
-    SIGNAL pipe_x : INTEGER;
-    SIGNAL pipe_gap_y : INTEGER;
-
-    SIGNAL pipe_speed : INTEGER := 1;
-    CONSTANT bird_x : INTEGER := 100;
-    CONSTANT PIPE_INIT_X1 : INTEGER := 640;
-    CONSTANT PIPE_INIT_X2 : INTEGER := 640 + 160;
-    CONSTANT PIPE_INIT_X3 : INTEGER := 640 + 2 * 160;
-    CONSTANT PIPE_INIT_X4 : INTEGER := 640 + 3 * 160;
-
-    SIGNAL vsync_internal : STD_LOGIC;
-
-    SIGNAL score : INTEGER RANGE 0 TO 999 := 0;
-    SIGNAL score_enable : STD_LOGIC;
-    SIGNAL pipe2_x, pipe2_gap_y : INTEGER;
-    SIGNAL score_enable2 : STD_LOGIC;
-    SIGNAL pipe3_x, pipe3_gap_y : INTEGER;
-    SIGNAL pipe4_x, pipe4_gap_y : INTEGER;
-    SIGNAL score_enable3 : STD_LOGIC;
-    SIGNAL score_enable4 : STD_LOGIC;
-
-    COMPONENT bird_controller
-        PORT (
-            clk           : IN STD_LOGIC;
-            reset         : IN STD_LOGIC;
-            flap_button   : IN STD_LOGIC;
-            bird_y        : OUT INTEGER;
-            bird_velocity : OUT INTEGER
-        );
-    END COMPONENT;
-
-    COMPONENT pipe_controller
-        PORT (
-            clk            : IN STD_LOGIC;
-            reset          : IN STD_LOGIC;
-            bird_x         : IN INTEGER;
-            bird_y         : IN INTEGER;
-            pipe_speed     : IN INTEGER;
-            pipe_init_x    : IN INTEGER;
-            pipe_x_out     : OUT INTEGER;
-            pipe_gap_y_out : OUT INTEGER;
-            score_trigger  : OUT STD_LOGIC
-        );
-    END COMPONENT;
-
     COMPONENT char_rom
         PORT (
             character_address : IN  STD_LOGIC_VECTOR(5 DOWNTO 0);
@@ -86,10 +29,32 @@ ARCHITECTURE top OF flappy_bird_base IS
         );
     END COMPONENT;
 
+    TYPE INTEGER_VECTOR IS ARRAY (NATURAL RANGE <>) OF INTEGER;
+
+    SIGNAL clk_25 : STD_LOGIC;
+    SIGNAL red, green, blue : STD_LOGIC;
+    SIGNAL pixel_row, pixel_column : STD_LOGIC_VECTOR(9 DOWNTO 0);
+    SIGNAL mouse_row, mouse_col : STD_LOGIC_VECTOR(9 DOWNTO 0);
+    SIGNAL left_button, right_button : STD_LOGIC;
+    SIGNAL text_pixel : STD_LOGIC;
+
+    SIGNAL bird_y : INTEGER;
+    SIGNAL bird_velocity : INTEGER;
+
+    SIGNAL pipe_hit : STD_LOGIC;
+    SIGNAL pipe_x_array : INTEGER_VECTOR(0 TO 3);
+    SIGNAL pipe_x_out : STD_LOGIC_VECTOR(39 DOWNTO 0);
+    SIGNAL pipe_y_out : STD_LOGIC_VECTOR(39 DOWNTO 0);
+    SIGNAL pipe_y_array : INTEGER_VECTOR(0 TO 3);
+
+    CONSTANT bird_x : INTEGER := 100;
+    SIGNAL vsync_internal : STD_LOGIC;
+
+    SIGNAL score : INTEGER RANGE 0 TO 999 := 0;
     SIGNAL char_pixel : STD_LOGIC;
     SIGNAL char_code  : STD_LOGIC_VECTOR(5 DOWNTO 0);
     SIGNAL digit_index : INTEGER range 0 to 2;
-    SIGNAL score_ascii : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+    SIGNAL score_ascii : STD_LOGIC_VECTOR(7 DOWNTO 0) := (others => '0');
 
 BEGIN
 
@@ -140,62 +105,28 @@ BEGIN
             bird_velocity => bird_velocity
         );
 
-    -- Pipe 1
-    pipe1_inst : ENTITY work.pipe_controller
+    pipe_ctrl_inst : ENTITY work.pipe_controller
         PORT MAP(
             clk => vsync_internal,
             reset => NOT RESET_N,
             bird_x => bird_x,
             bird_y => bird_y,
-            pipe_speed => pipe_speed,
-            pipe_init_x => PIPE_INIT_X1,
-            pipe_x_out => pipe_x,
-            pipe_gap_y_out => pipe_gap_y,
-            score_trigger => score_enable
+            pipe_hit => pipe_hit,
+            pipe_x_out => pipe_x_out,
+            pipe_y_out => pipe_y_out
         );
 
-    -- Pipe 2
+    -- Decode pipe_x_out to pipe_x_array
+    pipe_x_array(0) <= to_integer(unsigned(pipe_x_out(9 downto 0)));
+    pipe_x_array(1) <= to_integer(unsigned(pipe_x_out(19 downto 10)));
+    pipe_x_array(2) <= to_integer(unsigned(pipe_x_out(29 downto 20)));
+    pipe_x_array(3) <= to_integer(unsigned(pipe_x_out(39 downto 30)));
 
-    pipe2_inst : ENTITY work.pipe_controller
-        PORT MAP(
-            clk => vsync_internal,
-            reset => NOT RESET_N,
-            bird_x => bird_x,
-            bird_y => bird_y,
-            pipe_speed => pipe_speed,
-            pipe_init_x => PIPE_INIT_X2,
-            pipe_x_out => pipe2_x,
-            pipe_gap_y_out => pipe2_gap_y,
-            score_trigger => score_enable2
-        );
-
-    -- Pipe 3
-    pipe3_inst : ENTITY work.pipe_controller
-        PORT MAP(
-            clk => vsync_internal,
-            reset => NOT RESET_N,
-            bird_x => bird_x,
-            bird_y => bird_y,
-            pipe_speed => pipe_speed,
-            pipe_init_x => PIPE_INIT_X3,
-            pipe_x_out => pipe3_x,
-            pipe_gap_y_out => pipe3_gap_y,
-            score_trigger => score_enable3
-        );
-
-    -- Pipe 4
-    pipe4_inst : ENTITY work.pipe_controller
-        PORT MAP(
-            clk => vsync_internal,
-            reset => NOT RESET_N,
-            bird_x => bird_x,
-            bird_y => bird_y,
-            pipe_speed => pipe_speed,
-            pipe_init_x => PIPE_INIT_X4,
-            pipe_x_out => pipe4_x,
-            pipe_gap_y_out => pipe4_gap_y,
-            score_trigger => score_enable4
-        );
+    -- Decode pipe_y_out to pipe_y_array
+    pipe_y_array(0) <= to_integer(unsigned(pipe_y_out(9 downto 0)));
+    pipe_y_array(1) <= to_integer(unsigned(pipe_y_out(19 downto 10)));
+    pipe_y_array(2) <= to_integer(unsigned(pipe_y_out(29 downto 20)));
+    pipe_y_array(3) <= to_integer(unsigned(pipe_y_out(39 downto 30)));
 
     digit_index <= to_integer(unsigned(pixel_column(8 DOWNTO 7)));
 
@@ -225,7 +156,7 @@ BEGIN
         IF rising_edge(vsync_internal) THEN
             IF RESET_N = '0' THEN
                 score <= 0;
-            ELSIF score_enable = '1' OR score_enable2 = '1' OR score_enable3 = '1' OR score_enable4 = '1' THEN
+            ELSIF pipe_hit = '1' THEN
                 score <= score + 1;
             END IF;
         END IF;
@@ -236,20 +167,13 @@ BEGIN
     BEGIN
         red <= '0'; green <= '0'; blue <= '0';
 
-        IF (to_integer(unsigned(pixel_column)) >= pipe_x AND
-            to_integer(unsigned(pixel_column)) < pipe_x + 20 AND
-            (to_integer(unsigned(pixel_row)) < pipe_gap_y OR to_integer(unsigned(pixel_row)) > pipe_gap_y + 100)) OR
-           (to_integer(unsigned(pixel_column)) >= pipe2_x AND
-            to_integer(unsigned(pixel_column)) < pipe2_x + 20 AND
-            (to_integer(unsigned(pixel_row)) < pipe2_gap_y OR to_integer(unsigned(pixel_row)) > pipe2_gap_y + 100)) OR
-           (to_integer(unsigned(pixel_column)) >= pipe3_x AND
-            to_integer(unsigned(pixel_column)) < pipe3_x + 20 AND
-            (to_integer(unsigned(pixel_row)) < pipe3_gap_y OR to_integer(unsigned(pixel_row)) > pipe3_gap_y + 100)) OR
-           (to_integer(unsigned(pixel_column)) >= pipe4_x AND
-            to_integer(unsigned(pixel_column)) < pipe4_x + 20 AND
-            (to_integer(unsigned(pixel_row)) < pipe4_gap_y OR to_integer(unsigned(pixel_row)) > pipe4_gap_y + 100)) THEN
-            red <= '0'; green <= '1'; blue <= '0';
-        END IF;
+        FOR i IN 0 TO 3 LOOP
+            IF (to_integer(unsigned(pixel_column)) >= pipe_x_array(i) AND
+                to_integer(unsigned(pixel_column)) < pipe_x_array(i) + 20 AND
+                (to_integer(unsigned(pixel_row)) < 200 OR to_integer(unsigned(pixel_row)) > 300)) THEN
+                red <= '0'; green <= '1'; blue <= '0';
+            END IF;
+        END LOOP;
 
         IF ABS(to_integer(unsigned(pixel_column)) - bird_x) < size AND
            ABS(to_integer(unsigned(pixel_row)) - bird_y) < size THEN

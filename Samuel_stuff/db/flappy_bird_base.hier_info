@@ -20,6 +20,16 @@ VGA_B[2] <= <GND>
 VGA_B[3] <= vga_sync:vga_inst.blue_out
 VGA_HS <= vga_sync:vga_inst.horiz_sync_out
 VGA_VS <= vga_sync:vga_inst.vert_sync_out
+LEDR[0] <= mouse:mouse_inst.left_button
+LEDR[1] <= <GND>
+LEDR[2] <= <GND>
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
 
 
 |flappy_bird_base|VGA_SYNC:vga_inst

@@ -5,13 +5,15 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY background IS
     PORT (
-        pixel_row     : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-        pixel_column  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-        bg_red        : OUT STD_LOGIC;
-        bg_green      : OUT STD_LOGIC;
-        bg_blue       : OUT STD_LOGIC
+        clk         : IN  STD_LOGIC;
+        pixel_row   : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);
+        pixel_column: IN  STD_LOGIC_VECTOR(9 DOWNTO 0);
+        bg_red      : OUT STD_LOGIC;
+        bg_green    : OUT STD_LOGIC;
+        bg_blue     : OUT STD_LOGIC
     );
 END background;
+
 
 ARCHITECTURE Behavioral OF background IS
 BEGIN

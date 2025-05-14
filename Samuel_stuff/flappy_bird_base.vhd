@@ -111,15 +111,15 @@ BEGIN
             bird_velocity => bird_velocity
         );
 		  
-	 background_inst : ENTITY work.background
-        PORT MAP(
-			   pixel_row    => pixel_row,
+        background_inst : ENTITY work.background
+        PORT MAP (
+            clk => clk_25,
+            pixel_row => pixel_row,
             pixel_column => pixel_column,
-            bg_red       => bg_red,
-            bg_green     => bg_green,
-            bg_blue      => bg_blue
+            bg_red => bg_red,
+            bg_green => bg_green,
+            bg_blue => bg_blue
         );
-
 
     pipe_ctrl_inst : ENTITY work.pipe_controller
         PORT MAP(

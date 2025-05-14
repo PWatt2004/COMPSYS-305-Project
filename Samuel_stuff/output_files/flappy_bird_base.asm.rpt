@@ -1,5 +1,5 @@
 Assembler report for flappy_bird_base
-Wed May 14 15:59:08 2025
+Wed May 14 16:11:24 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -9,7 +9,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   1. Legal Notice
   2. Assembler Summary
   3. Assembler Settings
-  4. Assembler Messages
+  4. Assembler Generated Files
+  5. Assembler Device Options: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/output_files/flappy_bird_base.sof
+  6. Assembler Messages
 
 
 
@@ -35,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed May 14 15:59:08 2025 ;
+; Assembler Status      ; Successful - Wed May 14 16:11:24 2025 ;
 ; Revision Name         ; flappy_bird_base                      ;
 ; Top-level Entity Name ; flappy_bird_base                      ;
 ; Family                ; Cyclone V                             ;
@@ -50,20 +52,39 @@ refer to the applicable agreement for further details.
 +--------+---------+---------------+
 
 
++-----------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                     ;
++-----------------------------------------------------------------------------------------------+
+; File Name                                                                                     ;
++-----------------------------------------------------------------------------------------------+
+; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/output_files/flappy_bird_base.sof ;
++-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/output_files/flappy_bird_base.sof ;
++----------------+--------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                ;
++----------------+--------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00B97C05                                                                                             ;
+; Checksum       ; 0x00B97C05                                                                                             ;
++----------------+--------------------------------------------------------------------------------------------------------+
+
+
 +--------------------+
 ; Assembler Messages ;
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 14 15:59:06 2025
+    Info: Processing started: Wed May 14 16:11:20 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Warning (292011): Can't generate programming files because you are currently using the Quartus Prime software in Evaluation Mode.
-Info: Quartus Prime Assembler was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4767 megabytes
-    Info: Processing ended: Wed May 14 15:59:08 2025
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+Info (115030): Assembler is generating device programming files
+Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4862 megabytes
+    Info: Processing ended: Wed May 14 16:11:24 2025
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 

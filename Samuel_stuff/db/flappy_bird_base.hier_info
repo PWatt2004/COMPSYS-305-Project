@@ -6,20 +6,20 @@ RESET_N => bird_controller:bird_inst.reset
 RESET_N => pipe_controller:pipe_ctrl_inst.reset
 PS2_CLK <> mouse:mouse_inst.mouse_clk
 PS2_DAT <> mouse:mouse_inst.mouse_data
-VGA_R[0] <= <GND>
-VGA_R[1] <= <GND>
-VGA_R[2] <= <GND>
-VGA_R[3] <= vga_sync:vga_inst.red_out
-VGA_G[0] <= <GND>
-VGA_G[1] <= <GND>
-VGA_G[2] <= <GND>
-VGA_G[3] <= vga_sync:vga_inst.green_out
-VGA_B[0] <= <GND>
-VGA_B[1] <= <GND>
-VGA_B[2] <= <GND>
-VGA_B[3] <= vga_sync:vga_inst.blue_out
-VGA_HS <= vga_sync:vga_inst.horiz_sync_out
-VGA_VS <= vga_sync:vga_inst.vert_sync_out
+VGA_R[0] << <GND>
+VGA_R[1] << <GND>
+VGA_R[2] << <GND>
+VGA_R[3] << vga_sync:vga_inst.red_out
+VGA_G[0] << <GND>
+VGA_G[1] << <GND>
+VGA_G[2] << <GND>
+VGA_G[3] << vga_sync:vga_inst.green_out
+VGA_B[0] << <GND>
+VGA_B[1] << <GND>
+VGA_B[2] << <GND>
+VGA_B[3] << vga_sync:vga_inst.blue_out
+VGA_HS << vga_sync:vga_inst.horiz_sync_out
+VGA_VS << vga_sync:vga_inst.vert_sync_out
 
 
 |flappy_bird_base|VGA_SYNC:vga_inst

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_bird_base
-Wed May 14 15:55:29 2025
+Wed May 14 16:08:18 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -53,7 +53,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 14 15:55:29 2025           ;
+; Analysis & Synthesis Status     ; Successful - Wed May 14 16:08:18 2025           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                ;
 ; Top-level Entity Name           ; flappy_bird_base                                ;
@@ -184,26 +184,26 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                             ;
-+-----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path  ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
-+-----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; pipe_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd               ;         ;
-; flappy_bird_base.vhd              ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd              ;         ;
-; bird_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/bird_controller.vhd               ;         ;
-; MiniprojectResources/vga_sync.vhd ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd ;         ;
-; MiniprojectResources/mouse.vhd    ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd    ;         ;
-; Background.vhd                    ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/Background.vhd                    ;         ;
-; lpm_divide.tdf                    ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                    ;         ;
-; abs_divider.inc                   ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/abs_divider.inc                   ;         ;
-; sign_div_unsign.inc               ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc               ;         ;
-; aglobal181.inc                    ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                    ;         ;
-; db/lpm_divide_uio.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_uio.tdf             ;         ;
-; db/abs_divider_4dg.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/abs_divider_4dg.tdf            ;         ;
-; db/alt_u_div_o2f.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_o2f.tdf              ;         ;
-; db/lpm_abs_4p9.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_4p9.tdf                ;         ;
-+-----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
++-----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path  ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                  ; Library ;
++-----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------+---------+
+; pipe_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd               ;         ;
+; flappy_bird_base.vhd              ; yes             ; User VHDL File               ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd              ;         ;
+; bird_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/bird_controller.vhd               ;         ;
+; MiniprojectResources/vga_sync.vhd ; yes             ; User VHDL File               ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd ;         ;
+; MiniprojectResources/mouse.vhd    ; yes             ; User VHDL File               ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd    ;         ;
+; Background.vhd                    ; yes             ; User VHDL File               ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/Background.vhd                    ;         ;
+; lpm_divide.tdf                    ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                              ;         ;
+; abs_divider.inc                   ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/abs_divider.inc                             ;         ;
+; sign_div_unsign.inc               ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                         ;         ;
+; aglobal181.inc                    ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                              ;         ;
+; db/lpm_divide_uio.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_uio.tdf             ;         ;
+; db/abs_divider_4dg.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/abs_divider_4dg.tdf            ;         ;
+; db/alt_u_div_o2f.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_o2f.tdf              ;         ;
+; db/lpm_abs_4p9.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_4p9.tdf                ;         ;
++-----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------+
@@ -578,95 +578,95 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 14 15:55:02 2025
+    Info: Processing started: Wed May 14 16:08:07 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file pipe_controller.vhd
-    Info (12022): Found design unit 1: pipe_controller-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 17
-    Info (12023): Found entity 1: pipe_controller File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 5
+    Info (12022): Found design unit 1: pipe_controller-behavior File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 17
+    Info (12023): Found entity 1: pipe_controller File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file flappy_bird_base.vhd
-    Info (12022): Found design unit 1: flappy_bird_base-top File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
-    Info (12023): Found entity 1: flappy_bird_base File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 6
+    Info (12022): Found design unit 1: flappy_bird_base-top File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
+    Info (12023): Found entity 1: flappy_bird_base File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file bird_controller.vhd
-    Info (12022): Found design unit 1: bird_controller-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/bird_controller.vhd Line: 15
-    Info (12023): Found entity 1: bird_controller File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/bird_controller.vhd Line: 5
+    Info (12022): Found design unit 1: bird_controller-behavior File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/bird_controller.vhd Line: 15
+    Info (12023): Found entity 1: bird_controller File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/bird_controller.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/vga_sync.vhd
-    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 13
-    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 7
+    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 13
+    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/vga_sync.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/mouse.vhd
-    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 18
-    Info (12023): Found entity 1: MOUSE File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 9
+    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 18
+    Info (12023): Found entity 1: MOUSE File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/char_rom.vhd
-    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 20
-    Info (12023): Found entity 1: char_rom File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 9
+    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 20
+    Info (12023): Found entity 1: char_rom File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 14
-    Info (12023): Found entity 1: bouncy_ball File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 7
+    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 14
+    Info (12023): Found entity 1: bouncy_ball File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/bouncy_ball.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file miniprojectresources/ball.vhd
-    Info (12022): Found design unit 1: ball-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 14
-    Info (12023): Found entity 1: ball File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 7
+    Info (12022): Found design unit 1: ball-behavior File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 14
+    Info (12023): Found entity 1: ball File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/ball.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file background.vhd
-    Info (12022): Found design unit 1: background-Behavioral File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/Background.vhd Line: 18
-    Info (12023): Found entity 1: background File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/Background.vhd Line: 6
+    Info (12022): Found design unit 1: background-Behavioral File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/Background.vhd Line: 18
+    Info (12023): Found entity 1: background File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/Background.vhd Line: 6
 Info (12127): Elaborating entity "flappy_bird_base" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(47): object "mouse_row" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 47
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(47): object "mouse_col" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 47
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(48): object "right_button" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 48
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(52): object "bird_velocity" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 52
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(54): object "pipe_hit" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 54
-Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(149): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 149
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(151): signal "bg_red" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(151): signal "bg_green" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(151): signal "bg_blue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(154): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 154
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(155): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 155
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(156): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 156
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(162): signal "bird_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 162
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 78
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 93
-Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 155
-Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 156
-Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 157
-Info (12128): Elaborating entity "bird_controller" for hierarchy "bird_controller:bird_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 105
-Info (12128): Elaborating entity "background" for hierarchy "background:background_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 114
-Info (12128): Elaborating entity "pipe_controller" for hierarchy "pipe_controller:pipe_ctrl_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 124
-Warning (10631): VHDL Process Statement warning at pipe_controller.vhd(59): inferring latch(es) for signal or variable "hit", which holds its previous value in one or more paths through the process File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 59
-Info (10041): Inferred latch for "hit" at pipe_controller.vhd(63) File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 63
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(47): object "mouse_row" assigned a value but never read File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 47
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(47): object "mouse_col" assigned a value but never read File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 47
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(48): object "right_button" assigned a value but never read File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 48
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(52): object "bird_velocity" assigned a value but never read File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 52
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(54): object "pipe_hit" assigned a value but never read File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 54
+Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(149): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(151): signal "bg_red" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(151): signal "bg_green" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(151): signal "bg_blue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(154): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 154
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(155): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(156): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(162): signal "bird_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 162
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 78
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 93
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 157
+Info (12128): Elaborating entity "bird_controller" for hierarchy "bird_controller:bird_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 105
+Info (12128): Elaborating entity "background" for hierarchy "background:background_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 114
+Info (12128): Elaborating entity "pipe_controller" for hierarchy "pipe_controller:pipe_ctrl_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 124
+Warning (10631): VHDL Process Statement warning at pipe_controller.vhd(59): inferring latch(es) for signal or variable "hit", which holds its previous value in one or more paths through the process File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 59
+Info (10041): Inferred latch for "hit" at pipe_controller.vhd(63) File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 63
 Info (278001): Inferred 4 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod1" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod2" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod3" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-Info (12133): Instantiated megafunction "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod0" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod1" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod2" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod3" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
+Info (12133): Instantiated megafunction "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_uio.tdf
-    Info (12023): Found entity 1: lpm_divide_uio File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_uio.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_uio File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_uio.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
-    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/abs_divider_4dg.tdf Line: 26
+    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/abs_divider_4dg.tdf Line: 26
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
-    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_o2f.tdf Line: 22
+    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_o2f.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
-    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_4p9.tdf Line: 22
-Info (13000): Registers with preset signals will power-up high File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 146
+    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_4p9.tdf Line: 22
+Info (13000): Registers with preset signals will power-up high File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 14
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 14
-    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 14
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 12
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 13
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 14
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 14
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 14
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -907,9 +907,9 @@ Info (21057): Implemented 6860 device resources after synthesis - the final reso
     Info (21060): Implemented 2 bidirectional pins
     Info (21061): Implemented 6842 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 261 warnings
-    Info: Peak virtual memory: 4968 megabytes
-    Info: Processing ended: Wed May 14 15:55:29 2025
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:19
+    Info: Peak virtual memory: 4983 megabytes
+    Info: Processing ended: Wed May 14 16:08:19 2025
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:17
 
 

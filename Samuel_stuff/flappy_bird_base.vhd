@@ -28,6 +28,16 @@ ARCHITECTURE top OF flappy_bird_base IS
             rom_mux_output    : OUT STD_LOGIC
         );
     END COMPONENT;
+	 
+	 COMPONENT background
+    PORT (
+        pixel_row     : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+        pixel_column  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+        bg_red        : OUT STD_LOGIC;
+        bg_green      : OUT STD_LOGIC;
+        bg_blue       : OUT STD_LOGIC
+    );
+	 END COMPONENT;
 
     TYPE INTEGER_VECTOR IS ARRAY (NATURAL RANGE <>) OF INTEGER;
 
@@ -50,7 +60,7 @@ ARCHITECTURE top OF flappy_bird_base IS
     CONSTANT bird_x : INTEGER := 100;
     SIGNAL vsync_internal : STD_LOGIC;
 
-    
+    SIGNAL bg_red, bg_green, bg_blue : STD_LOGIC;
 
 BEGIN
 
@@ -100,6 +110,16 @@ BEGIN
             bird_y => bird_y,
             bird_velocity => bird_velocity
         );
+		  
+	 background_inst : ENTITY work.background
+        PORT MAP(
+			   pixel_row    => pixel_row,
+            pixel_column => pixel_column,
+            bg_red       => bg_red,
+            bg_green     => bg_green,
+            bg_blue      => bg_blue
+        );
+
 
     pipe_ctrl_inst : ENTITY work.pipe_controller
         PORT MAP(
@@ -128,7 +148,7 @@ BEGIN
     draw_logic : PROCESS (pixel_row, pixel_column)
         VARIABLE size : INTEGER := 6;
     BEGIN
-        red <= '0'; green <= '0'; blue <= '0';
+        red <= bg_red; green <= bg_green; blue <= bg_blue;
 
         FOR i IN 0 TO 3 LOOP
             IF (to_integer(unsigned(pixel_column)) >= pipe_x_array(i) AND

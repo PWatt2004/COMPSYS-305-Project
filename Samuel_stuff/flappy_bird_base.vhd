@@ -1,3 +1,4 @@
+-- flappy_bird_base.vhd (refactored to use a single multi-pipe controller)
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
@@ -18,28 +19,38 @@ END flappy_bird_base;
 
 ARCHITECTURE top OF flappy_bird_base IS
 
-    CONSTANT PIPE_COUNT     : INTEGER := 4;
-    CONSTANT PIPE_SPACING   : INTEGER := 160;
-    CONSTANT PIPE_WIDTH     : INTEGER := 20;
-    CONSTANT GAP_SIZE       : INTEGER := 100;
-    CONSTANT SCREEN_WIDTH   : INTEGER := 640;
+    COMPONENT char_rom
+        PORT (
+            character_address : IN  STD_LOGIC_VECTOR(5 DOWNTO 0);
+            font_row          : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+            font_col          : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+            clock             : IN  STD_LOGIC;
+            rom_mux_output    : OUT STD_LOGIC
+        );
+    END COMPONENT;
+
+    TYPE INTEGER_VECTOR IS ARRAY (NATURAL RANGE <>) OF INTEGER;
 
     SIGNAL clk_25 : STD_LOGIC;
     SIGNAL red, green, blue : STD_LOGIC;
     SIGNAL pixel_row, pixel_column : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL mouse_row, mouse_col : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL left_button, right_button : STD_LOGIC;
+    SIGNAL text_pixel : STD_LOGIC;
+
+    SIGNAL bird_y : INTEGER;
+    SIGNAL bird_velocity : INTEGER;
+
+    SIGNAL pipe_hit : STD_LOGIC;
+    SIGNAL pipe_x_array : INTEGER_VECTOR(0 TO 3);
+    SIGNAL pipe_x_out : STD_LOGIC_VECTOR(39 DOWNTO 0);
+    SIGNAL pipe_y_out : STD_LOGIC_VECTOR(39 DOWNTO 0);
+    SIGNAL pipe_y_array : INTEGER_VECTOR(0 TO 3);
+
+    CONSTANT bird_x : INTEGER := 100;
     SIGNAL vsync_internal : STD_LOGIC;
 
-    SIGNAL bird_y : INTEGER := 240;
-    SIGNAL bird_velocity : INTEGER := 0;
-
-    TYPE pipe_array IS ARRAY(0 TO PIPE_COUNT - 1) OF INTEGER;
-    SIGNAL pipe_x     : pipe_array := (others => SCREEN_WIDTH + 0 * PIPE_SPACING);
-    SIGNAL pipe_gap_y : pipe_array := (others => 200);
-
-    SIGNAL pipe_speed : INTEGER := 2;
-    SIGNAL score      : INTEGER := 0;
+    
 
 BEGIN
 
@@ -81,65 +92,57 @@ BEGIN
             mouse_cursor_column => mouse_col
         );
 
-    PROCESS (vsync_internal)
-        VARIABLE temp_velocity : INTEGER;
-        VARIABLE temp_y : INTEGER;
-    BEGIN
-        IF rising_edge(vsync_internal) THEN
-            temp_velocity := bird_velocity;
-            temp_y := bird_y;
+    bird_inst : ENTITY work.bird_controller
+        PORT MAP(
+            clk => vsync_internal,
+            reset => NOT RESET_N,
+            flap_button => left_button,
+            bird_y => bird_y,
+            bird_velocity => bird_velocity
+        );
 
-            temp_velocity := temp_velocity + 1;
+    pipe_ctrl_inst : ENTITY work.pipe_controller
+        PORT MAP(
+            clk => vsync_internal,
+            reset => NOT RESET_N,
+            bird_x => bird_x,
+            bird_y => bird_y,
+            pipe_hit => pipe_hit,
+            pipe_x_out => pipe_x_out,
+            pipe_y_out => pipe_y_out
+        );
 
-            IF left_button = '1' THEN
-                temp_velocity := -6;
-            END IF;
+    -- Decode pipe_x_out to pipe_x_array
+    pipe_x_array(0) <= to_integer(unsigned(pipe_x_out(9 downto 0)));
+    pipe_x_array(1) <= to_integer(unsigned(pipe_x_out(19 downto 10)));
+    pipe_x_array(2) <= to_integer(unsigned(pipe_x_out(29 downto 20)));
+    pipe_x_array(3) <= to_integer(unsigned(pipe_x_out(39 downto 30)));
 
-            temp_y := temp_y + temp_velocity;
+    -- Decode pipe_y_out to pipe_y_array
+    pipe_y_array(0) <= to_integer(unsigned(pipe_y_out(9 downto 0)));
+    pipe_y_array(1) <= to_integer(unsigned(pipe_y_out(19 downto 10)));
+    pipe_y_array(2) <= to_integer(unsigned(pipe_y_out(29 downto 20)));
+    pipe_y_array(3) <= to_integer(unsigned(pipe_y_out(39 downto 30)));
 
-            IF temp_y < 0 THEN temp_y := 0; END IF;
-            IF temp_y > 480 THEN temp_y := 480; END IF;
-
-            bird_velocity <= temp_velocity;
-            bird_y <= temp_y;
-
-            FOR i IN 0 TO PIPE_COUNT - 1 LOOP
-                pipe_x(i) <= pipe_x(i) - pipe_speed;
-
-                IF pipe_x(i) < -PIPE_WIDTH THEN
-                    pipe_x(i) <= SCREEN_WIDTH + (PIPE_SPACING * (PIPE_COUNT - 1));
-                    pipe_gap_y(i) <= (bird_y * (i+1) * 43 + 59) MOD 300 + 60;
-
-                    -- Increase score when pipe wraps
-                    score <= score + 1;
-                END IF;
-            END LOOP;
-        END IF;
-    END PROCESS;
 
     draw_logic : PROCESS (pixel_row, pixel_column)
-        VARIABLE bird_x : INTEGER := 100;
-        VARIABLE size   : INTEGER := 6;
-        VARIABLE px_col, px_row : INTEGER;
+        VARIABLE size : INTEGER := 6;
     BEGIN
         red <= '0'; green <= '0'; blue <= '0';
 
-        px_col := to_integer(unsigned(pixel_column));
-        px_row := to_integer(unsigned(pixel_row));
-
-        -- Pipe drawing
-        FOR i IN 0 TO PIPE_COUNT - 1 LOOP
-            IF px_col >= pipe_x(i) AND px_col < pipe_x(i) + PIPE_WIDTH THEN
-                IF px_row < pipe_gap_y(i) OR px_row > pipe_gap_y(i) + GAP_SIZE THEN
-                    red <= '0'; green <= '1'; blue <= '0';
-                END IF;
+        FOR i IN 0 TO 3 LOOP
+            IF (to_integer(unsigned(pixel_column)) >= pipe_x_array(i) AND
+            to_integer(unsigned(pixel_column)) < pipe_x_array(i) + 20 AND
+            (to_integer(unsigned(pixel_row)) < pipe_y_array(i) OR to_integer(unsigned(pixel_row)) > pipe_y_array(i) + 100)) THEN
+                red <= '0'; green <= '1'; blue <= '0';
             END IF;
         END LOOP;
 
-        -- Bird drawing
-        IF ABS(px_col - bird_x) < size AND ABS(px_row - bird_y) < size THEN
+        IF ABS(to_integer(unsigned(pixel_column)) - bird_x) < size AND
+           ABS(to_integer(unsigned(pixel_row)) - bird_y) < size THEN
             red <= '1'; green <= '1'; blue <= '0';
         END IF;
+
     END PROCESS;
 
     VGA_R(2 DOWNTO 0) <= (OTHERS => '0');

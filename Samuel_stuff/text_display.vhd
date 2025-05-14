@@ -31,8 +31,8 @@ architecture Behavioral of display_text is
     constant SCREEN_W    : integer := 640;
 
     constant TITLE_TEXT  : string := "FLAPPY BIRD";
-    constant SCORE_LABEL : string := "SCORE:";
-    constant HP_LABEL    : string := "HP:";
+    constant SCORE_LABEL : string := "SCORE-000";
+    constant HP_LABEL    : string := "HP-100";
 
     signal character_address : std_logic_vector(5 downto 0);
     signal font_row, font_col: std_logic_vector(2 downto 0);

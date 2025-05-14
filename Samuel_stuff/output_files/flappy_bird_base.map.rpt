@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_bird_base
-Wed May 14 16:21:57 2025
+Wed May 14 16:43:21 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -22,17 +22,14 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  14. Source assignments for display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
  15. Parameter Settings for User Entity Instance: display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component
  16. Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0
- 17. Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod1
- 18. Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod2
- 19. Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod3
- 20. altsyncram Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "display_text:display_text_inst"
- 22. Port Connectivity Checks: "pipe_controller:pipe_ctrl_inst"
- 23. Port Connectivity Checks: "bird_controller:bird_inst"
- 24. Port Connectivity Checks: "MOUSE:mouse_inst"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
+ 17. altsyncram Parameter Settings by Entity Instance
+ 18. Port Connectivity Checks: "display_text:display_text_inst"
+ 19. Port Connectivity Checks: "pipe_controller:pipe_ctrl_inst"
+ 20. Port Connectivity Checks: "bird_controller:bird_inst"
+ 21. Port Connectivity Checks: "MOUSE:mouse_inst"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
 
 
 
@@ -58,13 +55,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 14 16:21:57 2025           ;
+; Analysis & Synthesis Status     ; Successful - Wed May 14 16:43:21 2025           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                ;
 ; Top-level Entity Name           ; flappy_bird_base                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 448                                             ;
+; Total registers                 ; 376                                             ;
 ; Total pins                      ; 18                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 4,096                                           ;
@@ -183,9 +180,7 @@ refer to the applicable agreement for further details.
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-16        ;   0.0%      ;
+;     Processors 7-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -215,10 +210,9 @@ refer to the applicable agreement for further details.
 ; lpm_divide.tdf                    ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                              ;         ;
 ; abs_divider.inc                   ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/abs_divider.inc                             ;         ;
 ; sign_div_unsign.inc               ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                         ;         ;
-; db/lpm_divide_uio.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_uio.tdf             ;         ;
-; db/abs_divider_4dg.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/abs_divider_4dg.tdf            ;         ;
-; db/alt_u_div_o2f.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_o2f.tdf              ;         ;
-; db/lpm_abs_4p9.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_4p9.tdf                ;         ;
+; db/lpm_divide_d2m.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_d2m.tdf             ;         ;
+; db/sign_div_unsign_hkh.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/sign_div_unsign_hkh.tdf        ;         ;
+; db/alt_u_div_8te.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_8te.tdf              ;         ;
 +-----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------+---------+
 
 
@@ -227,16 +221,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimate of Logic utilization (ALMs needed) ; 3697          ;
+; Estimate of Logic utilization (ALMs needed) ; 754           ;
 ;                                             ;               ;
-; Combinational ALUT usage for logic          ; 7151          ;
-;     -- 7 input functions                    ; 6             ;
-;     -- 6 input functions                    ; 231           ;
-;     -- 5 input functions                    ; 228           ;
-;     -- 4 input functions                    ; 1928          ;
-;     -- <=3 input functions                  ; 4758          ;
+; Combinational ALUT usage for logic          ; 1328          ;
+;     -- 7 input functions                    ; 11            ;
+;     -- 6 input functions                    ; 149           ;
+;     -- 5 input functions                    ; 124           ;
+;     -- 4 input functions                    ; 85            ;
+;     -- <=3 input functions                  ; 959           ;
 ;                                             ;               ;
-; Dedicated logic registers                   ; 448           ;
+; Dedicated logic registers                   ; 376           ;
 ;                                             ;               ;
 ; I/O pins                                    ; 18            ;
 ; Total MLAB memory bits                      ; 0             ;
@@ -245,47 +239,31 @@ refer to the applicable agreement for further details.
 ; Total DSP Blocks                            ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; RESET_N~input ;
-; Maximum fan-out                             ; 331           ;
-; Total fan-out                               ; 24607         ;
-; Average fan-out                             ; 3.22          ;
+; Maximum fan-out                             ; 256           ;
+; Total fan-out                               ; 5313          ;
+; Average fan-out                             ; 3.04          ;
 +---------------------------------------------+---------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                     ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Entity Name      ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
-; |flappy_bird_base                            ; 7151 (242)          ; 448 (2)                   ; 4096              ; 0          ; 18   ; 0            ; |flappy_bird_base                                                                                                                             ; flappy_bird_base ; work         ;
-;    |MOUSE:mouse_inst|                        ; 49 (49)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst                                                                                                            ; MOUSE            ; work         ;
-;    |VGA_SYNC:vga_inst|                       ; 46 (46)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst                                                                                                           ; VGA_SYNC         ; work         ;
-;    |bird_controller:bird_inst|               ; 139 (139)           ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|bird_controller:bird_inst                                                                                                   ; bird_controller  ; work         ;
-;    |display_text:display_text_inst|          ; 355 (353)           ; 15 (15)                   ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst                                                                                              ; display_text     ; work         ;
-;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst                                                                       ; char_rom         ; work         ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component                                       ; altsyncram       ; work         ;
-;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated        ; altsyncram_d5g1  ; work         ;
-;    |pipe_controller:pipe_ctrl_inst|          ; 6320 (952)          ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst                                                                                              ; pipe_controller  ; work         ;
-;       |lpm_divide:Mod0|                      ; 1342 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0                                                                              ; lpm_divide       ; work         ;
-;          |lpm_divide_uio:auto_generated|     ; 1342 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio   ; work         ;
-;             |abs_divider_4dg:divider|        ; 1342 (64)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg  ; work         ;
-;                |alt_u_div_o2f:divider|       ; 1246 (1246)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f    ; work         ;
-;                |lpm_abs_4p9:my_abs_num|      ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9      ; work         ;
-;       |lpm_divide:Mod1|                      ; 1342 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod1                                                                              ; lpm_divide       ; work         ;
-;          |lpm_divide_uio:auto_generated|     ; 1342 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod1|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio   ; work         ;
-;             |abs_divider_4dg:divider|        ; 1342 (64)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg  ; work         ;
-;                |alt_u_div_o2f:divider|       ; 1246 (1246)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f    ; work         ;
-;                |lpm_abs_4p9:my_abs_num|      ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9      ; work         ;
-;       |lpm_divide:Mod2|                      ; 1342 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod2                                                                              ; lpm_divide       ; work         ;
-;          |lpm_divide_uio:auto_generated|     ; 1342 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod2|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio   ; work         ;
-;             |abs_divider_4dg:divider|        ; 1342 (64)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg  ; work         ;
-;                |alt_u_div_o2f:divider|       ; 1246 (1246)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f    ; work         ;
-;                |lpm_abs_4p9:my_abs_num|      ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9      ; work         ;
-;       |lpm_divide:Mod3|                      ; 1342 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod3                                                                              ; lpm_divide       ; work         ;
-;          |lpm_divide_uio:auto_generated|     ; 1342 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod3|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio   ; work         ;
-;             |abs_divider_4dg:divider|        ; 1342 (64)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod3|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg  ; work         ;
-;                |alt_u_div_o2f:divider|       ; 1246 (1246)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod3|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f    ; work         ;
-;                |lpm_abs_4p9:my_abs_num|      ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod3|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9      ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                           ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                              ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |flappy_bird_base                            ; 1328 (233)          ; 376 (2)                   ; 4096              ; 0          ; 18   ; 0            ; |flappy_bird_base                                                                                                                                ; flappy_bird_base    ; work         ;
+;    |MOUSE:mouse_inst|                        ; 49 (49)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst                                                                                                               ; MOUSE               ; work         ;
+;    |VGA_SYNC:vga_inst|                       ; 48 (48)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst                                                                                                              ; VGA_SYNC            ; work         ;
+;    |bird_controller:bird_inst|               ; 137 (137)           ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|bird_controller:bird_inst                                                                                                      ; bird_controller     ; work         ;
+;    |display_text:display_text_inst|          ; 445 (443)           ; 15 (15)                   ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst                                                                                                 ; display_text        ; work         ;
+;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst                                                                          ; char_rom            ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component                                          ; altsyncram          ; work         ;
+;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated           ; altsyncram_d5g1     ; work         ;
+;    |pipe_controller:pipe_ctrl_inst|          ; 416 (397)           ; 184 (184)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst                                                                                                 ; pipe_controller     ; work         ;
+;       |lpm_divide:Mod0|                      ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_d2m:auto_generated|     ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_d2m:auto_generated                                                   ; lpm_divide_d2m      ; work         ;
+;             |sign_div_unsign_hkh:divider|    ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_d2m:auto_generated|sign_div_unsign_hkh:divider                       ; sign_div_unsign_hkh ; work         ;
+;                |alt_u_div_8te:divider|       ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_d2m:auto_generated|sign_div_unsign_hkh:divider|alt_u_div_8te:divider ; alt_u_div_8te       ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -334,12 +312,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 448   ;
-; Number of registers using Synchronous Clear  ; 281   ;
-; Number of registers using Synchronous Load   ; 5     ;
+; Total registers                              ; 376   ;
+; Number of registers using Synchronous Clear  ; 180   ;
+; Number of registers using Synchronous Load   ; 50    ;
 ; Number of registers using Asynchronous Clear ; 43    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 230   ;
+; Number of registers using Clock Enable       ; 145   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -349,43 +327,51 @@ Encoding Type:  One-Hot
 +----------------------------------------------+---------+
 ; Inverted Register                            ; Fan out ;
 +----------------------------------------------+---------+
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][9]  ; 7       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][2]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][8]  ; 6       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][5]  ; 6       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][7]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][6]  ; 4       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][4]  ; 4       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][3]  ; 4       ;
 ; pipe_controller:pipe_ctrl_inst|pipe_x[3][6]  ; 4       ;
 ; pipe_controller:pipe_ctrl_inst|pipe_x[3][5]  ; 4       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][2]  ; 4       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][8]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][9]  ; 6       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][8]  ; 6       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][7]  ; 6       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][6]  ; 6       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][7]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][6]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][5]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][4]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][7]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][6]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][3]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][9]  ; 6       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][7]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][2]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][8]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][9]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][8]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][7]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][6]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][7]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][6]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][5]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][4]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][7]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][6]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][3]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[0][9]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[0][7]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][9]  ; 6       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][8]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][5]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][2]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][7]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][6]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][4]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][3]  ; 2       ;
 ; pipe_controller:pipe_ctrl_inst|pipe_x[3][10] ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[0]       ; 3       ;
 ; bird_controller:bird_inst|y_pos[4]           ; 3       ;
 ; bird_controller:bird_inst|y_pos[5]           ; 3       ;
 ; bird_controller:bird_inst|y_pos[6]           ; 3       ;
 ; bird_controller:bird_inst|y_pos[7]           ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[15]      ; 1       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[10]      ; 2       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[13]      ; 2       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[7]       ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[6]       ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[5]       ; 3       ;
 ; MOUSE:mouse_inst|send_char                   ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[11]      ; 1       ;
 ; MOUSE:mouse_inst|SHIFTOUT[3]                 ; 1       ;
 ; MOUSE:mouse_inst|SHIFTOUT[5]                 ; 1       ;
 ; MOUSE:mouse_inst|SHIFTOUT[6]                 ; 1       ;
 ; MOUSE:mouse_inst|SHIFTOUT[7]                 ; 1       ;
 ; MOUSE:mouse_inst|SHIFTOUT[8]                 ; 1       ;
-; Total number of inverted registers = 36      ;         ;
+; Total number of inverted registers = 44      ;         ;
 +----------------------------------------------+---------+
 
 
@@ -394,38 +380,37 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][1]         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][6]         ;
-; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][11]        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][0]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][1]         ;
-; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][30]        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][1]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][2]         ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][15]        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][1]         ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][4]         ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][21]        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|velocity[22]              ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[0]                        ;
-; 4:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[22]                 ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][9]         ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][24]        ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][13]        ;
-; 4:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][30]        ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][3]         ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_row[2]          ;
-; 35:1               ; 6 bits    ; 138 LEs       ; 132 LEs              ; 6 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][1]         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][4]         ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][30]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][8]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][6]         ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][20]        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][3]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][4]         ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][11]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][9]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][3]         ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][9]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][7]         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|velocity[12]              ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[4]                        ;
+; 4:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[9]                  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_row[0]          ;
+; 20:1               ; 3 bits    ; 39 LEs        ; 3 LEs                ; 36 LEs                 ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_col[2]          ;
+; 35:1               ; 6 bits    ; 138 LEs       ; 132 LEs              ; 6 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[0] ;
 ; 12:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|text_rgb[11]         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][7]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][3]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][9]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][7]         ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][9]         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][9]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][7]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][7]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][2]         ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][6]         ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[5]                  ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][3]         ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][6]         ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][6]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][8]         ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|display_text:display_text_inst|Add3                 ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|display_text:display_text_inst|Add3                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 
 
@@ -504,83 +489,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+-------------------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                                  ;
 +------------------------+----------------+-------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                               ;
-; LPM_WIDTHD             ; 32             ; Untyped                                               ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_WIDTHN             ; 8              ; Untyped                                               ;
+; LPM_WIDTHD             ; 9              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
 ; LPM_PIPELINE           ; 0              ; Untyped                                               ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
-; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                                               ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
-+------------------------+----------------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod1 ;
-+------------------------+----------------+-------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                  ;
-+------------------------+----------------+-------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                               ;
-; LPM_WIDTHD             ; 32             ; Untyped                                               ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
-; LPM_PIPELINE           ; 0              ; Untyped                                               ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
-; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                                               ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
-+------------------------+----------------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod2 ;
-+------------------------+----------------+-------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                  ;
-+------------------------+----------------+-------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                               ;
-; LPM_WIDTHD             ; 32             ; Untyped                                               ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
-; LPM_PIPELINE           ; 0              ; Untyped                                               ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
-; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                                               ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
-+------------------------+----------------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod3 ;
-+------------------------+----------------+-------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                  ;
-+------------------------+----------------+-------------------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                                               ;
-; LPM_WIDTHD             ; 32             ; Untyped                                               ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
-; LPM_PIPELINE           ; 0              ; Untyped                                               ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
-; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_d2m ; Untyped                                               ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
@@ -662,42 +578,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 448                         ;
+; arriav_ff             ; 376                         ;
 ;     CLR               ; 12                          ;
-;     ENA               ; 77                          ;
+;     ENA               ; 56                          ;
 ;     ENA CLR           ; 31                          ;
-;     ENA SCLR          ; 119                         ;
-;     ENA SLD           ; 3                           ;
-;     SCLR              ; 162                         ;
+;     ENA SCLR          ; 10                          ;
+;     ENA SLD           ; 48                          ;
+;     SCLR              ; 170                         ;
 ;     SLD               ; 2                           ;
-;     plain             ; 42                          ;
+;     plain             ; 47                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 7152                        ;
-;     arith             ; 3313                        ;
-;         0 data inputs ; 215                         ;
-;         1 data inputs ; 800                         ;
-;         2 data inputs ; 330                         ;
-;         3 data inputs ; 980                         ;
-;         4 data inputs ; 988                         ;
-;     extend            ; 6                           ;
-;         7 data inputs ; 6                           ;
-;     normal            ; 3761                        ;
+; arriav_lcell_comb     ; 1328                        ;
+;     arith             ; 665                         ;
+;         0 data inputs ; 36                          ;
+;         1 data inputs ; 547                         ;
+;         2 data inputs ; 82                          ;
+;     extend            ; 11                          ;
+;         7 data inputs ; 11                          ;
+;     normal            ; 610                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 2013                        ;
-;         3 data inputs ; 341                         ;
-;         4 data inputs ; 940                         ;
-;         5 data inputs ; 228                         ;
-;         6 data inputs ; 231                         ;
-;     shared            ; 72                          ;
-;         0 data inputs ; 4                           ;
-;         1 data inputs ; 59                          ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 88                          ;
+;         3 data inputs ; 152                         ;
+;         4 data inputs ; 85                          ;
+;         5 data inputs ; 124                         ;
+;         6 data inputs ; 149                         ;
+;     shared            ; 42                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 31                          ;
 ;         2 data inputs ; 9                           ;
 ; boundary_port         ; 18                          ;
 ; stratixv_ram_block    ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 87.40                       ;
-; Average LUT depth     ; 66.31                       ;
+; Max LUT depth         ; 10.80                       ;
+; Average LUT depth     ; 5.13                        ;
 +-----------------------+-----------------------------+
 
 
@@ -706,7 +620,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:11     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -716,7 +630,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 14 16:21:39 2025
+    Info: Processing started: Wed May 14 16:43:13 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -781,8 +695,8 @@ Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHARO
 Info (12128): Elaborating entity "bird_controller" for hierarchy "bird_controller:bird_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 122
 Info (12128): Elaborating entity "background" for hierarchy "background:background_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 131
 Info (12128): Elaborating entity "pipe_controller" for hierarchy "pipe_controller:pipe_ctrl_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 141
-Warning (10631): VHDL Process Statement warning at pipe_controller.vhd(59): inferring latch(es) for signal or variable "hit", which holds its previous value in one or more paths through the process File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 59
-Info (10041): Inferred latch for "hit" at pipe_controller.vhd(63) File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 63
+Warning (10631): VHDL Process Statement warning at pipe_controller.vhd(67): inferring latch(es) for signal or variable "hit", which holds its previous value in one or more paths through the process File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 67
+Info (10041): Inferred latch for "hit" at pipe_controller.vhd(71) File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 71
 Info (12128): Elaborating entity "display_text" for hierarchy "display_text:display_text_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 152
 Info (12128): Elaborating entity "char_rom" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 43
 Info (12128): Elaborating entity "altsyncram" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
@@ -805,26 +719,20 @@ Info (12133): Instantiated megafunction "display_text:display_text_inst|char_rom
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
     Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/altsyncram_d5g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (278001): Inferred 4 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod0" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod1" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod2" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod3" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-Info (12133): Instantiated megafunction "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 51
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_uio.tdf
-    Info (12023): Found entity 1: lpm_divide_uio File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_uio.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
-    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/abs_divider_4dg.tdf Line: 26
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
-    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_o2f.tdf Line: 22
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
-    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_4p9.tdf Line: 22
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod0" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 59
+Info (12130): Elaborated megafunction instantiation "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 59
+Info (12133): Instantiated megafunction "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 59
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "9"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_d2m.tdf
+    Info (12023): Found entity 1: lpm_divide_d2m File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_d2m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_hkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_hkh File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/sign_div_unsign_hkh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8te.tdf
+    Info (12023): Found entity 1: alt_u_div_8te File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_8te.tdf Line: 22
 Info (13000): Registers with preset signals will power-up high File: C:/Users/pwat943/Downloads/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
@@ -1071,16 +979,16 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 7224 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1435 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 14 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 7198 logic cells
+    Info (21061): Implemented 1409 logic cells
     Info (21064): Implemented 8 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 268 warnings
-    Info: Peak virtual memory: 5018 megabytes
-    Info: Processing ended: Wed May 14 16:21:57 2025
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4987 megabytes
+    Info: Processing ended: Wed May 14 16:43:21 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:14
 
 

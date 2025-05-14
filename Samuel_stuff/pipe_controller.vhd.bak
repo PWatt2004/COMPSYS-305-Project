@@ -30,8 +30,6 @@ ARCHITECTURE behavior OF pipe_controller IS
     );
     SIGNAL pipe_y : pipe_array := (200, 220, 240, 260); -- initial gaps
 
-    SIGNAL lfsr : STD_LOGIC_VECTOR(15 DOWNTO 0) := x"ACE1";
-
 BEGIN
 
     process(clk)
@@ -43,20 +41,14 @@ BEGIN
                     pipe_x(i) <= screen_width + i * pipe_spacing;
                     pipe_y(i) <= 80 + i * 40; -- basic vertical variation
                 end loop;
-                lfsr <= x"ACE1";
             else
-                -- Update LFSR
-                lfsr <= lfsr(14 downto 0) & (lfsr(15) xor lfsr(13) xor lfsr(12) xor lfsr(10));
-
                 -- Move and respawn pipes
                 for i in 0 to 3 loop
                     pipe_x(i) <= pipe_x(i) - 1;
 
                     if pipe_x(i) < -pipe_width then
                         pipe_x(i) <= pipe_x(i) + 4 * pipe_spacing;
-
-                        -- Generate random height using LFSR, limit range between 20 and (480 - pipe_gap - 20)
-                        pipe_y(i) <= to_integer(unsigned(lfsr(7 downto 0))) mod (480 - pipe_gap - 40) + 20;
+                        pipe_y(i) <= (pipe_y(i) + 97 + i * 31) mod (480 - pipe_gap);
                     end if;
                 end loop;
             end if;

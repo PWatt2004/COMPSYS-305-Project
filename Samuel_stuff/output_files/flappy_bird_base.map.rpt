@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_bird_base
-Wed May 14 16:52:36 2025
+Wed May 14 17:35:37 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -55,14 +55,14 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 14 16:52:36 2025           ;
+; Analysis & Synthesis Status     ; Successful - Wed May 14 17:35:36 2025           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                ;
 ; Top-level Entity Name           ; flappy_bird_base                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
 ; Total registers                 ; 376                                             ;
-; Total pins                      ; 28                                              ;
+; Total pins                      ; 38                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 4,096                                           ;
 ; Total DSP Blocks                ; 0                                               ;
@@ -222,18 +222,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimate of Logic utilization (ALMs needed) ; 754           ;
+; Estimate of Logic utilization (ALMs needed) ; 778           ;
 ;                                             ;               ;
-; Combinational ALUT usage for logic          ; 1328          ;
-;     -- 7 input functions                    ; 11            ;
-;     -- 6 input functions                    ; 149           ;
-;     -- 5 input functions                    ; 124           ;
-;     -- 4 input functions                    ; 85            ;
-;     -- <=3 input functions                  ; 959           ;
+; Combinational ALUT usage for logic          ; 1350          ;
+;     -- 7 input functions                    ; 9             ;
+;     -- 6 input functions                    ; 176           ;
+;     -- 5 input functions                    ; 121           ;
+;     -- 4 input functions                    ; 74            ;
+;     -- <=3 input functions                  ; 970           ;
 ;                                             ;               ;
 ; Dedicated logic registers                   ; 376           ;
 ;                                             ;               ;
-; I/O pins                                    ; 28            ;
+; I/O pins                                    ; 38            ;
 ; Total MLAB memory bits                      ; 0             ;
 ; Total block memory bits                     ; 4096          ;
 ;                                             ;               ;
@@ -241,7 +241,7 @@ refer to the applicable agreement for further details.
 ;                                             ;               ;
 ; Maximum fan-out node                        ; RESET_N~input ;
 ; Maximum fan-out                             ; 256           ;
-; Total fan-out                               ; 5324          ;
+; Total fan-out                               ; 5447          ;
 ; Average fan-out                             ; 3.01          ;
 +---------------------------------------------+---------------+
 
@@ -251,11 +251,11 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                              ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |flappy_bird_base                            ; 1328 (233)          ; 376 (2)                   ; 4096              ; 0          ; 28   ; 0            ; |flappy_bird_base                                                                                                                                ; flappy_bird_base    ; work         ;
+; |flappy_bird_base                            ; 1350 (233)          ; 376 (2)                   ; 4096              ; 0          ; 38   ; 0            ; |flappy_bird_base                                                                                                                                ; flappy_bird_base    ; work         ;
 ;    |MOUSE:mouse_inst|                        ; 49 (49)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst                                                                                                               ; MOUSE               ; work         ;
 ;    |VGA_SYNC:vga_inst|                       ; 48 (48)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst                                                                                                              ; VGA_SYNC            ; work         ;
 ;    |bird_controller:bird_inst|               ; 137 (137)           ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|bird_controller:bird_inst                                                                                                      ; bird_controller     ; work         ;
-;    |display_text:display_text_inst|          ; 445 (443)           ; 15 (15)                   ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst                                                                                                 ; display_text        ; work         ;
+;    |display_text:display_text_inst|          ; 467 (465)           ; 15 (15)                   ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst                                                                                                 ; display_text        ; work         ;
 ;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst                                                                          ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component                                          ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated           ; altsyncram_d5g1     ; work         ;
@@ -381,34 +381,34 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|velocity[31]              ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][0]         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][3]         ;
-; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][17]        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][9]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][4]         ;
-; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][24]        ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][0]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][2]         ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][10]        ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][1]         ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][0]         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|velocity[26]              ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][2]         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][4]         ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][22]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][0]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][2]         ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][22]        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][3]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][0]         ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][11]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][0]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][3]         ;
 ; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][30]        ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][6]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[4]                        ;
-; 4:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[11]                 ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_row[2]          ;
-; 20:1               ; 3 bits    ; 39 LEs        ; 3 LEs                ; 36 LEs                 ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_col[0]          ;
-; 35:1               ; 6 bits    ; 138 LEs       ; 132 LEs              ; 6 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[5] ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|text_rgb[11]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][3]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[0]                        ;
+; 4:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[22]                 ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_row[1]          ;
+; 20:1               ; 3 bits    ; 39 LEs        ; 3 LEs                ; 36 LEs                 ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_col[2]          ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|text_rgb[0]          ;
+; 35:1               ; 6 bits    ; 138 LEs       ; 132 LEs              ; 6 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[2] ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][3]         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][9]         ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][7]         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][9]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][7]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][3]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][8]         ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][7]         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][9]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][7]         ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][8]         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][6]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][5]         ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[4]                  ;
 ; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|display_text:display_text_inst|Add3                 ;
 ; 22:1               ; 2 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|display_text:display_text_inst|Add3                 ;
@@ -589,30 +589,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 2                           ;
 ;     plain             ; 47                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1328                        ;
+; arriav_lcell_comb     ; 1350                        ;
 ;     arith             ; 665                         ;
 ;         0 data inputs ; 36                          ;
 ;         1 data inputs ; 547                         ;
 ;         2 data inputs ; 82                          ;
-;     extend            ; 11                          ;
-;         7 data inputs ; 11                          ;
-;     normal            ; 610                         ;
+;     extend            ; 9                           ;
+;         7 data inputs ; 9                           ;
+;     normal            ; 634                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 88                          ;
-;         3 data inputs ; 152                         ;
-;         4 data inputs ; 85                          ;
-;         5 data inputs ; 124                         ;
-;         6 data inputs ; 149                         ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 95                          ;
+;         3 data inputs ; 155                         ;
+;         4 data inputs ; 74                          ;
+;         5 data inputs ; 121                         ;
+;         6 data inputs ; 176                         ;
 ;     shared            ; 42                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 31                          ;
 ;         2 data inputs ; 9                           ;
-; boundary_port         ; 28                          ;
+; boundary_port         ; 38                          ;
 ; stratixv_ram_block    ; 8                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 10.80                       ;
-; Average LUT depth     ; 5.13                        ;
+; Average LUT depth     ; 5.16                        ;
 +-----------------------+-----------------------------+
 
 
@@ -631,7 +631,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 14 16:52:29 2025
+    Info: Processing started: Wed May 14 17:35:29 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -639,7 +639,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file pipe_co
     Info (12022): Found design unit 1: pipe_controller-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 17
     Info (12023): Found entity 1: pipe_controller File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file flappy_bird_base.vhd
-    Info (12022): Found design unit 1: flappy_bird_base-top File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
+    Info (12022): Found design unit 1: flappy_bird_base-top File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 21
     Info (12023): Found entity 1: flappy_bird_base File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file bird_controller.vhd
     Info (12022): Found design unit 1: bird_controller-behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/bird_controller.vhd Line: 15
@@ -663,44 +663,44 @@ Info (12021): Found 2 design units, including 1 entities, in source file backgro
     Info (12022): Found design unit 1: background-Behavioral File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/Background.vhd Line: 18
     Info (12023): Found entity 1: background File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/Background.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file text_display.vhd
-    Info (12022): Found design unit 1: display_text-Behavioral File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 17
+    Info (12022): Found design unit 1: display_text-Behavioral File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 20
     Info (12023): Found entity 1: display_text File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 5
 Info (12127): Elaborating entity "flappy_bird_base" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(60): object "mouse_row" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 60
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(60): object "mouse_col" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 60
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(61): object "right_button" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 61
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(64): object "bird_velocity" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 64
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(66): object "pipe_hit" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 66
-Warning (10540): VHDL Signal Declaration warning at flappy_bird_base.vhd(75): used explicit default value for signal "score" because signal was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 75
-Warning (10540): VHDL Signal Declaration warning at flappy_bird_base.vhd(76): used explicit default value for signal "health_percentage" because signal was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 76
-Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(178): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 178
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(180): signal "bg_red" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 180
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(181): signal "bg_green" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 181
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(182): signal "bg_blue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 182
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(185): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 185
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(186): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 186
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(187): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 187
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(188): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 188
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(196): signal "bird_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 196
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(202): signal "text_on_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 202
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(203): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 203
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(204): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 204
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(205): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 205
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(61): object "mouse_row" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 61
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(61): object "mouse_col" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 61
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(62): object "right_button" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 62
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(65): object "bird_velocity" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 65
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(67): object "pipe_hit" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 67
+Warning (10540): VHDL Signal Declaration warning at flappy_bird_base.vhd(76): used explicit default value for signal "score" because signal was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 76
+Warning (10540): VHDL Signal Declaration warning at flappy_bird_base.vhd(77): used explicit default value for signal "health_percentage" because signal was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 77
+Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(182): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 182
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(184): signal "bg_red" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(185): signal "bg_green" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 185
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(186): signal "bg_blue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 186
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(189): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 189
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(190): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 190
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(191): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 191
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(192): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 192
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(200): signal "bird_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 200
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(206): signal "text_on_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 206
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(207): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 207
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(208): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 208
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(209): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 209
 Warning (10873): Using initial value X (don't care) for net "LEDR[9..1]" at flappy_bird_base.vhd(16) File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 16
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 97
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 112
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 98
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 113
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 151
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 157
-Info (12128): Elaborating entity "bird_controller" for hierarchy "bird_controller:bird_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 124
-Info (12128): Elaborating entity "background" for hierarchy "background:background_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 133
-Info (12128): Elaborating entity "pipe_controller" for hierarchy "pipe_controller:pipe_ctrl_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 143
+Info (12128): Elaborating entity "bird_controller" for hierarchy "bird_controller:bird_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 125
+Info (12128): Elaborating entity "background" for hierarchy "background:background_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 134
+Info (12128): Elaborating entity "pipe_controller" for hierarchy "pipe_controller:pipe_ctrl_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 144
 Warning (10631): VHDL Process Statement warning at pipe_controller.vhd(67): inferring latch(es) for signal or variable "hit", which holds its previous value in one or more paths through the process File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 67
 Info (10041): Inferred latch for "hit" at pipe_controller.vhd(71) File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 71
-Info (12128): Elaborating entity "display_text" for hierarchy "display_text:display_text_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 154
-Info (12128): Elaborating entity "char_rom" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 43
+Info (12128): Elaborating entity "display_text" for hierarchy "display_text:display_text_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 155
+Info (12128): Elaborating entity "char_rom" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 46
 Info (12128): Elaborating entity "altsyncram" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
 Info (12130): Elaborated megafunction instantiation "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
 Info (12133): Instantiated megafunction "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
@@ -990,16 +990,24 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1445 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
+Info (21057): Implemented 1477 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
     Info (21059): Implemented 24 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1409 logic cells
+    Info (21061): Implemented 1431 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 278 warnings
-    Info: Peak virtual memory: 4973 megabytes
-    Info: Processing ended: Wed May 14 16:52:36 2025
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:14
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 286 warnings
+    Info: Peak virtual memory: 4963 megabytes
+    Info: Processing ended: Wed May 14 17:35:37 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:13
 
 

@@ -13,7 +13,8 @@ ENTITY flappy_bird_base IS
         VGA_B : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
         VGA_HS : OUT STD_LOGIC;
         VGA_VS : OUT STD_LOGIC;
-        LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+        LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+        SW : in std_logic_vector(9 downto 0)
     );
 END flappy_bird_base;
 
@@ -159,7 +160,10 @@ BEGIN
             score => score,
             health_percentage => health_percentage,
             text_rgb => text_rgb_signal,
-            text_on => text_on_signal
+            text_on => text_on_signal,
+            title_on => SW(0),
+            score_on => SW(1),
+            hp_on    => SW(2)
         );
 
     -- Decode pipe_x_out to pipe_x_array

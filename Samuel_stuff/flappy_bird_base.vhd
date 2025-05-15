@@ -14,7 +14,12 @@ ENTITY flappy_bird_base IS
         VGA_HS : OUT STD_LOGIC;
         VGA_VS : OUT STD_LOGIC;
         LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-        SW : in std_logic_vector(9 downto 0)
+        SW : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+
+        HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+        HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+        HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+
     );
 END flappy_bird_base;
 
@@ -81,7 +86,36 @@ ARCHITECTURE top OF flappy_bird_base IS
 
     CONSTANT bird_x : INTEGER := 100;
 
+    SIGNAL number : INTEGER := 590;
+    SIGNAL hundreds, tens, ones : STD_LOGIC_VECTOR(3 DOWNTO 0);
 BEGIN
+
+    hundred_display : ENTITY work.BCD_to_SevenSeg
+        PORT MAP(
+            BCD_digit => hundreds,
+            SevenSeg_out => HEX2
+        );
+
+    ten_display : ENTITY work.BCD_to_SevenSeg
+        PORT MAP(
+            BCD_digit => tens,
+            SevenSeg_out => HEX1
+        );
+
+    one_display : ENTITY work.BCD_to_SevenSeg
+        PORT MAP(
+            BCD_digit => ones,
+            SevenSeg_out => HEX0
+        );
+    PROCESS (number)
+
+        VARIABLE temp : INTEGER;
+    BEGIN
+        temp := number;
+        hundreds <= STD_LOGIC_VECTOR(to_unsigned((temp / 100) MOD 10, 4));
+        tens <= STD_LOGIC_VECTOR(to_unsigned((temp / 10) MOD 10, 4));
+        ones <= STD_LOGIC_VECTOR(to_unsigned(temp MOD 10, 4));
+    END PROCESS;
     LEDR(0) <= left_button;
 
     VGA_VS <= vsync_internal;
@@ -163,7 +197,7 @@ BEGIN
             text_on => text_on_signal,
             title_on => SW(0),
             score_on => SW(1),
-            hp_on    => SW(2)
+            hp_on => SW(2)
         );
 
     -- Decode pipe_x_out to pipe_x_array

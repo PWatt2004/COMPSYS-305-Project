@@ -1,6 +1,6 @@
 Timing Analyzer report for flappy_bird_base
-Wed May 14 17:33:12 2025
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Thu May 15 20:35:28 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition
 
 
 ---------------------
@@ -63,34 +63,35 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
-Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Intel Program License 
-Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel FPGA IP License Agreement, or other applicable license
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
-Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
 
 
 
-+---------------------------------------------------------------------------------+
-; Timing Analyzer Summary                                                         ;
-+-----------------------+---------------------------------------------------------+
-; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
-; Timing Analyzer       ; Legacy Timing Analyzer                                  ;
-; Revision Name         ; flappy_bird_base                                        ;
-; Device Family         ; Cyclone V                                               ;
-; Device Name           ; 5CEBA4F23C7                                             ;
-; Timing Models         ; Final                                                   ;
-; Delay Model           ; Combined                                                ;
-; Rise/Fall Delays      ; Enabled                                                 ;
-+-----------------------+---------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                             ;
++-----------------------+-------------------------------------------------------------+
+; Quartus Prime Version ; Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                      ;
+; Revision Name         ; flappy_bird_base                                            ;
+; Device Family         ; Cyclone V                                                   ;
+; Device Name           ; 5CEBA4F23C7                                                 ;
+; Timing Models         ; Final                                                       ;
+; Delay Model           ; Combined                                                    ;
+; Rise/Fall Delays      ; Enabled                                                     ;
++-----------------------+-------------------------------------------------------------+
 
 
 +------------------------------------------+
@@ -98,29 +99,29 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 24          ;
+; Number detected on machine ; 32          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.87        ;
+; Average used               ; 1.72        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   7.2%      ;
-;     Processor 3            ;   7.1%      ;
-;     Processor 4            ;   6.9%      ;
-;     Processor 5            ;   5.5%      ;
-;     Processor 6            ;   5.5%      ;
-;     Processor 7            ;   5.5%      ;
-;     Processor 8            ;   5.5%      ;
-;     Processor 9            ;   5.5%      ;
-;     Processor 10           ;   5.5%      ;
-;     Processor 11           ;   5.5%      ;
-;     Processor 12           ;   5.5%      ;
-;     Processor 13           ;   5.5%      ;
-;     Processor 14           ;   5.4%      ;
-;     Processor 15           ;   5.4%      ;
-;     Processor 16           ;   5.4%      ;
+;     Processor 2            ;   6.1%      ;
+;     Processor 3            ;   5.9%      ;
+;     Processor 4            ;   5.8%      ;
+;     Processor 5            ;   4.5%      ;
+;     Processor 6            ;   4.5%      ;
+;     Processor 7            ;   4.5%      ;
+;     Processor 8            ;   4.5%      ;
+;     Processor 9            ;   4.5%      ;
+;     Processor 10           ;   4.5%      ;
+;     Processor 11           ;   4.5%      ;
+;     Processor 12           ;   4.5%      ;
+;     Processor 13           ;   4.5%      ;
+;     Processor 14           ;   4.5%      ;
+;     Processor 15           ;   4.4%      ;
+;     Processor 16           ;   4.4%      ;
 +----------------------------+-------------+
 
 
@@ -136,16 +137,16 @@ refer to the applicable agreement for further details.
 +-----------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------+
 
 
-+-------------------------------------------------------------------------+
-; Slow 1100mV 85C Model Fmax Summary                                      ;
-+------------+-----------------+-----------------------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name                        ; Note ;
-+------------+-----------------+-----------------------------------+------+
-; 110.34 MHz ; 110.34 MHz      ; clk_25                            ;      ;
-; 160.38 MHz ; 160.38 MHz      ; VGA_SYNC:vga_inst|vert_sync_out   ;      ;
-; 239.75 MHz ; 239.75 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;      ;
-; 493.83 MHz ; 493.83 MHz      ; CLOCK_50                          ;      ;
-+------------+-----------------+-----------------------------------+------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Fmax Summary                                                                                      ;
++------------+-----------------+-----------------------------------+------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                        ; Note                                                 ;
++------------+-----------------+-----------------------------------+------------------------------------------------------+
+; 105.57 MHz ; 105.57 MHz      ; clk_25                            ;                                                      ;
+; 161.21 MHz ; 161.21 MHz      ; VGA_SYNC:vga_inst|vert_sync_out   ;                                                      ;
+; 244.62 MHz ; 244.62 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;                                                      ;
+; 504.29 MHz ; 474.38 MHz      ; CLOCK_50                          ; limit due to low minimum pulse width violation (tcl) ;
++------------+-----------------+-----------------------------------+------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -160,10 +161,10 @@ HTML report is unavailable in plain text report export.
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; clk_25                            ; -8.118 ; -382.229      ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; -5.235 ; -989.650      ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.499 ; -106.808      ;
-; CLOCK_50                          ; -1.025 ; -1.692        ;
+; clk_25                            ; -9.000 ; -374.444      ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -5.203 ; -991.773      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.411 ; -98.883       ;
+; CLOCK_50                          ; -0.983 ; -1.855        ;
 +-----------------------------------+--------+---------------+
 
 
@@ -172,10 +173,10 @@ HTML report is unavailable in plain text report export.
 +-----------------------------------+-------+---------------+
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
-; VGA_SYNC:vga_inst|vert_sync_out   ; 0.323 ; 0.000         ;
-; clk_25                            ; 0.328 ; 0.000         ;
-; CLOCK_50                          ; 0.595 ; 0.000         ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.900 ; 0.000         ;
+; clk_25                            ; 0.223 ; 0.000         ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; 0.353 ; 0.000         ;
+; CLOCK_50                          ; 0.463 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.564 ; 0.000         ;
 +-----------------------------------+-------+---------------+
 
 
@@ -184,7 +185,7 @@ HTML report is unavailable in plain text report export.
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.750 ; -27.904       ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.713 ; -27.317       ;
 +-----------------------------------+--------+---------------+
 
 
@@ -193,7 +194,7 @@ HTML report is unavailable in plain text report export.
 +-----------------------------------+-------+---------------+
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.805 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.826 ; 0.000         ;
 +-----------------------------------+-------+---------------+
 
 
@@ -202,10 +203,10 @@ HTML report is unavailable in plain text report export.
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; clk_25                            ; -2.636 ; -133.105      ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; -0.538 ; -226.187      ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -27.765       ;
-; CLOCK_50                          ; -0.538 ; -2.092        ;
+; clk_25                            ; -2.636 ; -132.329      ;
+; CLOCK_50                          ; -0.554 ; -3.273        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -0.538 ; -227.125      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -27.681       ;
 +-----------------------------------+--------+---------------+
 
 
@@ -221,10 +222,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +------------+-----------------+-----------------------------------+------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name                        ; Note                                                 ;
 +------------+-----------------+-----------------------------------+------------------------------------------------------+
-; 109.72 MHz ; 109.72 MHz      ; clk_25                            ;                                                      ;
-; 154.85 MHz ; 154.85 MHz      ; VGA_SYNC:vga_inst|vert_sync_out   ;                                                      ;
-; 238.32 MHz ; 238.32 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;                                                      ;
-; 510.2 MHz  ; 484.97 MHz      ; CLOCK_50                          ; limit due to low minimum pulse width violation (tcl) ;
+; 102.51 MHz ; 102.51 MHz      ; clk_25                            ;                                                      ;
+; 154.8 MHz  ; 154.8 MHz       ; VGA_SYNC:vga_inst|vert_sync_out   ;                                                      ;
+; 247.34 MHz ; 247.34 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;                                                      ;
+; 493.1 MHz  ; 457.46 MHz      ; CLOCK_50                          ; limit due to low minimum pulse width violation (tcl) ;
 +------------+-----------------+-----------------------------------+------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -234,10 +235,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; clk_25                            ; -8.141 ; -372.254      ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; -5.458 ; -990.040      ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.383 ; -98.757       ;
-; CLOCK_50                          ; -0.960 ; -1.634        ;
+; clk_25                            ; -9.063 ; -368.571      ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -5.460 ; -991.087      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.381 ; -92.402       ;
+; CLOCK_50                          ; -1.028 ; -1.868        ;
 +-----------------------------------+--------+---------------+
 
 
@@ -246,10 +247,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------+-------+---------------+
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
-; VGA_SYNC:vga_inst|vert_sync_out   ; 0.292 ; 0.000         ;
-; clk_25                            ; 0.340 ; 0.000         ;
-; CLOCK_50                          ; 0.583 ; 0.000         ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.891 ; 0.000         ;
+; clk_25                            ; 0.222 ; 0.000         ;
+; CLOCK_50                          ; 0.431 ; 0.000         ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; 0.500 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.531 ; 0.000         ;
 +-----------------------------------+-------+---------------+
 
 
@@ -258,7 +259,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.565 ; -24.946       ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.581 ; -25.211       ;
 +-----------------------------------+--------+---------------+
 
 
@@ -267,7 +268,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------+-------+---------------+
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.725 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.803 ; 0.000         ;
 +-----------------------------------+-------+---------------+
 
 
@@ -276,10 +277,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; clk_25                            ; -2.636 ; -132.165      ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; -0.538 ; -223.040      ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -27.765       ;
-; CLOCK_50                          ; -0.538 ; -2.138        ;
+; clk_25                            ; -2.636 ; -129.733      ;
+; CLOCK_50                          ; -0.593 ; -3.387        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -0.538 ; -223.282      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -27.444       ;
 +-----------------------------------+--------+---------------+
 
 
@@ -295,23 +296,23 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; clk_25                            ; -4.137 ; -173.637      ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; -2.212 ; -441.808      ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.673 ; -49.044       ;
-; CLOCK_50                          ; -0.309 ; -0.309        ;
+; clk_25                            ; -4.380 ; -165.391      ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -2.458 ; -448.351      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.677 ; -45.495       ;
+; CLOCK_50                          ; -0.128 ; -0.128        ;
 +-----------------------------------+--------+---------------+
 
 
-+-----------------------------------------------------------+
-; Fast 1100mV 85C Model Hold Summary                        ;
-+-----------------------------------+-------+---------------+
-; Clock                             ; Slack ; End Point TNS ;
-+-----------------------------------+-------+---------------+
-; VGA_SYNC:vga_inst|vert_sync_out   ; 0.091 ; 0.000         ;
-; clk_25                            ; 0.091 ; 0.000         ;
-; CLOCK_50                          ; 0.258 ; 0.000         ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.457 ; 0.000         ;
-+-----------------------------------+-------+---------------+
++------------------------------------------------------------+
+; Fast 1100mV 85C Model Hold Summary                         ;
++-----------------------------------+--------+---------------+
+; Clock                             ; Slack  ; End Point TNS ;
++-----------------------------------+--------+---------------+
+; clk_25                            ; -0.175 ; -0.175        ;
+; CLOCK_50                          ; 0.160  ; 0.000         ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; 0.164  ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.199  ; 0.000         ;
++-----------------------------------+--------+---------------+
 
 
 +------------------------------------------------------------+
@@ -319,7 +320,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.608 ; -9.696        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.709 ; -11.313       ;
 +-----------------------------------+--------+---------------+
 
 
@@ -328,7 +329,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+-------+---------------+
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.282 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.416 ; 0.000         ;
 +-----------------------------------+-------+---------------+
 
 
@@ -337,10 +338,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; clk_25                            ; -2.174 ; -39.931       ;
-; CLOCK_50                          ; -0.465 ; -1.158        ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; -0.157 ; -12.455       ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.025  ; 0.000         ;
+; clk_25                            ; -2.174 ; -35.733       ;
+; CLOCK_50                          ; -0.509 ; -2.005        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -0.125 ; -12.224       ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.045  ; 0.000         ;
 +-----------------------------------+--------+---------------+
 
 
@@ -356,23 +357,23 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; clk_25                            ; -3.622 ; -149.590      ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; -2.016 ; -389.646      ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.502 ; -43.557       ;
-; CLOCK_50                          ; -0.214 ; -0.214        ;
+; clk_25                            ; -3.964 ; -143.118      ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -2.157 ; -393.173      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.516 ; -40.347       ;
+; CLOCK_50                          ; -0.074 ; -0.074        ;
 +-----------------------------------+--------+---------------+
 
 
-+-----------------------------------------------------------+
-; Fast 1100mV 0C Model Hold Summary                         ;
-+-----------------------------------+-------+---------------+
-; Clock                             ; Slack ; End Point TNS ;
-+-----------------------------------+-------+---------------+
-; clk_25                            ; 0.077 ; 0.000         ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; 0.078 ; 0.000         ;
-; CLOCK_50                          ; 0.230 ; 0.000         ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.417 ; 0.000         ;
-+-----------------------------------+-------+---------------+
++------------------------------------------------------------+
+; Fast 1100mV 0C Model Hold Summary                          ;
++-----------------------------------+--------+---------------+
+; Clock                             ; Slack  ; End Point TNS ;
++-----------------------------------+--------+---------------+
+; clk_25                            ; -0.198 ; -0.198        ;
+; CLOCK_50                          ; 0.138  ; 0.000         ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; 0.148  ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.215  ; 0.000         ;
++-----------------------------------+--------+---------------+
 
 
 +------------------------------------------------------------+
@@ -380,7 +381,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.537 ; -8.558        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.636 ; -10.139       ;
 +-----------------------------------+--------+---------------+
 
 
@@ -389,7 +390,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+-------+---------------+
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.267 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.389 ; 0.000         ;
 +-----------------------------------+-------+---------------+
 
 
@@ -398,10 +399,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
-; clk_25                            ; -2.174 ; -36.249       ;
-; CLOCK_50                          ; -0.451 ; -1.122        ;
-; VGA_SYNC:vga_inst|vert_sync_out   ; -0.090 ; -5.348        ;
-; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.044  ; 0.000         ;
+; clk_25                            ; -2.174 ; -34.361       ;
+; CLOCK_50                          ; -0.486 ; -1.889        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -0.061 ; -4.082        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.046  ; 0.000         ;
 +-----------------------------------+--------+---------------+
 
 
@@ -412,22 +413,22 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 
 
 
-+---------------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                               ;
-+------------------------------------+-----------+-------+----------+---------+---------------------+
-; Clock                              ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------------------------+-----------+-------+----------+---------+---------------------+
-; Worst-case Slack                   ; -8.141    ; 0.077 ; -1.750   ; 0.267   ; -2.636              ;
-;  CLOCK_50                          ; -1.025    ; 0.230 ; N/A      ; N/A     ; -0.538              ;
-;  MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.499    ; 0.417 ; -1.750   ; 0.267   ; -0.538              ;
-;  VGA_SYNC:vga_inst|vert_sync_out   ; -5.458    ; 0.078 ; N/A      ; N/A     ; -0.538              ;
-;  clk_25                            ; -8.141    ; 0.077 ; N/A      ; N/A     ; -2.636              ;
-; Design-wide TNS                    ; -1480.379 ; 0.0   ; -27.904  ; 0.0     ; -389.149            ;
-;  CLOCK_50                          ; -1.692    ; 0.000 ; N/A      ; N/A     ; -2.138              ;
-;  MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -106.808  ; 0.000 ; -27.904  ; 0.000   ; -27.765             ;
-;  VGA_SYNC:vga_inst|vert_sync_out   ; -990.040  ; 0.000 ; N/A      ; N/A     ; -226.187            ;
-;  clk_25                            ; -382.229  ; 0.000 ; N/A      ; N/A     ; -133.105            ;
-+------------------------------------+-----------+-------+----------+---------+---------------------+
++----------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                ;
++------------------------------------+-----------+--------+----------+---------+---------------------+
+; Clock                              ; Setup     ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------------------------+-----------+--------+----------+---------+---------------------+
+; Worst-case Slack                   ; -9.063    ; -0.198 ; -1.713   ; 0.389   ; -2.636              ;
+;  CLOCK_50                          ; -1.028    ; 0.138  ; N/A      ; N/A     ; -0.593              ;
+;  MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.411    ; 0.199  ; -1.713   ; 0.389   ; -0.538              ;
+;  VGA_SYNC:vga_inst|vert_sync_out   ; -5.460    ; 0.148  ; N/A      ; N/A     ; -0.538              ;
+;  clk_25                            ; -9.063    ; -0.198 ; N/A      ; N/A     ; -2.636              ;
+; Design-wide TNS                    ; -1466.955 ; -0.198 ; -27.317  ; 0.0     ; -390.408            ;
+;  CLOCK_50                          ; -1.868    ; 0.000  ; N/A      ; N/A     ; -3.387              ;
+;  MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -98.883   ; 0.000  ; -27.317  ; 0.000   ; -27.681             ;
+;  VGA_SYNC:vga_inst|vert_sync_out   ; -991.773  ; 0.000  ; N/A      ; N/A     ; -227.125            ;
+;  clk_25                            ; -374.444  ; -0.198 ; N/A      ; N/A     ; -132.329            ;
++------------------------------------+-----------+--------+----------+---------+---------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -459,6 +460,27 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; LEDR[7]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[8]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[9]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX0[0]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX0[1]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX0[2]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX0[3]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX0[4]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX0[5]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX0[6]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX1[0]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX1[1]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX1[2]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX1[3]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX1[4]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX1[5]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX1[6]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX2[0]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX2[1]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX2[2]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX2[3]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX2[4]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX2[5]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; HEX2[6]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; PS2_CLK  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; PS2_DAT  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 +----------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
@@ -469,7 +491,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +----------+--------------+-----------------+-----------------+
 ; Pin      ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +----------+--------------+-----------------+-----------------+
-; SW[2]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[3]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[4]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[5]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[6]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -479,7 +501,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; PS2_CLK  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; PS2_DAT  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; RESET_N  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; SW[3]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[2]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[0]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[1]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; CLOCK_50 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -515,6 +537,27 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; LEDR[7]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.88e-07 V                   ; 2.35 V              ; -0.0185 V           ; 0.153 V                              ; 0.099 V                              ; 4.6e-10 s                   ; 4.48e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.88e-07 V                  ; 2.35 V             ; -0.0185 V          ; 0.153 V                             ; 0.099 V                             ; 4.6e-10 s                  ; 4.48e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[8]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[9]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX0[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX0[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX0[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX0[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX0[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX0[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX0[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX1[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX1[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX1[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX1[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX1[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX1[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX1[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX2[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.19e-07 V                   ; 2.4 V               ; -0.039 V            ; 0.21 V                               ; 0.145 V                              ; 4.67e-10 s                  ; 4.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.19e-07 V                  ; 2.4 V              ; -0.039 V           ; 0.21 V                              ; 0.145 V                             ; 4.67e-10 s                 ; 4.63e-10 s                 ; No                        ; Yes                       ;
+; HEX2[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX2[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX2[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.88e-07 V                   ; 2.35 V              ; -0.0185 V           ; 0.153 V                              ; 0.099 V                              ; 4.6e-10 s                   ; 4.48e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.88e-07 V                  ; 2.35 V             ; -0.0185 V          ; 0.153 V                             ; 0.099 V                             ; 4.6e-10 s                  ; 4.48e-10 s                 ; No                        ; Yes                       ;
+; HEX2[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.88e-07 V                   ; 2.35 V              ; -0.0185 V           ; 0.153 V                              ; 0.099 V                              ; 4.6e-10 s                   ; 4.48e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.88e-07 V                  ; 2.35 V             ; -0.0185 V          ; 0.153 V                             ; 0.099 V                             ; 4.6e-10 s                  ; 4.48e-10 s                 ; No                        ; Yes                       ;
+; HEX2[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0495 V           ; 0.18 V                               ; 0.115 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0495 V          ; 0.18 V                              ; 0.115 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
+; HEX2[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.15e-07 V                   ; 2.41 V              ; -0.0492 V           ; 0.181 V                              ; 0.116 V                              ; 4.54e-10 s                  ; 4.44e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.15e-07 V                  ; 2.41 V             ; -0.0492 V          ; 0.181 V                             ; 0.116 V                             ; 4.54e-10 s                 ; 4.44e-10 s                 ; No                        ; Yes                       ;
 ; PS2_CLK  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.19e-07 V                   ; 2.4 V               ; -0.039 V            ; 0.21 V                               ; 0.145 V                              ; 4.67e-10 s                  ; 4.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.19e-07 V                  ; 2.4 V              ; -0.039 V           ; 0.21 V                              ; 0.145 V                             ; 4.67e-10 s                 ; 4.63e-10 s                 ; No                        ; Yes                       ;
 ; PS2_DAT  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.19e-07 V                   ; 2.4 V               ; -0.039 V            ; 0.21 V                               ; 0.145 V                              ; 4.67e-10 s                  ; 4.63e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.19e-07 V                  ; 2.4 V              ; -0.039 V           ; 0.21 V                              ; 0.145 V                             ; 4.67e-10 s                 ; 4.63e-10 s                 ; No                        ; Yes                       ;
 +----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -549,6 +592,27 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; LEDR[7]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.27e-05 V                   ; 2.34 V              ; -0.0089 V           ; 0.206 V                              ; 0.058 V                              ; 4.97e-10 s                  ; 5.13e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.27e-05 V                  ; 2.34 V             ; -0.0089 V          ; 0.206 V                             ; 0.058 V                             ; 4.97e-10 s                 ; 5.13e-10 s                 ; Yes                       ; Yes                       ;
 ; LEDR[8]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[9]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX0[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX0[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX0[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX0[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX0[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX0[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX0[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX1[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX1[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX1[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX1[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX1[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX1[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX1[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX2[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.56e-05 V                   ; 2.38 V              ; -0.026 V            ; 0.249 V                              ; 0.089 V                              ; 4.95e-10 s                  ; 6.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.56e-05 V                  ; 2.38 V             ; -0.026 V           ; 0.249 V                             ; 0.089 V                             ; 4.95e-10 s                 ; 6.01e-10 s                 ; No                        ; Yes                       ;
+; HEX2[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX2[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX2[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.27e-05 V                   ; 2.34 V              ; -0.0089 V           ; 0.206 V                              ; 0.058 V                              ; 4.97e-10 s                  ; 5.13e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.27e-05 V                  ; 2.34 V             ; -0.0089 V          ; 0.206 V                             ; 0.058 V                             ; 4.97e-10 s                 ; 5.13e-10 s                 ; Yes                       ; Yes                       ;
+; HEX2[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.27e-05 V                   ; 2.34 V              ; -0.0089 V           ; 0.206 V                              ; 0.058 V                              ; 4.97e-10 s                  ; 5.13e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.27e-05 V                  ; 2.34 V             ; -0.0089 V          ; 0.206 V                             ; 0.058 V                             ; 4.97e-10 s                 ; 5.13e-10 s                 ; Yes                       ; Yes                       ;
+; HEX2[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.0315 V           ; 0.205 V                              ; 0.182 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.0315 V          ; 0.205 V                             ; 0.182 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
+; HEX2[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.52e-05 V                   ; 2.38 V              ; -0.032 V            ; 0.204 V                              ; 0.181 V                              ; 4.74e-10 s                  ; 4.85e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.52e-05 V                  ; 2.38 V             ; -0.032 V           ; 0.204 V                             ; 0.181 V                             ; 4.74e-10 s                 ; 4.85e-10 s                 ; No                        ; Yes                       ;
 ; PS2_CLK  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.56e-05 V                   ; 2.38 V              ; -0.026 V            ; 0.249 V                              ; 0.089 V                              ; 4.95e-10 s                  ; 6.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.56e-05 V                  ; 2.38 V             ; -0.026 V           ; 0.249 V                             ; 0.089 V                             ; 4.95e-10 s                 ; 6.01e-10 s                 ; No                        ; Yes                       ;
 ; PS2_DAT  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.56e-05 V                   ; 2.38 V              ; -0.026 V            ; 0.249 V                              ; 0.089 V                              ; 4.95e-10 s                  ; 6.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.56e-05 V                  ; 2.38 V             ; -0.026 V           ; 0.249 V                             ; 0.089 V                             ; 4.95e-10 s                 ; 6.01e-10 s                 ; No                        ; Yes                       ;
 +----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -583,6 +647,27 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; LEDR[7]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
 ; LEDR[8]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
 ; LEDR[9]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX0[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX0[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX0[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX0[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX0[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX0[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX0[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX1[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX1[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX1[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX1[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX1[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX1[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX1[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX2[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
+; HEX2[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX2[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX2[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
+; HEX2[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
+; HEX2[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
+; HEX2[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
 ; PS2_CLK  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
 ; PS2_DAT  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
 +----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -617,6 +702,27 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; LEDR[7]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[8]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
 ; LEDR[9]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX0[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX0[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX0[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX0[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX0[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX0[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX0[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX1[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX1[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX1[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX1[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX1[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX1[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX1[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX2[0]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
+; HEX2[1]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX2[2]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX2[3]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; HEX2[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; HEX2[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
+; HEX2[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
 ; PS2_CLK  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
 ; PS2_DAT  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
 +----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -627,10 +733,10 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-----------------------------------+-----------------------------------+----------+----------+----------+----------+
 ; From Clock                        ; To Clock                          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------+-----------------------------------+----------+----------+----------+----------+
-; clk_25                            ; clk_25                            ; 48135    ; 0        ; 0        ; 0        ;
+; clk_25                            ; clk_25                            ; 48086    ; 0        ; 0        ; 0        ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; clk_25                            ; 1        ; 5        ; 0        ; 0        ;
 ; VGA_SYNC:vga_inst|vert_sync_out   ; clk_25                            ; 62768    ; 0        ; 0        ; 0        ;
-; CLOCK_50                          ; CLOCK_50                          ; 2        ; 0        ; 0        ; 0        ;
+; CLOCK_50                          ; CLOCK_50                          ; 3        ; 0        ; 0        ; 0        ;
 ; clk_25                            ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0        ; 0        ; 35       ; 0        ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0        ; 0        ; 0        ; 193      ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; VGA_SYNC:vga_inst|vert_sync_out   ; 0        ; 32       ; 0        ; 0        ;
@@ -644,10 +750,10 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-----------------------------------+-----------------------------------+----------+----------+----------+----------+
 ; From Clock                        ; To Clock                          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------+-----------------------------------+----------+----------+----------+----------+
-; clk_25                            ; clk_25                            ; 48135    ; 0        ; 0        ; 0        ;
+; clk_25                            ; clk_25                            ; 48086    ; 0        ; 0        ; 0        ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; clk_25                            ; 1        ; 5        ; 0        ; 0        ;
 ; VGA_SYNC:vga_inst|vert_sync_out   ; clk_25                            ; 62768    ; 0        ; 0        ; 0        ;
-; CLOCK_50                          ; CLOCK_50                          ; 2        ; 0        ; 0        ; 0        ;
+; CLOCK_50                          ; CLOCK_50                          ; 3        ; 0        ; 0        ; 0        ;
 ; clk_25                            ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0        ; 0        ; 35       ; 0        ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0        ; 0        ; 0        ; 193      ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; VGA_SYNC:vga_inst|vert_sync_out   ; 0        ; 32       ; 0        ; 0        ;
@@ -696,7 +802,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 6     ; 6    ;
-; Unconstrained Input Port Paths  ; 338   ; 338  ;
+; Unconstrained Input Port Paths  ; 336   ; 336  ;
 ; Unconstrained Output Ports      ; 8     ; 8    ;
 ; Unconstrained Output Port Paths ; 11    ; 11   ;
 +---------------------------------+-------+------+
@@ -724,7 +830,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; RESET_N    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[0]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[1]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[3]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -754,7 +860,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; RESET_N    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[0]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[1]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[3]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -779,8 +885,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 14 17:33:07 2025
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition
+    Info: Processing started: Thu May 15 20:35:23 2025
 Info: Command: quartus_sta flappy_bird_base -c flappy_bird_base
 Info: qsta_default_script.tcl version: #1
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
@@ -1015,15 +1121,15 @@ Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity d
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE0_CV_Default -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 32 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'flappy_bird_base.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
-    Info (332105): create_clock -period 1.000 -name VGA_SYNC:vga_inst|vert_sync_out VGA_SYNC:vga_inst|vert_sync_out
     Info (332105): create_clock -period 1.000 -name clk_25 clk_25
     Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+    Info (332105): create_clock -period 1.000 -name VGA_SYNC:vga_inst|vert_sync_out VGA_SYNC:vga_inst|vert_sync_out
     Info (332105): create_clock -period 1.000 -name MOUSE:mouse_inst|MOUSE_CLK_FILTER MOUSE:mouse_inst|MOUSE_CLK_FILTER
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
@@ -1031,35 +1137,35 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -8.118
+Info (332146): Worst-case setup slack is -9.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -8.118            -382.229 clk_25 
-    Info (332119):    -5.235            -989.650 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):    -3.499            -106.808 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-    Info (332119):    -1.025              -1.692 CLOCK_50 
-Info (332146): Worst-case hold slack is 0.323
+    Info (332119):    -9.000            -374.444 clk_25 
+    Info (332119):    -5.203            -991.773 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -3.411             -98.883 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -0.983              -1.855 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.223
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.323               0.000 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):     0.328               0.000 clk_25 
-    Info (332119):     0.595               0.000 CLOCK_50 
-    Info (332119):     0.900               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-Info (332146): Worst-case recovery slack is -1.750
+    Info (332119):     0.223               0.000 clk_25 
+    Info (332119):     0.353               0.000 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.463               0.000 CLOCK_50 
+    Info (332119):     0.564               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -1.713
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.750             -27.904 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-Info (332146): Worst-case removal slack is 0.805
+    Info (332119):    -1.713             -27.317 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 0.826
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.805               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):     0.826               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 Info (332146): Worst-case minimum pulse width slack is -2.636
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.636            -133.105 clk_25 
-    Info (332119):    -0.538            -226.187 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):    -0.538             -27.765 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-    Info (332119):    -0.538              -2.092 CLOCK_50 
+    Info (332119):    -2.636            -132.329 clk_25 
+    Info (332119):    -0.554              -3.273 CLOCK_50 
+    Info (332119):    -0.538            -227.125 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -0.538             -27.681 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 Info (332114): Report Metastability: Found 9 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Slow 1100mV 0C Model
@@ -1068,35 +1174,35 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -8.141
+Info (332146): Worst-case setup slack is -9.063
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -8.141            -372.254 clk_25 
-    Info (332119):    -5.458            -990.040 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):    -3.383             -98.757 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-    Info (332119):    -0.960              -1.634 CLOCK_50 
-Info (332146): Worst-case hold slack is 0.292
+    Info (332119):    -9.063            -368.571 clk_25 
+    Info (332119):    -5.460            -991.087 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -3.381             -92.402 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -1.028              -1.868 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.222
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.292               0.000 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):     0.340               0.000 clk_25 
-    Info (332119):     0.583               0.000 CLOCK_50 
-    Info (332119):     0.891               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-Info (332146): Worst-case recovery slack is -1.565
+    Info (332119):     0.222               0.000 clk_25 
+    Info (332119):     0.431               0.000 CLOCK_50 
+    Info (332119):     0.500               0.000 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.531               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -1.581
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.565             -24.946 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-Info (332146): Worst-case removal slack is 0.725
+    Info (332119):    -1.581             -25.211 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 0.803
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.725               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):     0.803               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 Info (332146): Worst-case minimum pulse width slack is -2.636
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.636            -132.165 clk_25 
-    Info (332119):    -0.538            -223.040 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):    -0.538             -27.765 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-    Info (332119):    -0.538              -2.138 CLOCK_50 
+    Info (332119):    -2.636            -129.733 clk_25 
+    Info (332119):    -0.593              -3.387 CLOCK_50 
+    Info (332119):    -0.538            -223.282 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -0.538             -27.444 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 Info (332114): Report Metastability: Found 9 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1100mV 85C Model
@@ -1105,77 +1211,77 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -4.137
+Info (332146): Worst-case setup slack is -4.380
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.137            -173.637 clk_25 
-    Info (332119):    -2.212            -441.808 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):    -1.673             -49.044 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-    Info (332119):    -0.309              -0.309 CLOCK_50 
-Info (332146): Worst-case hold slack is 0.091
+    Info (332119):    -4.380            -165.391 clk_25 
+    Info (332119):    -2.458            -448.351 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -1.677             -45.495 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -0.128              -0.128 CLOCK_50 
+Info (332146): Worst-case hold slack is -0.175
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.091               0.000 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):     0.091               0.000 clk_25 
-    Info (332119):     0.258               0.000 CLOCK_50 
-    Info (332119):     0.457               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-Info (332146): Worst-case recovery slack is -0.608
+    Info (332119):    -0.175              -0.175 clk_25 
+    Info (332119):     0.160               0.000 CLOCK_50 
+    Info (332119):     0.164               0.000 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.199               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -0.709
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.608              -9.696 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-Info (332146): Worst-case removal slack is 0.282
+    Info (332119):    -0.709             -11.313 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 0.416
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.282               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):     0.416               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.174             -39.931 clk_25 
-    Info (332119):    -0.465              -1.158 CLOCK_50 
-    Info (332119):    -0.157             -12.455 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):     0.025               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -2.174             -35.733 clk_25 
+    Info (332119):    -0.509              -2.005 CLOCK_50 
+    Info (332119):    -0.125             -12.224 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.045               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 Info (332114): Report Metastability: Found 9 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1100mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -3.622
+Info (332146): Worst-case setup slack is -3.964
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.622            -149.590 clk_25 
-    Info (332119):    -2.016            -389.646 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):    -1.502             -43.557 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-    Info (332119):    -0.214              -0.214 CLOCK_50 
-Info (332146): Worst-case hold slack is 0.077
+    Info (332119):    -3.964            -143.118 clk_25 
+    Info (332119):    -2.157            -393.173 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -1.516             -40.347 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -0.074              -0.074 CLOCK_50 
+Info (332146): Worst-case hold slack is -0.198
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.077               0.000 clk_25 
-    Info (332119):     0.078               0.000 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):     0.230               0.000 CLOCK_50 
-    Info (332119):     0.417               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-Info (332146): Worst-case recovery slack is -0.537
+    Info (332119):    -0.198              -0.198 clk_25 
+    Info (332119):     0.138               0.000 CLOCK_50 
+    Info (332119):     0.148               0.000 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.215               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -0.636
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.537              -8.558 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
-Info (332146): Worst-case removal slack is 0.267
+    Info (332119):    -0.636             -10.139 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 0.389
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.267               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):     0.389               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.174             -36.249 clk_25 
-    Info (332119):    -0.451              -1.122 CLOCK_50 
-    Info (332119):    -0.090              -5.348 VGA_SYNC:vga_inst|vert_sync_out 
-    Info (332119):     0.044               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -2.174             -34.361 clk_25 
+    Info (332119):    -0.486              -1.889 CLOCK_50 
+    Info (332119):    -0.061              -4.082 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.046               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 Info (332114): Report Metastability: Found 9 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 237 warnings
-    Info: Peak virtual memory: 5261 megabytes
-    Info: Processing ended: Wed May 14 17:33:12 2025
+    Info: Peak virtual memory: 5368 megabytes
+    Info: Processing ended: Thu May 15 20:35:28 2025
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:07
 

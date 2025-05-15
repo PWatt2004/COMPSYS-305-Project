@@ -1,6 +1,6 @@
 Flow report for flappy_bird_base
-Thu May 15 17:39:46 2025
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Thu May 15 20:35:28 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition
 
 
 ---------------------
@@ -21,40 +21,46 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
-Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Intel Program License 
-Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel FPGA IP License Agreement, or other applicable license
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
-Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Flow Failed - Thu May 15 17:39:46 2025          ;
-; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
-; Revision Name               ; flappy_bird_base                                ;
-; Top-level Entity Name       ; flappy_bird_base                                ;
-; Family                      ; Cyclone V                                       ;
-; Device                      ; 5CEBA4F23C7                                     ;
-; Timing Models               ; Final                                           ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                       ;
-; Total registers             ; N/A until Partition Merge                       ;
-; Total pins                  ; N/A until Partition Merge                       ;
-; Total virtual pins          ; N/A until Partition Merge                       ;
-; Total block memory bits     ; N/A until Partition Merge                       ;
-; Total PLLs                  ; N/A until Partition Merge                       ;
-; Total DLLs                  ; N/A until Partition Merge                       ;
-+-----------------------------+-------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Flow Summary                                                                          ;
++---------------------------------+-----------------------------------------------------+
+; Flow Status                     ; Successful - Thu May 15 20:35:22 2025               ;
+; Quartus Prime Version           ; 24.1std.0 Build 1077 03/04/2025 SC Standard Edition ;
+; Revision Name                   ; flappy_bird_base                                    ;
+; Top-level Entity Name           ; flappy_bird_base                                    ;
+; Family                          ; Cyclone V                                           ;
+; Device                          ; 5CEBA4F23C7                                         ;
+; Timing Models                   ; Final                                               ;
+; Logic utilization (in ALMs)     ; 787 / 18,480 ( 4 % )                                ;
+; Total registers                 ; 389                                                 ;
+; Total pins                      ; 59 / 224 ( 26 % )                                   ;
+; Total virtual pins              ; 0                                                   ;
+; Total block memory bits         ; 4,096 / 3,153,920 ( < 1 % )                         ;
+; Total DSP Blocks                ; 0 / 66 ( 0 % )                                      ;
+; Total HSSI RX PCSs              ; 0                                                   ;
+; Total HSSI PMA RX Deserializers ; 0                                                   ;
+; Total HSSI TX PCSs              ; 0                                                   ;
+; Total HSSI PMA TX Serializers   ; 0                                                   ;
+; Total PLLs                      ; 0 / 4 ( 0 % )                                       ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                       ;
++---------------------------------+-----------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -62,7 +68,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/15/2025 17:39:41 ;
+; Start date & time ; 05/15/2025 20:32:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; flappy_bird_base    ;
 +-------------------+---------------------+
@@ -73,7 +79,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 224948461338448.174728758108640        ; --            ; --             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 20271605721567.174729795642500         ; --            ; --             ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE0_CV_Default ; Top        ;
@@ -93,8 +99,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4859 MB             ; 00:00:11                           ;
-; Total                ; 00:00:06     ; --                      ; --                  ; 00:00:11                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 5009 MB             ; 00:00:14                           ;
+; Fitter               ; 00:02:34     ; 1.0                     ; 7591 MB             ; 00:18:12                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 5004 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.7                     ; 5368 MB             ; 00:00:07                           ;
+; Total                ; 00:02:48     ; --                      ; --                  ; 00:18:35                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -103,7 +112,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; EN441241         ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; Samuels_Desktop  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; Samuels_Desktop  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; Samuels_Desktop  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; Samuels_Desktop  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -111,6 +123,9 @@ refer to the applicable agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
+quartus_fit --read_settings_files=off --write_settings_files=off flappy_bird_base -c flappy_bird_base
+quartus_asm --read_settings_files=off --write_settings_files=off flappy_bird_base -c flappy_bird_base
+quartus_sta flappy_bird_base -c flappy_bird_base
 
 
 

@@ -57,7 +57,6 @@ ARCHITECTURE top OF flappy_bird_base IS
             text_on : OUT STD_LOGIC
         );
     END COMPONENT;
-
     TYPE INTEGER_VECTOR IS ARRAY (NATURAL RANGE <>) OF INTEGER;
 
     SIGNAL clk_25 : STD_LOGIC;
@@ -89,7 +88,7 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL number : INTEGER := 590;
     SIGNAL hundreds, tens, ones : STD_LOGIC_VECTOR(3 DOWNTO 0);
 BEGIN
-
+    -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
         PORT MAP(
             BCD_digit => hundreds,
@@ -107,15 +106,15 @@ BEGIN
             BCD_digit => ones,
             SevenSeg_out => HEX0
         );
-    PROCESS (number)
-
+    digit_split : PROCESS (number)
         VARIABLE temp : INTEGER;
     BEGIN
         temp := number;
         hundreds <= STD_LOGIC_VECTOR(to_unsigned((temp / 100) MOD 10, 4));
         tens <= STD_LOGIC_VECTOR(to_unsigned((temp / 10) MOD 10, 4));
         ones <= STD_LOGIC_VECTOR(to_unsigned(temp MOD 10, 4));
-    END PROCESS;
+    END PROCESS digit_split;
+
     LEDR(0) <= left_button;
 
     VGA_VS <= vsync_internal;
@@ -162,7 +161,8 @@ BEGIN
             reset => NOT RESET_N,
             flap_button => left_button,
             bird_y => bird_y,
-            bird_velocity => bird_velocity
+            bird_velocity => bird_velocity,
+            bird_altitude => number
         );
 
     background_inst : ENTITY work.background

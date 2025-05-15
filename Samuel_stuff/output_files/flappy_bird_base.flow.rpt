@@ -1,5 +1,5 @@
 Flow report for flappy_bird_base
-Thu May 15 20:35:28 2025
+Thu May 15 22:05:49 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition
 
 
@@ -41,14 +41,14 @@ on the Quartus Prime software download page.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +---------------------------------+-----------------------------------------------------+
-; Flow Status                     ; Successful - Thu May 15 20:35:22 2025               ;
+; Flow Status                     ; Successful - Thu May 15 22:05:42 2025               ;
 ; Quartus Prime Version           ; 24.1std.0 Build 1077 03/04/2025 SC Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                    ;
 ; Top-level Entity Name           ; flappy_bird_base                                    ;
 ; Family                          ; Cyclone V                                           ;
 ; Device                          ; 5CEBA4F23C7                                         ;
 ; Timing Models                   ; Final                                               ;
-; Logic utilization (in ALMs)     ; 787 / 18,480 ( 4 % )                                ;
+; Logic utilization (in ALMs)     ; 3,482 / 18,480 ( 19 % )                             ;
 ; Total registers                 ; 389                                                 ;
 ; Total pins                      ; 59 / 224 ( 26 % )                                   ;
 ; Total virtual pins              ; 0                                                   ;
@@ -68,7 +68,7 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/15/2025 20:32:36 ;
+; Start date & time ; 05/15/2025 22:00:59 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; flappy_bird_base    ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ on the Quartus Prime software download page.
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 20271605721567.174729795642500         ; --            ; --             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 20271605721567.174730325946468         ; --            ; --             ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE0_CV_Default ; Top        ;
@@ -99,11 +99,11 @@ on the Quartus Prime software download page.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 5009 MB             ; 00:00:14                           ;
-; Fitter               ; 00:02:34     ; 1.0                     ; 7591 MB             ; 00:18:12                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 5004 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.7                     ; 5368 MB             ; 00:00:07                           ;
-; Total                ; 00:02:48     ; --                      ; --                  ; 00:18:35                           ;
+; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 5093 MB             ; 00:00:18                           ;
+; Fitter               ; 00:04:26     ; 1.1                     ; 7600 MB             ; 00:29:57                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 5036 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:06     ; 2.8                     ; 5432 MB             ; 00:00:15                           ;
+; Total                ; 00:04:47     ; --                      ; --                  ; 00:30:33                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

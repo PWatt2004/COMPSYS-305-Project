@@ -1,6 +1,6 @@
 Flow report for flappy_bird_base
-Thu May 15 22:05:49 2025
-Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition
+Fri May 16 15:18:06 2025
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
 ---------------------
@@ -21,46 +21,45 @@ Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Standard Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2025  Altera Corporation. All rights reserved.
-Your use of Altera Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Altera Program License 
-Subscription Agreement, the Altera Quartus Prime License Agreement,
-the Altera IP License Agreement, or other applicable license
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
-Altera and sold by Altera or its authorized distributors.  Please
-refer to the Altera Software License Subscription Agreements 
-on the Quartus Prime software download page.
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------------+
-; Flow Summary                                                                          ;
-+---------------------------------+-----------------------------------------------------+
-; Flow Status                     ; Successful - Thu May 15 22:05:42 2025               ;
-; Quartus Prime Version           ; 24.1std.0 Build 1077 03/04/2025 SC Standard Edition ;
-; Revision Name                   ; flappy_bird_base                                    ;
-; Top-level Entity Name           ; flappy_bird_base                                    ;
-; Family                          ; Cyclone V                                           ;
-; Device                          ; 5CEBA4F23C7                                         ;
-; Timing Models                   ; Final                                               ;
-; Logic utilization (in ALMs)     ; 3,482 / 18,480 ( 19 % )                             ;
-; Total registers                 ; 389                                                 ;
-; Total pins                      ; 59 / 224 ( 26 % )                                   ;
-; Total virtual pins              ; 0                                                   ;
-; Total block memory bits         ; 4,096 / 3,153,920 ( < 1 % )                         ;
-; Total DSP Blocks                ; 0 / 66 ( 0 % )                                      ;
-; Total HSSI RX PCSs              ; 0                                                   ;
-; Total HSSI PMA RX Deserializers ; 0                                                   ;
-; Total HSSI TX PCSs              ; 0                                                   ;
-; Total HSSI PMA TX Serializers   ; 0                                                   ;
-; Total PLLs                      ; 0 / 4 ( 0 % )                                       ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                       ;
-+---------------------------------+-----------------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Flow Summary                                                                      ;
++---------------------------------+-------------------------------------------------+
+; Flow Status                     ; Successful - Fri May 16 15:18:00 2025           ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                   ; flappy_bird_base                                ;
+; Top-level Entity Name           ; flappy_bird_base                                ;
+; Family                          ; Cyclone V                                       ;
+; Device                          ; 5CEBA4F23C7                                     ;
+; Timing Models                   ; Final                                           ;
+; Logic utilization (in ALMs)     ; 3,165 / 18,480 ( 17 % )                         ;
+; Total registers                 ; 201                                             ;
+; Total pins                      ; 59 / 224 ( 26 % )                               ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 4,096 / 3,153,920 ( < 1 % )                     ;
+; Total DSP Blocks                ; 0 / 66 ( 0 % )                                  ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0 / 4 ( 0 % )                                   ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
++---------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -68,7 +67,7 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/15/2025 22:00:59 ;
+; Start date & time ; 05/16/2025 15:14:52 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; flappy_bird_base    ;
 +-------------------+---------------------+
@@ -79,7 +78,7 @@ on the Quartus Prime software download page.
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 20271605721567.174730325946468         ; --            ; --             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 224948461105087.174736529228296        ; --            ; --             ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE0_CV_Default ; Top        ;
@@ -99,11 +98,11 @@ on the Quartus Prime software download page.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 5093 MB             ; 00:00:18                           ;
-; Fitter               ; 00:04:26     ; 1.1                     ; 7600 MB             ; 00:29:57                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 5036 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:06     ; 2.8                     ; 5432 MB             ; 00:00:15                           ;
-; Total                ; 00:04:47     ; --                      ; --                  ; 00:30:33                           ;
+; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 5027 MB             ; 00:00:18                           ;
+; Fitter               ; 00:02:40     ; 1.1                     ; 7624 MB             ; 00:21:00                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4859 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:06     ; 3.4                     ; 5306 MB             ; 00:00:14                           ;
+; Total                ; 00:03:11     ; --                      ; --                  ; 00:21:35                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -112,10 +111,10 @@ on the Quartus Prime software download page.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; Samuels_Desktop  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; Samuels_Desktop  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; Samuels_Desktop  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; Samuels_Desktop  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; EN441236         ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; EN441236         ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; EN441236         ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; EN441236         ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

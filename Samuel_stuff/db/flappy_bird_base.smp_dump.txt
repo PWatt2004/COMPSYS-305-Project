@@ -1,4 +1,11 @@
 
+State Machine - |flappy_bird_base|fsm:fsm_inst|current_state
+Name current_state.GAME_OVER current_state.RUNNING current_state.WAIT_START current_state.INIT 
+current_state.INIT 0 0 0 0 
+current_state.WAIT_START 0 0 1 1 
+current_state.RUNNING 0 1 0 1 
+current_state.GAME_OVER 1 0 0 1 
+
 State Machine - |flappy_bird_base|MOUSE:mouse_inst|mouse_state
 Name mouse_state.INPUT_PACKETS mouse_state.WAIT_CMD_ACK mouse_state.WAIT_OUTPUT_READY mouse_state.LOAD_COMMAND2 mouse_state.LOAD_COMMAND mouse_state.INHIBIT_TRANS 
 mouse_state.INHIBIT_TRANS 0 0 0 0 0 0 

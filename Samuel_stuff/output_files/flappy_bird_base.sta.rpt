@@ -1,8 +1,12 @@
 Timing Analyzer report for flappy_bird_base
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Wed May 14 14:13:13 2025
 =======
 Wed May 14 15:49:39 2025
+>>>>>>> Stashed changes
+=======
+Tue May 20 14:52:07 2025
 >>>>>>> Stashed changes
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
@@ -106,14 +110,19 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; Average used               ; 1.98        ;
 =======
 ; Average used               ; 2.72        ;
+>>>>>>> Stashed changes
+=======
+; Average used               ; 3.07        ;
 >>>>>>> Stashed changes
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ;     Processor 2            ;   8.5%      ;
 ;     Processor 3            ;   8.4%      ;
@@ -147,6 +156,23 @@ refer to the applicable agreement for further details.
 ;     Processor 15           ;  11.1%      ;
 ;     Processor 16           ;  11.1%      ;
 >>>>>>> Stashed changes
+=======
+;     Processor 2            ;  15.7%      ;
+;     Processor 3            ;  15.5%      ;
+;     Processor 4            ;  15.4%      ;
+;     Processor 5            ;  13.5%      ;
+;     Processor 6            ;  13.4%      ;
+;     Processor 7            ;  13.4%      ;
+;     Processor 8            ;  13.4%      ;
+;     Processor 9            ;  13.4%      ;
+;     Processor 10           ;  13.4%      ;
+;     Processor 11           ;  13.4%      ;
+;     Processor 12           ;  13.4%      ;
+;     Processor 13           ;  13.4%      ;
+;     Processor 14           ;  13.4%      ;
+;     Processor 15           ;  13.4%      ;
+;     Processor 16           ;  13.4%      ;
+>>>>>>> Stashed changes
 +----------------------------+-------------+
 
 
@@ -168,6 +194,7 @@ refer to the applicable agreement for further details.
 ; Fmax       ; Restricted Fmax ; Clock Name                        ; Note ;
 +------------+-----------------+-----------------------------------+------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; 54.78 MHz  ; 54.78 MHz       ; VGA_SYNC:vga_inst|vert_sync_out   ;      ;
 ; 107.15 MHz ; 107.15 MHz      ; clk_25                            ;      ;
 ; 246.31 MHz ; 246.31 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;      ;
@@ -177,6 +204,12 @@ refer to the applicable agreement for further details.
 ; 52.47 MHz  ; 52.47 MHz       ; VGA_SYNC:vga_inst|vert_sync_out   ;      ;
 ; 260.01 MHz ; 260.01 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;      ;
 ; 343.88 MHz ; 343.88 MHz      ; CLOCK_50                          ;      ;
+>>>>>>> Stashed changes
+=======
+; 63.36 MHz  ; 63.36 MHz       ; clk_25                            ;      ;
+; 161.13 MHz ; 161.13 MHz      ; VGA_SYNC:vga_inst|vert_sync_out   ;      ;
+; 240.62 MHz ; 240.62 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;      ;
+; 242.9 MHz  ; 242.9 MHz       ; CLOCK_50                          ;      ;
 >>>>>>> Stashed changes
 +------------+-----------------+-----------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -194,6 +227,7 @@ HTML report is unavailable in plain text report export.
 ; Clock                             ; Slack   ; End Point TNS ;
 +-----------------------------------+---------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -17.255 ; -1276.350     ;
 ; clk_25                            ; -8.490  ; -271.293      ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.060  ; -88.968       ;
@@ -204,6 +238,12 @@ HTML report is unavailable in plain text report export.
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.738  ; -116.106      ;
 ; CLOCK_50                          ; -1.908  ; -3.214        ;
 >>>>>>> Stashed changes
+=======
+; clk_25                            ; -14.782 ; -1439.606     ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -5.206  ; -963.482      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.156  ; -101.962      ;
+; CLOCK_50                          ; -3.117  ; -123.133      ;
+>>>>>>> Stashed changes
 +-----------------------------------+---------+---------------+
 
 
@@ -212,6 +252,7 @@ HTML report is unavailable in plain text report export.
 +-----------------------------------+-------+---------------+
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ; clk_25                            ; 0.470 ; 0.000         ;
 ; CLOCK_50                          ; 0.596 ; 0.000         ;
@@ -223,6 +264,12 @@ HTML report is unavailable in plain text report export.
 ; CLOCK_50                          ; 0.583 ; 0.000         ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.752 ; 0.000         ;
 >>>>>>> Stashed changes
+=======
+; VGA_SYNC:vga_inst|vert_sync_out   ; 0.331 ; 0.000         ;
+; clk_25                            ; 0.416 ; 0.000         ;
+; CLOCK_50                          ; 0.442 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.698 ; 0.000         ;
+>>>>>>> Stashed changes
 +-----------------------------------+-------+---------------+
 
 
@@ -232,9 +279,13 @@ HTML report is unavailable in plain text report export.
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -2.153 ; -34.353       ;
 =======
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -2.104 ; -33.572       ;
+>>>>>>> Stashed changes
+=======
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -2.814 ; -41.214       ;
 >>>>>>> Stashed changes
 +-----------------------------------+--------+---------------+
 
@@ -245,9 +296,13 @@ HTML report is unavailable in plain text report export.
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 1.197 ; 0.000         ;
 =======
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 1.123 ; 0.000         ;
+>>>>>>> Stashed changes
+=======
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 1.541 ; 0.000         ;
 >>>>>>> Stashed changes
 +-----------------------------------+-------+---------------+
 
@@ -258,6 +313,7 @@ HTML report is unavailable in plain text report export.
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -2.225 ; -159.523      ;
 ; clk_25                            ; -0.538 ; -76.029       ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -29.092       ;
@@ -267,6 +323,12 @@ HTML report is unavailable in plain text report export.
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -2.225 ; -157.321      ;
 ; CLOCK_50                          ; -0.595 ; -3.245        ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -28.255       ;
+>>>>>>> Stashed changes
+=======
+; clk_25                            ; -2.636 ; -322.699      ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -0.538 ; -218.560      ;
+; CLOCK_50                          ; -0.538 ; -32.502       ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -28.034       ;
 >>>>>>> Stashed changes
 +-----------------------------------+--------+---------------+
 
@@ -283,6 +345,7 @@ No synchronizer chains to report.
 ; Fmax       ; Restricted Fmax ; Clock Name                        ; Note ;
 +------------+-----------------+-----------------------------------+------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; 52.69 MHz  ; 52.69 MHz       ; VGA_SYNC:vga_inst|vert_sync_out   ;      ;
 ; 104.14 MHz ; 104.14 MHz      ; clk_25                            ;      ;
 ; 251.95 MHz ; 251.95 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;      ;
@@ -292,6 +355,12 @@ No synchronizer chains to report.
 ; 50.16 MHz  ; 50.16 MHz       ; VGA_SYNC:vga_inst|vert_sync_out   ;      ;
 ; 256.21 MHz ; 256.21 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;      ;
 ; 353.11 MHz ; 353.11 MHz      ; CLOCK_50                          ;      ;
+>>>>>>> Stashed changes
+=======
+; 61.53 MHz  ; 61.53 MHz       ; clk_25                            ;      ;
+; 156.47 MHz ; 156.47 MHz      ; VGA_SYNC:vga_inst|vert_sync_out   ;      ;
+; 243.66 MHz ; 243.66 MHz      ; CLOCK_50                          ;      ;
+; 248.76 MHz ; 248.76 MHz      ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ;      ;
 >>>>>>> Stashed changes
 +------------+-----------------+-----------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -303,6 +372,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                             ; Slack   ; End Point TNS ;
 +-----------------------------------+---------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -17.980 ; -1295.722     ;
 ; clk_25                            ; -8.602  ; -266.593      ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -2.998  ; -81.796       ;
@@ -313,6 +383,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.558  ; -108.880      ;
 ; CLOCK_50                          ; -1.832  ; -3.160        ;
 >>>>>>> Stashed changes
+=======
+; clk_25                            ; -15.252 ; -1416.906     ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -5.391  ; -960.379      ;
+; CLOCK_50                          ; -3.104  ; -123.469      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.020  ; -94.823       ;
+>>>>>>> Stashed changes
 +-----------------------------------+---------+---------------+
 
 
@@ -321,6 +397,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------+-------+---------------+
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ; clk_25                            ; 0.474 ; 0.000         ;
 ; CLOCK_50                          ; 0.586 ; 0.000         ;
@@ -332,6 +409,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; CLOCK_50                          ; 0.571 ; 0.000         ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.737 ; 0.000         ;
 >>>>>>> Stashed changes
+=======
+; VGA_SYNC:vga_inst|vert_sync_out   ; 0.343 ; 0.000         ;
+; clk_25                            ; 0.424 ; 0.000         ;
+; CLOCK_50                          ; 0.447 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.722 ; 0.000         ;
+>>>>>>> Stashed changes
 +-----------------------------------+-------+---------------+
 
 
@@ -341,9 +424,13 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.943 ; -30.978       ;
 =======
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.925 ; -30.693       ;
+>>>>>>> Stashed changes
+=======
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -2.601 ; -37.773       ;
 >>>>>>> Stashed changes
 +-----------------------------------+--------+---------------+
 
@@ -354,9 +441,13 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 1.099 ; 0.000         ;
 =======
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 1.049 ; 0.000         ;
+>>>>>>> Stashed changes
+=======
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 1.437 ; 0.000         ;
 >>>>>>> Stashed changes
 +-----------------------------------+-------+---------------+
 
@@ -367,6 +458,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -2.225 ; -156.427      ;
 ; CLOCK_50                          ; -0.552 ; -2.141        ;
 ; clk_25                            ; -0.538 ; -73.978       ;
@@ -376,6 +468,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -2.225 ; -154.564      ;
 ; CLOCK_50                          ; -0.630 ; -3.356        ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -27.530       ;
+>>>>>>> Stashed changes
+=======
+; clk_25                            ; -2.636 ; -320.274      ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -0.538 ; -214.776      ;
+; CLOCK_50                          ; -0.538 ; -33.521       ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.538 ; -27.760       ;
 >>>>>>> Stashed changes
 +-----------------------------------+--------+---------------+
 
@@ -404,6 +502,7 @@ No synchronizer chains to report.
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -8.206 ; -597.656      ;
 ; clk_25                            ; -4.209 ; -118.610      ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.281 ; -36.762       ;
@@ -421,6 +520,25 @@ No synchronizer chains to report.
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.303  ; 0.000         ;
 ; VGA_SYNC:vga_inst|vert_sync_out   ; 0.435  ; 0.000         ;
 +-----------------------------------+--------+---------------+
+=======
+; clk_25                            ; -6.844 ; -681.854      ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -2.357 ; -427.792      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.526 ; -43.273       ;
+; CLOCK_50                          ; -1.111 ; -43.157       ;
++-----------------------------------+--------+---------------+
+
+
++-----------------------------------------------------------+
+; Fast 1100mV 85C Model Hold Summary                        ;
++-----------------------------------+-------+---------------+
+; Clock                             ; Slack ; End Point TNS ;
++-----------------------------------+-------+---------------+
+; clk_25                            ; 0.067 ; 0.000         ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; 0.089 ; 0.000         ;
+; CLOCK_50                          ; 0.199 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.266 ; 0.000         ;
++-----------------------------------+-------+---------------+
+>>>>>>> Stashed changes
 
 
 =======
@@ -438,9 +556,13 @@ No synchronizer chains to report.
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.911 ; -14.528       ;
 =======
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.894 ; -14.258       ;
+>>>>>>> Stashed changes
+=======
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.375 ; -19.923       ;
 >>>>>>> Stashed changes
 +-----------------------------------+--------+---------------+
 
@@ -451,9 +573,13 @@ No synchronizer chains to report.
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.533 ; 0.000         ;
 =======
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.549 ; 0.000         ;
+>>>>>>> Stashed changes
+=======
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.760 ; 0.000         ;
 >>>>>>> Stashed changes
 +-----------------------------------+-------+---------------+
 
@@ -464,6 +590,7 @@ No synchronizer chains to report.
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -1.702 ; -22.154       ;
 ; CLOCK_50                          ; -0.468 ; -1.122        ;
 ; clk_25                            ; -0.103 ; -2.358        ;
@@ -473,6 +600,12 @@ No synchronizer chains to report.
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -1.702 ; -21.311       ;
 ; CLOCK_50                          ; -0.538 ; -1.982        ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.075  ; 0.000         ;
+>>>>>>> Stashed changes
+=======
+; clk_25                            ; -2.174 ; -70.611       ;
+; CLOCK_50                          ; -0.412 ; -4.286        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -0.135 ; -5.086        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.097  ; 0.000         ;
 >>>>>>> Stashed changes
 +-----------------------------------+--------+---------------+
 
@@ -501,6 +634,7 @@ No synchronizer chains to report.
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -7.606 ; -543.984      ;
 ; clk_25                            ; -3.699 ; -102.186      ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.187 ; -33.067       ;
@@ -518,6 +652,25 @@ No synchronizer chains to report.
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.309  ; 0.000         ;
 ; VGA_SYNC:vga_inst|vert_sync_out   ; 0.414  ; 0.000         ;
 +-----------------------------------+--------+---------------+
+=======
+; clk_25                            ; -6.250 ; -597.246      ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -2.109 ; -374.987      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.355 ; -38.502       ;
+; CLOCK_50                          ; -0.960 ; -37.431       ;
++-----------------------------------+--------+---------------+
+
+
++-----------------------------------------------------------+
+; Fast 1100mV 0C Model Hold Summary                         ;
++-----------------------------------+-------+---------------+
+; Clock                             ; Slack ; End Point TNS ;
++-----------------------------------+-------+---------------+
+; clk_25                            ; 0.025 ; 0.000         ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; 0.077 ; 0.000         ;
+; CLOCK_50                          ; 0.188 ; 0.000         ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.265 ; 0.000         ;
++-----------------------------------+-------+---------------+
+>>>>>>> Stashed changes
 
 
 =======
@@ -535,9 +688,13 @@ No synchronizer chains to report.
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.804 ; -12.830       ;
 =======
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -0.775 ; -12.368       ;
+>>>>>>> Stashed changes
+=======
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -1.219 ; -17.648       ;
 >>>>>>> Stashed changes
 +-----------------------------------+--------+---------------+
 
@@ -548,9 +705,13 @@ No synchronizer chains to report.
 ; Clock                             ; Slack ; End Point TNS ;
 +-----------------------------------+-------+---------------+
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.479 ; 0.000         ;
 =======
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.487 ; 0.000         ;
+>>>>>>> Stashed changes
+=======
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.689 ; 0.000         ;
 >>>>>>> Stashed changes
 +-----------------------------------+-------+---------------+
 
@@ -560,6 +721,7 @@ No synchronizer chains to report.
 +-----------------------------------+--------+---------------+
 ; Clock                             ; Slack  ; End Point TNS ;
 +-----------------------------------+--------+---------------+
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ; VGA_SYNC:vga_inst|vert_sync_out   ; -1.702 ; -15.965       ;
 ; CLOCK_50                          ; -0.459 ; -1.102        ;
@@ -571,6 +733,12 @@ No synchronizer chains to report.
 ; CLOCK_50                          ; -0.514 ; -1.913        ;
 ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.069  ; 0.000         ;
 >>>>>>> Stashed changes
+=======
+; clk_25                            ; -2.174 ; -54.759       ;
+; CLOCK_50                          ; -0.412 ; -4.345        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; -0.053 ; -0.780        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0.099  ; 0.000         ;
+>>>>>>> Stashed changes
 +-----------------------------------+--------+---------------+
 
 
@@ -580,6 +748,7 @@ No synchronizer chains to report.
 No synchronizer chains to report.
 
 
+<<<<<<< Updated upstream
 +----------------------------------------------------------------------------------------------------+
 ; Multicorner Timing Analysis Summary                                                                ;
 +------------------------------------+-----------+--------+----------+---------+---------------------+
@@ -609,6 +778,24 @@ No synchronizer chains to report.
 ;  clk_25                            ; -525.835  ; -0.093 ; N/A      ; N/A     ; -133.389            ;
 >>>>>>> Stashed changes
 +------------------------------------+-----------+--------+----------+---------+---------------------+
+=======
++---------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                               ;
++------------------------------------+-----------+-------+----------+---------+---------------------+
+; Clock                              ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------------------------+-----------+-------+----------+---------+---------------------+
+; Worst-case Slack                   ; -15.252   ; 0.025 ; -2.814   ; 0.689   ; -2.636              ;
+;  CLOCK_50                          ; -3.117    ; 0.188 ; N/A      ; N/A     ; -0.538              ;
+;  MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -3.156    ; 0.265 ; -2.814   ; 0.689   ; -0.538              ;
+;  VGA_SYNC:vga_inst|vert_sync_out   ; -5.391    ; 0.077 ; N/A      ; N/A     ; -0.538              ;
+;  clk_25                            ; -15.252   ; 0.025 ; N/A      ; N/A     ; -2.636              ;
+; Design-wide TNS                    ; -2628.183 ; 0.0   ; -41.214  ; 0.0     ; -601.795            ;
+;  CLOCK_50                          ; -123.469  ; 0.000 ; N/A      ; N/A     ; -33.521             ;
+;  MOUSE:mouse_inst|MOUSE_CLK_FILTER ; -101.962  ; 0.000 ; -41.214  ; 0.000   ; -28.034             ;
+;  VGA_SYNC:vga_inst|vert_sync_out   ; -963.482  ; 0.000 ; N/A      ; N/A     ; -218.560            ;
+;  clk_25                            ; -1439.606 ; 0.000 ; N/A      ; N/A     ; -322.699            ;
++------------------------------------+-----------+-------+----------+---------+---------------------+
+>>>>>>> Stashed changes
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -640,10 +827,27 @@ No synchronizer chains to report.
 +----------+--------------+-----------------+-----------------+
 ; Pin      ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +----------+--------------+-----------------+-----------------+
+<<<<<<< Updated upstream
 ; PS2_CLK  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; PS2_DAT  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; CLOCK_50 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; RESET_N  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+=======
+; SW[4]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[5]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[6]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[7]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[8]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[9]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; PS2_CLK  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; PS2_DAT  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; RESET_N  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; CLOCK_50 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[2]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[3]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[0]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[1]    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+>>>>>>> Stashed changes
 +----------+--------------+-----------------+-----------------+
 
 
@@ -744,6 +948,7 @@ No synchronizer chains to report.
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 +---------------------------------------------------------------------------------------------------------------------+
 ; Setup Transfers                                                                                                     ;
 +-----------------------------------+-----------------------------------+------------+----------+----------+----------+
@@ -808,6 +1013,41 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; VGA_SYNC:vga_inst|vert_sync_out   ; VGA_SYNC:vga_inst|vert_sync_out   ; 1389982360   ; 0        ; 0        ; 0        ;
 +-----------------------------------+-----------------------------------+--------------+----------+----------+----------+
 >>>>>>> Stashed changes
+=======
++-------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                   ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+; From Clock                        ; To Clock                          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+; clk_25                            ; clk_25                            ; 30374093 ; 0        ; 0        ; 0        ;
+; CLOCK_50                          ; clk_25                            ; 6        ; 0        ; 0        ; 0        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; clk_25                            ; 1        ; 5        ; 0        ; 0        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; clk_25                            ; 113725   ; 0        ; 0        ; 0        ;
+; CLOCK_50                          ; CLOCK_50                          ; 1696     ; 0        ; 0        ; 0        ;
+; clk_25                            ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0        ; 0        ; 35       ; 0        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0        ; 0        ; 0        ; 193      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; VGA_SYNC:vga_inst|vert_sync_out   ; 0        ; 34       ; 0        ; 0        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; VGA_SYNC:vga_inst|vert_sync_out   ; 13734    ; 0        ; 0        ; 0        ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                    ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+; From Clock                        ; To Clock                          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+; clk_25                            ; clk_25                            ; 30374093 ; 0        ; 0        ; 0        ;
+; CLOCK_50                          ; clk_25                            ; 6        ; 0        ; 0        ; 0        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; clk_25                            ; 1        ; 5        ; 0        ; 0        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; clk_25                            ; 113725   ; 0        ; 0        ; 0        ;
+; CLOCK_50                          ; CLOCK_50                          ; 1696     ; 0        ; 0        ; 0        ;
+; clk_25                            ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0        ; 0        ; 35       ; 0        ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; 0        ; 0        ; 0        ; 193      ;
+; MOUSE:mouse_inst|MOUSE_CLK_FILTER ; VGA_SYNC:vga_inst|vert_sync_out   ; 0        ; 34       ; 0        ; 0        ;
+; VGA_SYNC:vga_inst|vert_sync_out   ; VGA_SYNC:vga_inst|vert_sync_out   ; 13734    ; 0        ; 0        ; 0        ;
++-----------------------------------+-----------------------------------+----------+----------+----------+----------+
+>>>>>>> Stashed changes
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -850,6 +1090,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
+<<<<<<< Updated upstream
 ; Unconstrained Input Ports       ; 3     ; 3    ;
 ; Unconstrained Input Port Paths  ; 205   ; 205  ;
 <<<<<<< Updated upstream
@@ -858,6 +1099,12 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 =======
 ; Unconstrained Output Ports      ; 7     ; 7    ;
 ; Unconstrained Output Port Paths ; 10    ; 10   ;
+>>>>>>> Stashed changes
+=======
+; Unconstrained Input Ports       ; 7     ; 7    ;
+; Unconstrained Input Port Paths  ; 327   ; 327  ;
+; Unconstrained Output Ports      ; 29    ; 29   ;
+; Unconstrained Output Port Paths ; 683   ; 683  ;
 >>>>>>> Stashed changes
 +---------------------------------+-------+------+
 
@@ -882,6 +1129,13 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; PS2_CLK    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; PS2_DAT    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; RESET_N    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+<<<<<<< Updated upstream
+=======
+; SW[0]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[1]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[3]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+>>>>>>> Stashed changes
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -907,6 +1161,13 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; PS2_CLK    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; PS2_DAT    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; RESET_N    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+<<<<<<< Updated upstream
+=======
+; SW[0]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[1]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[3]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+>>>>>>> Stashed changes
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -931,9 +1192,13 @@ Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     Info: Processing started: Wed May 14 14:13:09 2025
 =======
     Info: Processing started: Wed May 14 15:49:34 2025
+>>>>>>> Stashed changes
+=======
+    Info: Processing started: Tue May 20 14:51:59 2025
 >>>>>>> Stashed changes
 Info: Command: quartus_sta flappy_bird_base -c flappy_bird_base
 Info: qsta_default_script.tcl version: #1
@@ -1186,6 +1451,7 @@ Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Info (332146): Worst-case setup slack is -17.255
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1246,12 +1512,46 @@ Info (332146): Worst-case minimum pulse width slack is -2.636
     Info (332119):    -0.595              -3.245 CLOCK_50 
     Info (332119):    -0.538             -28.255 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 >>>>>>> Stashed changes
+=======
+Info (332146): Worst-case setup slack is -14.782
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -14.782           -1439.606 clk_25 
+    Info (332119):    -5.206            -963.482 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -3.156            -101.962 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -3.117            -123.133 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.331
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.331               0.000 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.416               0.000 clk_25 
+    Info (332119):     0.442               0.000 CLOCK_50 
+    Info (332119):     0.698               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -2.814
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.814             -41.214 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 1.541
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.541               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case minimum pulse width slack is -2.636
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.636            -322.699 clk_25 
+    Info (332119):    -0.538            -218.560 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -0.538             -32.502 CLOCK_50 
+    Info (332119):    -0.538             -28.034 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332114): Report Metastability: Found 7 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+>>>>>>> Stashed changes
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 Info (332146): Worst-case setup slack is -17.980
     Info (332119):     Slack       End Point TNS Clock 
@@ -1313,12 +1613,46 @@ Info (332146): Worst-case minimum pulse width slack is -2.636
     Info (332119):    -0.630              -3.356 CLOCK_50 
     Info (332119):    -0.538             -27.530 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 >>>>>>> Stashed changes
+=======
+Info (332146): Worst-case setup slack is -15.252
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -15.252           -1416.906 clk_25 
+    Info (332119):    -5.391            -960.379 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -3.104            -123.469 CLOCK_50 
+    Info (332119):    -3.020             -94.823 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case hold slack is 0.343
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.343               0.000 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.424               0.000 clk_25 
+    Info (332119):     0.447               0.000 CLOCK_50 
+    Info (332119):     0.722               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -2.601
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.601             -37.773 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 1.437
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.437               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case minimum pulse width slack is -2.636
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.636            -320.274 clk_25 
+    Info (332119):    -0.538            -214.776 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -0.538             -33.521 CLOCK_50 
+    Info (332119):    -0.538             -27.760 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332114): Report Metastability: Found 7 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+>>>>>>> Stashed changes
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 Info (332146): Worst-case setup slack is -8.206
     Info (332119):     Slack       End Point TNS Clock 
@@ -1380,10 +1714,44 @@ Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):    -0.538              -1.982 CLOCK_50 
     Info (332119):     0.075               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
 >>>>>>> Stashed changes
+=======
+Info (332146): Worst-case setup slack is -6.844
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -6.844            -681.854 clk_25 
+    Info (332119):    -2.357            -427.792 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -1.526             -43.273 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -1.111             -43.157 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.067
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.067               0.000 clk_25 
+    Info (332119):     0.089               0.000 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.199               0.000 CLOCK_50 
+    Info (332119):     0.266               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -1.375
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.375             -19.923 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 0.760
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.760               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case minimum pulse width slack is -2.174
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.174             -70.611 clk_25 
+    Info (332119):    -0.412              -4.286 CLOCK_50 
+    Info (332119):    -0.135              -5.086 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.097               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332114): Report Metastability: Found 7 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+>>>>>>> Stashed changes
 Info: Analyzing Fast 1100mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 Info (332146): Worst-case setup slack is -7.606
     Info (332119):     Slack       End Point TNS Clock 
@@ -1458,6 +1826,46 @@ Info: Quartus Prime Timing Analyzer was successful. 0 errors, 237 warnings
     Info: Processing ended: Wed May 14 15:49:39 2025
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:10
+>>>>>>> Stashed changes
+=======
+Info (332146): Worst-case setup slack is -6.250
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -6.250            -597.246 clk_25 
+    Info (332119):    -2.109            -374.987 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):    -1.355             -38.502 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+    Info (332119):    -0.960             -37.431 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.025
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.025               0.000 clk_25 
+    Info (332119):     0.077               0.000 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.188               0.000 CLOCK_50 
+    Info (332119):     0.265               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case recovery slack is -1.219
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.219             -17.648 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case removal slack is 0.689
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.689               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332146): Worst-case minimum pulse width slack is -2.174
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.174             -54.759 clk_25 
+    Info (332119):    -0.412              -4.345 CLOCK_50 
+    Info (332119):    -0.053              -0.780 VGA_SYNC:vga_inst|vert_sync_out 
+    Info (332119):     0.099               0.000 MOUSE:mouse_inst|MOUSE_CLK_FILTER 
+Info (332114): Report Metastability: Found 7 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 237 warnings
+    Info: Peak virtual memory: 5342 megabytes
+    Info: Processing ended: Tue May 20 14:52:07 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:21
 >>>>>>> Stashed changes
 
 

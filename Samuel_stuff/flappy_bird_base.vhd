@@ -87,6 +87,9 @@ ARCHITECTURE top OF flappy_bird_base IS
 
     SIGNAL number : INTEGER := 590;
     SIGNAL hundreds, tens, ones : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL game_active : STD_LOGIC;
+    SIGNAL in_title : STD_LOGIC;
+    SIGNAL in_lose : STD_LOGIC;
 BEGIN
     -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
@@ -162,7 +165,10 @@ BEGIN
             flap_button => left_button,
             bird_y => bird_y,
             bird_velocity => bird_velocity,
-            bird_altitude => number
+            bird_altitude => number,
+            game_active => game_active
+
+
         );
 
     background_inst : ENTITY work.background
@@ -183,7 +189,8 @@ BEGIN
             bird_y => bird_y,
             pipe_hit => pipe_hit,
             pipe_x_out => pipe_x_out,
-            pipe_y_out => pipe_y_out
+            pipe_y_out => pipe_y_out,
+            game_active => game_active
         );
 
     display_text_inst : ENTITY work.display_text

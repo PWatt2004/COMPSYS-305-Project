@@ -4,20 +4,21 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY pipe_controller IS
     PORT (
-        clk         : IN  STD_LOGIC;
-        reset       : IN  STD_LOGIC;
-        bird_x      : IN  INTEGER RANGE 0 TO 639;
-        bird_y      : IN  INTEGER RANGE 0 TO 479;
-        pipe_hit    : OUT STD_LOGIC;
-        pipe_x_out  : OUT STD_LOGIC_VECTOR(39 DOWNTO 0);
-        pipe_y_out  : OUT STD_LOGIC_VECTOR(39 DOWNTO 0)
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        bird_x : IN INTEGER RANGE 0 TO 639;
+        bird_y : IN INTEGER RANGE 0 TO 479;
+        pipe_hit : OUT STD_LOGIC;
+        pipe_x_out : OUT STD_LOGIC_VECTOR(39 DOWNTO 0);
+        pipe_y_out : OUT STD_LOGIC_VECTOR(39 DOWNTO 0);
+        game_active : IN STD_LOGIC
     );
 END pipe_controller;
 
 ARCHITECTURE behavior OF pipe_controller IS
 
-    CONSTANT pipe_gap     : INTEGER := 100;
-    CONSTANT pipe_width   : INTEGER := 20;
+    CONSTANT pipe_gap : INTEGER := 100;
+    CONSTANT pipe_width : INTEGER := 20;
     CONSTANT pipe_spacing : INTEGER := 160;
     CONSTANT screen_width : INTEGER := 640;
 
@@ -34,58 +35,60 @@ ARCHITECTURE behavior OF pipe_controller IS
 
 BEGIN
 
-    process(clk)
-    begin
-        if rising_edge(clk) then
-            if reset = '1' then
+    PROCESS (clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF reset = '1' THEN
                 -- Reset all pipes to spaced starting positions
-                for i in 0 to 3 loop
+                FOR i IN 0 TO 3 LOOP
                     pipe_x(i) <= screen_width + i * pipe_spacing;
-                    pipe_y(i) <= 80 + i * 40; -- basic vertical variation
-                end loop;
+                    pipe_y(i) <= 80 + i * 40;
+                END LOOP;
                 lfsr <= x"ACE1";
-            else
+
+            ELSIF game_active = '1' THEN
+                -- Only update when gameplay is active
+
                 -- Update LFSR
-                lfsr <= lfsr(14 downto 0) & (lfsr(15) xor lfsr(13) xor lfsr(12) xor lfsr(10));
+                lfsr <= lfsr(14 DOWNTO 0) & (lfsr(15) XOR lfsr(13) XOR lfsr(12) XOR lfsr(10));
 
                 -- Move and respawn pipes
-                for i in 0 to 3 loop
+                FOR i IN 0 TO 3 LOOP
                     pipe_x(i) <= pipe_x(i) - 1;
 
-                    if pipe_x(i) < -pipe_width then
+                    IF pipe_x(i) <- pipe_width THEN
                         pipe_x(i) <= pipe_x(i) + 4 * pipe_spacing;
+                        pipe_y(i) <= to_integer(unsigned(lfsr(7 DOWNTO 0))) MOD (480 - pipe_gap - 40) + 20;
+                    END IF;
+                END LOOP;
 
-                        -- Generate random height using LFSR, limit range between 20 and (480 - pipe_gap - 20)
-                        pipe_y(i) <= to_integer(unsigned(lfsr(7 downto 0))) mod (480 - pipe_gap - 40) + 20;
-                    end if;
-                end loop;
-            end if;
-        end if;
-    end process;
+            END IF;
+        END IF;
+    END PROCESS;
 
     -- Collision detection
-    process(bird_x, bird_y, pipe_x, pipe_y)
-    variable hit : STD_LOGIC := '0';
-    begin
-        for i in 0 to 3 loop
-            if bird_x + 6 >= pipe_x(i) and bird_x - 6 <= pipe_x(i) + pipe_width then
-                if bird_y < pipe_y(i) or bird_y > pipe_y(i) + pipe_gap then
+    PROCESS (bird_x, bird_y, pipe_x, pipe_y)
+        VARIABLE hit : STD_LOGIC := '0';
+    BEGIN
+        FOR i IN 0 TO 3 LOOP
+            IF bird_x + 6 >= pipe_x(i) AND bird_x - 6 <= pipe_x(i) + pipe_width THEN
+                IF bird_y < pipe_y(i) OR bird_y > pipe_y(i) + pipe_gap THEN
                     hit := '1';
-                end if;
-            end if;
-        end loop;
+                END IF;
+            END IF;
+        END LOOP;
         pipe_hit <= hit;
-    end process;
+    END PROCESS;
 
     -- Output encoded pipe positions
-    pipe_x_out(9 downto 0)     <= std_logic_vector(to_unsigned(pipe_x(0), 10));
-    pipe_x_out(19 downto 10)   <= std_logic_vector(to_unsigned(pipe_x(1), 10));
-    pipe_x_out(29 downto 20)   <= std_logic_vector(to_unsigned(pipe_x(2), 10));
-    pipe_x_out(39 downto 30)   <= std_logic_vector(to_unsigned(pipe_x(3), 10));
+    pipe_x_out(9 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(0), 10));
+    pipe_x_out(19 DOWNTO 10) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(1), 10));
+    pipe_x_out(29 DOWNTO 20) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(2), 10));
+    pipe_x_out(39 DOWNTO 30) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(3), 10));
 
-    pipe_y_out(9 downto 0)     <= std_logic_vector(to_unsigned(pipe_y(0), 10));
-    pipe_y_out(19 downto 10)   <= std_logic_vector(to_unsigned(pipe_y(1), 10));
-    pipe_y_out(29 downto 20)   <= std_logic_vector(to_unsigned(pipe_y(2), 10));
-    pipe_y_out(39 downto 30)   <= std_logic_vector(to_unsigned(pipe_y(3), 10));
+    pipe_y_out(9 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(0), 10));
+    pipe_y_out(19 DOWNTO 10) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(1), 10));
+    pipe_y_out(29 DOWNTO 20) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(2), 10));
+    pipe_y_out(39 DOWNTO 30) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(3), 10));
 
 END behavior;

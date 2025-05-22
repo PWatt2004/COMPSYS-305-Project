@@ -4,18 +4,19 @@ USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY bird_controller IS
     PORT (
-        clk           : IN  STD_LOGIC;
-        reset         : IN  STD_LOGIC;
-        flap_button   : IN  STD_LOGIC;
-        bird_y        : OUT INTEGER;
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        flap_button : IN STD_LOGIC;
+        bird_y : OUT INTEGER;
         bird_velocity : OUT INTEGER;
-        bird_altitude : OUT INTEGER
+        bird_altitude : OUT INTEGER;
+        game_active : IN STD_LOGIC
     );
 END bird_controller;
 
 ARCHITECTURE behavior OF bird_controller IS
     SIGNAL velocity : INTEGER := 0;
-    SIGNAL y_pos    : INTEGER := 240;
+    SIGNAL y_pos : INTEGER := 240;
     SIGNAL alt_temp : INTEGER;
 BEGIN
     PROCESS (clk)
@@ -24,9 +25,11 @@ BEGIN
             IF reset = '1' THEN
                 y_pos <= 240;
                 velocity <= 0;
-            ELSE
+
+            ELSIF game_active = '1' THEN
+                -- Only move if gameplay is active
                 IF flap_button = '1' THEN
-                    velocity <= -6;
+                    velocity <= - 6;
                 ELSE
                     velocity <= velocity + 1;
                 END IF;
@@ -40,10 +43,11 @@ BEGIN
                 END IF;
             END IF;
         END IF;
+
     END PROCESS;
 
-    alt_temp      <= 480 - y_pos;
-    bird_y        <= y_pos;
+    alt_temp <= 480 - y_pos;
+    bird_y <= y_pos;
     bird_altitude <= alt_temp;
     bird_velocity <= velocity;
 END behavior;

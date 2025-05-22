@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_bird_base
-Thu May 22 15:45:08 2025
+Thu May 22 16:46:39 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -14,27 +14,30 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |flappy_bird_base|MOUSE:mouse_inst|mouse_state
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
- 16. Parameter Settings for User Entity Instance: display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component
- 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
- 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
- 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
- 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 22. altsyncram Parameter Settings by Entity Instance
- 23. Port Connectivity Checks: "display_text:display_text_inst"
- 24. Port Connectivity Checks: "pipe_controller:pipe_ctrl_inst"
- 25. Port Connectivity Checks: "bird_controller:bird_inst"
- 26. Port Connectivity Checks: "MOUSE:mouse_inst"
- 27. Post-Synthesis Netlist Statistics for Top Partition
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
+  9. State Machine - |flappy_bird_base|game_fsm:fsm_inst|current_state
+ 10. State Machine - |flappy_bird_base|MOUSE:mouse_inst|mouse_state
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
+ 17. Parameter Settings for User Entity Instance: display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component
+ 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 23. Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0
+ 24. altsyncram Parameter Settings by Entity Instance
+ 25. Port Connectivity Checks: "game_fsm:fsm_inst"
+ 26. Port Connectivity Checks: "display_text:display_text_inst"
+ 27. Port Connectivity Checks: "pipe_controller:pipe_ctrl_inst"
+ 28. Port Connectivity Checks: "bird_controller:bird_inst"
+ 29. Port Connectivity Checks: "MOUSE:mouse_inst"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
 
 
 
@@ -60,13 +63,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 22 15:45:08 2025           ;
+; Analysis & Synthesis Status     ; Successful - Thu May 22 16:46:39 2025           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                ;
 ; Top-level Entity Name           ; flappy_bird_base                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 129                                             ;
+; Total registers                 ; 437                                             ;
 ; Total pins                      ; 59                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 4,096                                           ;
@@ -184,7 +187,10 @@ refer to the applicable agreement for further details.
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
-;     Processors 6-16        ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -193,6 +199,8 @@ refer to the applicable agreement for further details.
 +-----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path  ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
 +-----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; menu_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/menu_controller.vhd               ;         ;
+; game_fsm.vhd                      ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/game_fsm.vhd                      ;         ;
 ; BCD_to_SevenSeg.vhd               ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/BCD_to_SevenSeg.vhd               ;         ;
 ; pipe_controller.vhd               ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd               ;         ;
 ; flappy_bird_base.vhd              ; yes             ; User VHDL File               ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd              ;         ;
@@ -227,52 +235,90 @@ refer to the applicable agreement for further details.
 ; db/abs_divider_nbg.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/abs_divider_nbg.tdf            ;         ;
 ; db/alt_u_div_uve.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_uve.tdf              ;         ;
 ; db/lpm_abs_nn9.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_nn9.tdf                ;         ;
+; db/lpm_divide_d2m.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_d2m.tdf             ;         ;
+; db/sign_div_unsign_hkh.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/sign_div_unsign_hkh.tdf        ;         ;
+; db/alt_u_div_8te.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_8te.tdf              ;         ;
 +-----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                     ;
-+---------------------------------------------+-----------------------------------+
-; Resource                                    ; Usage                             ;
-+---------------------------------------------+-----------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 398                               ;
-;                                             ;                                   ;
-; Combinational ALUT usage for logic          ; 644                               ;
-;     -- 7 input functions                    ; 10                                ;
-;     -- 6 input functions                    ; 136                               ;
-;     -- 5 input functions                    ; 79                                ;
-;     -- 4 input functions                    ; 53                                ;
-;     -- <=3 input functions                  ; 366                               ;
-;                                             ;                                   ;
-; Dedicated logic registers                   ; 129                               ;
-;                                             ;                                   ;
-; I/O pins                                    ; 59                                ;
-; Total MLAB memory bits                      ; 0                                 ;
-; Total block memory bits                     ; 4096                              ;
-;                                             ;                                   ;
-; Total DSP Blocks                            ; 0                                 ;
-;                                             ;                                   ;
-; Maximum fan-out node                        ; VGA_SYNC:vga_inst|pixel_column[7] ;
-; Maximum fan-out                             ; 105                               ;
-; Total fan-out                               ; 2769                              ;
-; Average fan-out                             ; 3.07                              ;
-+---------------------------------------------+-----------------------------------+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimate of Logic utilization (ALMs needed) ; 3543          ;
+;                                             ;               ;
+; Combinational ALUT usage for logic          ; 6829          ;
+;     -- 7 input functions                    ; 8             ;
+;     -- 6 input functions                    ; 227           ;
+;     -- 5 input functions                    ; 208           ;
+;     -- 4 input functions                    ; 1781          ;
+;     -- <=3 input functions                  ; 4605          ;
+;                                             ;               ;
+; Dedicated logic registers                   ; 437           ;
+;                                             ;               ;
+; I/O pins                                    ; 59            ;
+; Total MLAB memory bits                      ; 0             ;
+; Total block memory bits                     ; 4096          ;
+;                                             ;               ;
+; Total DSP Blocks                            ; 0             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; RESET_N~input ;
+; Maximum fan-out                             ; 265           ;
+; Total fan-out                               ; 23411         ;
+; Average fan-out                             ; 3.17          ;
++---------------------------------------------+---------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                              ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                    ; Entity Name      ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
-; |flappy_bird_base                            ; 644 (76)            ; 129 (2)                   ; 4096              ; 0          ; 59   ; 0            ; |flappy_bird_base                                                                                                                      ; flappy_bird_base ; work         ;
-;    |MOUSE:mouse_inst|                        ; 49 (49)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst                                                                                                     ; MOUSE            ; work         ;
-;    |VGA_SYNC:vga_inst|                       ; 43 (43)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst                                                                                                    ; VGA_SYNC         ; work         ;
-;    |display_text:display_text_inst|          ; 475 (473)           ; 15 (15)                   ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst                                                                                       ; display_text     ; work         ;
-;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst                                                                ; char_rom         ; work         ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component                                ; altsyncram       ; work         ;
-;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1  ; work         ;
-;    |pipe_controller:pipe_ctrl_inst|          ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst                                                                                       ; pipe_controller  ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                           ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                              ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |flappy_bird_base                            ; 6829 (421)          ; 437 (2)                   ; 4096              ; 0          ; 59   ; 0            ; |flappy_bird_base                                                                                                                                ; flappy_bird_base    ; work         ;
+;    |BCD_to_SevenSeg:hundred_display|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|BCD_to_SevenSeg:hundred_display                                                                                                ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:one_display|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|BCD_to_SevenSeg:one_display                                                                                                    ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:ten_display|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|BCD_to_SevenSeg:ten_display                                                                                                    ; BCD_to_SevenSeg     ; work         ;
+;    |MOUSE:mouse_inst|                        ; 109 (109)           ; 118 (118)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst                                                                                                               ; MOUSE               ; work         ;
+;    |VGA_SYNC:vga_inst|                       ; 45 (45)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst                                                                                                              ; VGA_SYNC            ; work         ;
+;    |bird_controller:bird_inst|               ; 170 (170)           ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|bird_controller:bird_inst                                                                                                      ; bird_controller     ; work         ;
+;    |display_text:display_text_inst|          ; 472 (470)           ; 15 (15)                   ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst                                                                                                 ; display_text        ; work         ;
+;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst                                                                          ; char_rom            ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component                                          ; altsyncram          ; work         ;
+;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated           ; altsyncram_d5g1     ; work         ;
+;    |game_fsm:fsm_inst|                       ; 5 (5)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|game_fsm:fsm_inst                                                                                                              ; game_fsm            ; work         ;
+;    |lpm_divide:Div0|                         ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div0                                                                                                                ; lpm_divide          ; work         ;
+;       |lpm_divide_epo:auto_generated|        ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div0|lpm_divide_epo:auto_generated                                                                                  ; lpm_divide_epo      ; work         ;
+;          |abs_divider_nbg:divider|           ; 640 (56)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider                                                          ; abs_divider_nbg     ; work         ;
+;             |alt_u_div_uve:divider|          ; 552 (552)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|alt_u_div_uve:divider                                    ; alt_u_div_uve       ; work         ;
+;             |lpm_abs_4p9:my_abs_num|         ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|lpm_abs_4p9:my_abs_num                                   ; lpm_abs_4p9         ; work         ;
+;    |lpm_divide:Div1|                         ; 513 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div1                                                                                                                ; lpm_divide          ; work         ;
+;       |lpm_divide_bpo:auto_generated|        ; 513 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div1|lpm_divide_bpo:auto_generated                                                                                  ; lpm_divide_bpo      ; work         ;
+;          |abs_divider_kbg:divider|           ; 513 (62)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div1|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider                                                          ; abs_divider_kbg     ; work         ;
+;             |alt_u_div_ove:divider|          ; 419 (419)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div1|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider|alt_u_div_ove:divider                                    ; alt_u_div_ove       ; work         ;
+;             |lpm_abs_4p9:my_abs_num|         ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div1|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider|lpm_abs_4p9:my_abs_num                                   ; lpm_abs_4p9         ; work         ;
+;    |lpm_divide:Mod0|                         ; 1335 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod0                                                                                                                ; lpm_divide          ; work         ;
+;       |lpm_divide_uio:auto_generated|        ; 1335 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod0|lpm_divide_uio:auto_generated                                                                                  ; lpm_divide_uio      ; work         ;
+;          |abs_divider_4dg:divider|           ; 1335 (8)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                                                          ; abs_divider_4dg     ; work         ;
+;             |alt_u_div_o2f:divider|          ; 1295 (1295)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider                                    ; alt_u_div_o2f       ; work         ;
+;             |lpm_abs_4p9:my_abs_num|         ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num                                   ; lpm_abs_4p9         ; work         ;
+;    |lpm_divide:Mod1|                         ; 1335 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod1                                                                                                                ; lpm_divide          ; work         ;
+;       |lpm_divide_uio:auto_generated|        ; 1335 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod1|lpm_divide_uio:auto_generated                                                                                  ; lpm_divide_uio      ; work         ;
+;          |abs_divider_4dg:divider|           ; 1335 (8)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                                                          ; abs_divider_4dg     ; work         ;
+;             |alt_u_div_o2f:divider|          ; 1295 (1295)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider                                    ; alt_u_div_o2f       ; work         ;
+;             |lpm_abs_4p9:my_abs_num|         ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod1|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num                                   ; lpm_abs_4p9         ; work         ;
+;    |lpm_divide:Mod2|                         ; 1335 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod2                                                                                                                ; lpm_divide          ; work         ;
+;       |lpm_divide_uio:auto_generated|        ; 1335 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod2|lpm_divide_uio:auto_generated                                                                                  ; lpm_divide_uio      ; work         ;
+;          |abs_divider_4dg:divider|           ; 1335 (8)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                                                          ; abs_divider_4dg     ; work         ;
+;             |alt_u_div_o2f:divider|          ; 1295 (1295)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider                                    ; alt_u_div_o2f       ; work         ;
+;             |lpm_abs_4p9:my_abs_num|         ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod2|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num                                   ; lpm_abs_4p9         ; work         ;
+;    |menu_controller:menu_ui|                 ; 12 (12)             ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|menu_controller:menu_ui                                                                                                        ; menu_controller     ; work         ;
+;    |pipe_controller:pipe_ctrl_inst|          ; 416 (397)           ; 184 (184)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst                                                                                                 ; pipe_controller     ; work         ;
+;       |lpm_divide:Mod0|                      ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_d2m:auto_generated|     ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_d2m:auto_generated                                                   ; lpm_divide_d2m      ; work         ;
+;             |sign_div_unsign_hkh:divider|    ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_d2m:auto_generated|sign_div_unsign_hkh:divider                       ; sign_div_unsign_hkh ; work         ;
+;                |alt_u_div_8te:divider|       ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_d2m:auto_generated|sign_div_unsign_hkh:divider|alt_u_div_8te:divider ; alt_u_div_8te       ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -283,6 +329,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------+
 ; display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096 ; tcgrom.mif ;
 +---------------------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------+
+; State Machine - |flappy_bird_base|game_fsm:fsm_inst|current_state                                               ;
++------------------------+--------------------+------------------------+---------------------+--------------------+
+; Name                   ; current_state.LOSE ; current_state.GAMEPLAY ; current_state.TITLE ; current_state.INIT ;
++------------------------+--------------------+------------------------+---------------------+--------------------+
+; current_state.INIT     ; 0                  ; 0                      ; 0                   ; 0                  ;
+; current_state.TITLE    ; 0                  ; 0                      ; 1                   ; 1                  ;
+; current_state.GAMEPLAY ; 0                  ; 1                      ; 0                   ; 1                  ;
+; current_state.LOSE     ; 1                  ; 0                      ; 0                   ; 1                  ;
++------------------------+--------------------+------------------------+---------------------+--------------------+
 
 
 Encoding Type:  One-Hot
@@ -300,237 +359,32 @@ Encoding Type:  One-Hot
 +-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                     ;
-+----------------------------------------------+---------------------------------------------------------+
-; Register name                                ; Reason for Removal                                      ;
-+----------------------------------------------+---------------------------------------------------------+
-; MOUSE:mouse_inst|CHAROUT[4..7]               ; Stuck at VCC due to stuck port data_in                  ;
-; MOUSE:mouse_inst|CHAROUT[3]                  ; Stuck at GND due to stuck port data_in                  ;
-; MOUSE:mouse_inst|CHAROUT[2]                  ; Stuck at VCC due to stuck port data_in                  ;
-; MOUSE:mouse_inst|CHAROUT[0,1]                ; Stuck at GND due to stuck port data_in                  ;
-; MOUSE:mouse_inst|SHIFTOUT[10]                ; Stuck at VCC due to stuck port data_in                  ;
-; display_text:display_text_inst|text_rgb[5]   ; Merged with display_text:display_text_inst|text_rgb[0]  ;
-; bird_controller:bird_inst|velocity[0..31]    ; Lost fanout                                             ;
-; pipe_controller:pipe_ctrl_inst|lfsr[8..15]   ; Lost fanout                                             ;
-; pipe_controller:pipe_ctrl_inst|lfsr[1..4]    ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][30] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][13] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][14] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][15] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][16] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][22] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][17] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][18] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][19] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][20] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][21] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][10] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][11] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][12] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][23] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][24] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][25] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][26] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][27] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][28] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][29] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][31] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][8]  ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][22] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][23] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][24] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][25] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][27] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][28] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][29] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][30] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][16] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][17] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][18] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][19] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][31] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][20] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][21] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][10] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][11] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][12] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][13] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][14] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][7]  ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][26] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][15] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][26] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][25] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][24] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][23] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][22] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][21] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][20] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][19] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][18] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][17] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][16] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][15] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][14] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][29] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][13] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][11] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][10] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][12] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][31] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][30] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][28] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][27] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][16] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][15] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][9]  ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][14] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][13] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][12] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][11] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][25] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][19] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][31] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][30] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][29] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][28] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][27] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][26] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][24] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][23] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][22] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][21] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][20] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][7]  ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][18] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][17] ; Stuck at GND due to stuck port sclear                   ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][8]  ; Stuck at GND due to stuck port sclear                   ;
-; bird_controller:bird_inst|y_pos[0..3,8..31]  ; Stuck at GND due to stuck port sclear                   ;
-; bird_controller:bird_inst|y_pos[4..7]        ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][7]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][9]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][8]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][9]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][7]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][8]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][9]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|lfsr[0,5..7]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][0]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][1]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][2]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][5]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][6]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][8]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][9]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][0]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][1]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][3]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][4]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][6]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][8]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][9]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][0]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][1]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][2]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][3]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][5]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][7]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][8]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][9]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][0]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][1]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][4]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][5]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][9]  ; Stuck at GND due to stuck port data_in                  ;
-; VGA_SYNC:vga_inst|pixel_row[9]               ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][0]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][1]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][2]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][3]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][4]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][5]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][6]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][0]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][1]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][2]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][3]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][4]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][5]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][6]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][0]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][1]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][2]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][3]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][4]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][5]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][6]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][0]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][1]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][2]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][3]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][4]  ; Stuck at GND due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][5]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][6]  ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][10] ; Stuck at VCC due to stuck port data_in                  ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][4]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][7]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][2]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][5]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][7]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][4]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][6]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][2]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][3]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][6]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][7]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][8]  ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ;
-; Total Number of Removed Registers = 258      ;                                                         ;
-+----------------------------------------------+---------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                       ;
++----------------------------------------------------+-----------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal         ; Free of Timing Hazards ;
++----------------------------------------------------+-----------------------------+------------------------+
+; game_fsm:fsm_inst|mode_training_reg                ; game_fsm:fsm_inst|Selector2 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                             ;                        ;
++----------------------------------------------------+-----------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                            ;
-+----------------------------------------------+--------------------------+----------------------------------------------+
-; Register name                                ; Reason for Removal       ; Registers Removed due to This Register       ;
-+----------------------------------------------+--------------------------+----------------------------------------------+
-; pipe_controller:pipe_ctrl_inst|lfsr[2]       ; Stuck at GND             ; pipe_controller:pipe_ctrl_inst|pipe_y[0][5], ;
-;                                              ; due to stuck port sclear ; pipe_controller:pipe_ctrl_inst|pipe_y[0][6], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[0][8], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[1][3], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[1][4], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[1][6], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[1][8], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[2][3], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[2][5], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[2][7], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[2][8], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[3][4], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_y[3][5]  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][30] ; Stuck at GND             ; pipe_controller:pipe_ctrl_inst|pipe_x[0][0], ;
-;                                              ; due to stuck port sclear ; pipe_controller:pipe_ctrl_inst|pipe_x[0][1], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[0][2], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[0][3], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[0][4], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[0][5], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[0][6]  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][22] ; Stuck at GND             ; pipe_controller:pipe_ctrl_inst|pipe_x[1][0], ;
-;                                              ; due to stuck port sclear ; pipe_controller:pipe_ctrl_inst|pipe_x[1][1], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[1][2], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[1][3], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[1][4], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[1][5], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[1][6]  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][26] ; Stuck at GND             ; pipe_controller:pipe_ctrl_inst|pipe_x[2][0], ;
-;                                              ; due to stuck port sclear ; pipe_controller:pipe_ctrl_inst|pipe_x[2][1], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[2][2], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[2][3], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[2][4], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[2][5], ;
-;                                              ;                          ; pipe_controller:pipe_ctrl_inst|pipe_x[2][6]  ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][16] ; Stuck at GND             ; pipe_controller:pipe_ctrl_inst|pipe_x[3][10] ;
-;                                              ; due to stuck port sclear ;                                              ;
-+----------------------------------------------+--------------------------+----------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++--------------------------------------------+--------------------------------------------------------+
+; Register name                              ; Reason for Removal                                     ;
++--------------------------------------------+--------------------------------------------------------+
+; MOUSE:mouse_inst|CHAROUT[4..7]             ; Stuck at VCC due to stuck port data_in                 ;
+; MOUSE:mouse_inst|CHAROUT[3]                ; Stuck at GND due to stuck port data_in                 ;
+; MOUSE:mouse_inst|CHAROUT[2]                ; Stuck at VCC due to stuck port data_in                 ;
+; MOUSE:mouse_inst|CHAROUT[0,1]              ; Stuck at GND due to stuck port data_in                 ;
+; MOUSE:mouse_inst|SHIFTOUT[10]              ; Stuck at VCC due to stuck port data_in                 ;
+; display_text:display_text_inst|text_rgb[5] ; Merged with display_text:display_text_inst|text_rgb[0] ;
+; MOUSE:mouse_inst|cursor_row[9]             ; Stuck at GND due to stuck port data_in                 ;
+; VGA_SYNC:vga_inst|pixel_row[9]             ; Stuck at GND due to stuck port data_in                 ;
+; Total Number of Removed Registers = 12     ;                                                        ;
++--------------------------------------------+--------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -538,30 +392,67 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 129   ;
-; Number of registers using Synchronous Clear  ; 20    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 437   ;
+; Number of registers using Synchronous Clear  ; 188   ;
+; Number of registers using Synchronous Load   ; 73    ;
 ; Number of registers using Asynchronous Clear ; 43    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 81    ;
+; Number of registers using Clock Enable       ; 381   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------+
-; Inverted Register Statistics                          ;
-+---------------------------------------------+---------+
-; Inverted Register                           ; Fan out ;
-+---------------------------------------------+---------+
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][3] ; 17      ;
-; MOUSE:mouse_inst|send_char                  ; 3       ;
-; MOUSE:mouse_inst|SHIFTOUT[3]                ; 1       ;
-; MOUSE:mouse_inst|SHIFTOUT[5]                ; 1       ;
-; MOUSE:mouse_inst|SHIFTOUT[6]                ; 1       ;
-; MOUSE:mouse_inst|SHIFTOUT[7]                ; 1       ;
-; MOUSE:mouse_inst|SHIFTOUT[8]                ; 1       ;
-; Total number of inverted registers = 7      ;         ;
-+---------------------------------------------+---------+
++--------------------------------------------------------+
+; Inverted Register Statistics                           ;
++----------------------------------------------+---------+
+; Inverted Register                            ; Fan out ;
++----------------------------------------------+---------+
+; pipe_controller:pipe_ctrl_inst|pipe_x[3][6]  ; 4       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[3][5]  ; 4       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][2]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][8]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][9]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][8]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][7]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][6]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][7]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][6]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][5]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][4]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][7]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][6]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][3]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[0][9]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[0][7]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][9]  ; 6       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][8]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][5]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][2]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][7]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][6]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][4]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][3]  ; 2       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[3][10] ; 4       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[0]       ; 3       ;
+; bird_controller:bird_inst|y_pos[4]           ; 4       ;
+; bird_controller:bird_inst|y_pos[7]           ; 4       ;
+; bird_controller:bird_inst|y_pos[6]           ; 4       ;
+; bird_controller:bird_inst|y_pos[5]           ; 4       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[10]      ; 2       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[13]      ; 2       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[15]      ; 1       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[7]       ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[6]       ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[5]       ; 3       ;
+; MOUSE:mouse_inst|send_char                   ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[11]      ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[3]                 ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[5]                 ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[6]                 ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[7]                 ; 1       ;
+; MOUSE:mouse_inst|SHIFTOUT[8]                 ; 1       ;
+; Total number of inverted registers = 44      ;         ;
++----------------------------------------------+---------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -569,25 +460,45 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lfsr[14]             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[9]                        ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|velocity[10]              ;
-; 4:1                ; 23 bits   ; 46 LEs        ; 0 LEs                ; 46 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][30]        ;
-; 4:1                ; 23 bits   ; 46 LEs        ; 0 LEs                ; 46 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][22]        ;
-; 4:1                ; 22 bits   ; 44 LEs        ; 0 LEs                ; 44 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][26]        ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][16]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lfsr[1]              ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|new_cursor_row[3]                  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][9]         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][0]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][8]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][3]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][0]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][5]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][0]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][3]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][3]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[2]                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|velocity[16]              ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][27]        ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][10]        ;
+; 4:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][31]        ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][25]        ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_row[2]          ;
-; 5:1                ; 28 bits   ; 84 LEs        ; 0 LEs                ; 84 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[10]                 ;
+; 5:1                ; 28 bits   ; 84 LEs        ; 28 LEs               ; 56 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[25]                 ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[4]                   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[6]                   ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[3]                      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[5]                      ;
 ; 20:1               ; 3 bits    ; 39 LEs        ; 3 LEs                ; 36 LEs                 ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_col[1]          ;
-; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|text_rgb[11]         ;
-; 35:1               ; 6 bits    ; 138 LEs       ; 132 LEs              ; 6 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[4] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lfsr[11]             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][9]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][9]         ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][9]         ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[6]                  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:one_display|SevenSeg_out[0]         ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:ten_display|SevenSeg_out[0]         ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|text_rgb[0]          ;
+; 35:1               ; 6 bits    ; 138 LEs       ; 132 LEs              ; 6 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[3] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lfsr[11]             ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][6]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][3]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][7]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][2]         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][5]         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][7]         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][9]         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][9]         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[6]                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappy_bird_base|game_fsm:fsm_inst|next_state                        ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:one_display|SevenSeg_out[5]         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:ten_display|SevenSeg_out[3]         ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:hundred_display|SevenSeg_out[3]     ;
 ; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|display_text:display_text_inst|Add3                 ;
 ; 22:1               ; 2 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|display_text:display_text_inst|Add3                 ;
@@ -779,6 +690,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                               ;
+; LPM_WIDTHD             ; 9              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_d2m ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                                                                  ;
 +-------------------------------------------+---------------------------------------------------------------------------------------+
@@ -799,6 +733,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+---------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "game_fsm:fsm_inst"                                                                           ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; mode_training ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; in_lose       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "display_text:display_text_inst"                                                                  ;
 +-------------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -811,18 +755,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "pipe_controller:pipe_ctrl_inst"                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; bird_x[6..5] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; bird_x[9..7] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; bird_x[4..3] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; bird_x[1..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; bird_x[2]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; pipe_hit     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------+
+; Port Connectivity Checks: "pipe_controller:pipe_ctrl_inst" ;
++--------------+-------+----------+--------------------------+
+; Port         ; Type  ; Severity ; Details                  ;
++--------------+-------+----------+--------------------------+
+; bird_x[6..5] ; Input ; Info     ; Stuck at VCC             ;
+; bird_x[9..7] ; Input ; Info     ; Stuck at GND             ;
+; bird_x[4..3] ; Input ; Info     ; Stuck at GND             ;
+; bird_x[1..0] ; Input ; Info     ; Stuck at GND             ;
+; bird_x[2]    ; Input ; Info     ; Stuck at VCC             ;
++--------------+-------+----------+--------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -834,15 +777,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MOUSE:mouse_inst"                                                                                  ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                ; Type   ; Severity ; Details                                                                             ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
-; right_button        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; mouse_cursor_row    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; mouse_cursor_column ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MOUSE:mouse_inst"                                                                           ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; right_button ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -850,37 +791,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 129                         ;
-;     CLR               ; 12                          ;
-;     ENA               ; 40                          ;
-;     ENA CLR           ; 31                          ;
-;     ENA SCLR          ; 10                          ;
+; arriav_ff             ; 437                         ;
+;     CLR               ; 10                          ;
+;     ENA               ; 102                         ;
+;     ENA CLR           ; 33                          ;
+;     ENA SCLR          ; 178                         ;
+;     ENA SLD           ; 68                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 26                          ;
+;     SLD               ; 5                           ;
+;     plain             ; 31                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 646                         ;
-;     arith             ; 281                         ;
-;         0 data inputs ; 28                          ;
-;         1 data inputs ; 232                         ;
-;         2 data inputs ; 21                          ;
-;     extend            ; 10                          ;
-;         7 data inputs ; 10                          ;
-;     normal            ; 344                         ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 28                          ;
-;         3 data inputs ; 39                          ;
-;         4 data inputs ; 53                          ;
-;         5 data inputs ; 79                          ;
-;         6 data inputs ; 136                         ;
-;     shared            ; 11                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 9                           ;
+; arriav_lcell_comb     ; 6829                        ;
+;     arith             ; 3273                        ;
+;         0 data inputs ; 334                         ;
+;         1 data inputs ; 787                         ;
+;         2 data inputs ; 286                         ;
+;         3 data inputs ; 878                         ;
+;         4 data inputs ; 988                         ;
+;     extend            ; 8                           ;
+;         7 data inputs ; 8                           ;
+;     normal            ; 3468                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 1884                        ;
+;         3 data inputs ; 344                         ;
+;         4 data inputs ; 793                         ;
+;         5 data inputs ; 208                         ;
+;         6 data inputs ; 227                         ;
+;     shared            ; 80                          ;
+;         0 data inputs ; 7                           ;
+;         1 data inputs ; 55                          ;
+;         2 data inputs ; 18                          ;
 ; boundary_port         ; 59                          ;
 ; stratixv_ram_block    ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 4.94                        ;
+; Max LUT depth         ; 145.20                      ;
+; Average LUT depth     ; 93.59                       ;
 +-----------------------+-----------------------------+
 
 
@@ -889,7 +835,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:06     ;
 +----------------+--------------+
 
 
@@ -899,12 +845,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Thu May 22 15:45:00 2025
+    Info: Processing started: Thu May 22 16:46:26 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file menu_controller.vhd
+    Info (12022): Found design unit 1: menu_controller-Behavioral File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/menu_controller.vhd Line: 19
+    Info (12023): Found entity 1: menu_controller File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/menu_controller.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file game_fsm.vhd
-    Info (12022): Found design unit 1: game_fsm-Behavioral File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/game_fsm.vhd Line: 18
+    Info (12022): Found design unit 1: game_fsm-Behavioral File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/game_fsm.vhd Line: 20
     Info (12023): Found entity 1: game_fsm File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/game_fsm.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_sevenseg.vhd
     Info (12022): Found design unit 1: BCD_to_SevenSeg-arc1 File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/BCD_to_SevenSeg.vhd Line: 24
@@ -940,42 +889,45 @@ Info (12021): Found 2 design units, including 1 entities, in source file text_di
     Info (12022): Found design unit 1: display_text-Behavioral File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 20
     Info (12023): Found entity 1: display_text File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 5
 Info (12127): Elaborating entity "flappy_bird_base" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(65): object "mouse_row" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 65
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(65): object "mouse_col" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 65
 Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(66): object "right_button" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 66
 Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(69): object "bird_velocity" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 69
-Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(71): object "pipe_hit" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 71
 Warning (10540): VHDL Signal Declaration warning at flappy_bird_base.vhd(80): used explicit default value for signal "score" because signal was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 80
 Warning (10540): VHDL Signal Declaration warning at flappy_bird_base.vhd(81): used explicit default value for signal "health_percentage" because signal was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 81
-Warning (10541): VHDL Signal Declaration warning at flappy_bird_base.vhd(90): used implicit default value for signal "game_active" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 90
-Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(223): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 223
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(225): signal "bg_red" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 225
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(226): signal "bg_green" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 226
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(227): signal "bg_blue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 227
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(230): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 230
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(231): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 231
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(232): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 232
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(233): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 233
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(241): signal "bird_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 241
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(247): signal "text_on_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 247
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(248): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 248
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(249): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 249
-Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(250): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 250
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(92): object "in_lose" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 92
+Warning (10036): Verilog HDL or VHDL warning at flappy_bird_base.vhd(97): object "mode_training" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 97
+Warning (10542): VHDL Variable Declaration warning at flappy_bird_base.vhd(251): used initial value expression for variable "size" because variable was never assigned a value File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 251
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(253): signal "bg_red" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 253
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(254): signal "bg_green" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 254
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(255): signal "bg_blue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 255
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(258): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 258
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(259): signal "pipe_x_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 259
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(260): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 260
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(261): signal "pipe_y_array" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 261
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(269): signal "bird_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 269
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(275): signal "text_on_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 275
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(276): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 276
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(277): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 277
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(278): signal "text_rgb_signal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 278
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(282): signal "in_title" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 282
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(300): signal "mouse_col" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 300
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(301): signal "mouse_col" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 301
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(302): signal "mouse_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 302
+Warning (10492): VHDL Process Statement warning at flappy_bird_base.vhd(303): signal "mouse_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 303
 Warning (10873): Using initial value X (don't care) for net "LEDR[9..1]" at flappy_bird_base.vhd(16) File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 16
-Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:hundred_display" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 95
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 134
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 149
+Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:hundred_display" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 101
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:vga_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 140
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:mouse_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 155
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 151
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 157
-Info (12128): Elaborating entity "bird_controller" for hierarchy "bird_controller:bird_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 161
-Info (12128): Elaborating entity "background" for hierarchy "background:background_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 174
-Info (12128): Elaborating entity "pipe_controller" for hierarchy "pipe_controller:pipe_ctrl_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 184
+Info (12128): Elaborating entity "bird_controller" for hierarchy "bird_controller:bird_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 167
+Info (12128): Elaborating entity "background" for hierarchy "background:background_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 178
+Info (12128): Elaborating entity "pipe_controller" for hierarchy "pipe_controller:pipe_ctrl_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 188
 Warning (10631): VHDL Process Statement warning at pipe_controller.vhd(70): inferring latch(es) for signal or variable "hit", which holds its previous value in one or more paths through the process File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 70
 Info (10041): Inferred latch for "hit" at pipe_controller.vhd(74) File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 74
-Info (12128): Elaborating entity "display_text" for hierarchy "display_text:display_text_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 196
+Info (12128): Elaborating entity "display_text" for hierarchy "display_text:display_text_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 200
 Info (12128): Elaborating entity "char_rom" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 46
 Info (12128): Elaborating entity "altsyncram" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
 Info (12130): Elaborated megafunction instantiation "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
@@ -997,14 +949,20 @@ Info (12133): Instantiated megafunction "display_text:display_text_inst|char_rom
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
     Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/altsyncram_d5g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (278001): Inferred 5 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 118
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 117
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 117
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 116
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 116
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 118
-Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 118
+Info (12128): Elaborating entity "menu_controller" for hierarchy "menu_controller:menu_ui" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 214
+Info (12128): Elaborating entity "game_fsm" for hierarchy "game_fsm:fsm_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 225
+Warning (10492): VHDL Process Statement warning at game_fsm.vhd(58): signal "mode_training_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/game_fsm.vhd Line: 58
+Warning (10631): VHDL Process Statement warning at game_fsm.vhd(40): inferring latch(es) for signal or variable "mode_training_reg", which holds its previous value in one or more paths through the process File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/game_fsm.vhd Line: 40
+Info (10041): Inferred latch for "mode_training_reg" at game_fsm.vhd(40) File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/game_fsm.vhd Line: 40
+Info (278001): Inferred 6 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 124
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 123
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 123
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 122
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 122
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_controller:pipe_ctrl_inst|Mod0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 61
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 124
+Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 124
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1018,8 +976,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_o2f.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
     Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_4p9.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 117
-Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 117
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 123
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 123
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1033,15 +991,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_ove File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_ove.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_kn9.tdf
     Info (12023): Found entity 1: lpm_abs_kn9 File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_kn9.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 117
-Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 117
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 116
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 116
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 122
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 122
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1055,6 +1006,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_uve File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_uve.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_nn9.tdf
     Info (12023): Found entity 1: lpm_abs_nn9 File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_abs_nn9.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 61
+Info (12133): Instantiated megafunction "pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 61
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "9"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_d2m.tdf
+    Info (12023): Found entity 1: lpm_divide_d2m File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/lpm_divide_d2m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_hkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_hkh File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/sign_div_unsign_hkh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8te.tdf
+    Info (12023): Found entity 1: alt_u_div_8te File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/db/alt_u_div_8te.tdf Line: 22
+Warning (13012): Latch game_fsm:fsm_inst|mode_training_reg has unsafe behavior File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/game_fsm.vhd Line: 40
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal menu_controller:menu_ui|training_clicked File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/menu_controller.vhd Line: 27
 Info (13000): Registers with preset signals will power-up high File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
@@ -1076,29 +1041,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 16
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 16
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 16
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 19
-    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
-    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
-    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 20
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 21
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 21
-    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 21
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 21
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 21
-    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 21
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 21
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 40 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
@@ -1340,16 +1283,16 @@ Warning (21074): Design contains 7 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
-Info (21057): Implemented 758 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6997 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
     Info (21059): Implemented 45 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 691 logic cells
+    Info (21061): Implemented 6930 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 308 warnings
-    Info: Peak virtual memory: 5016 megabytes
-    Info: Processing ended: Thu May 22 15:45:08 2025
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:14
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 294 warnings
+    Info: Peak virtual memory: 4999 megabytes
+    Info: Processing ended: Thu May 22 16:46:39 2025
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:19
 
 

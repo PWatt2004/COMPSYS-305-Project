@@ -5,22 +5,26 @@ entity game_fsm is
     port (
         clk            : in  std_logic;
         reset          : in  std_logic;
-        start_button   : in  std_logic;
-        pipe_hit       : in  std_logic;
-        mode_training  : in  std_logic;
 
+        start_training : in  std_logic;
+        start_game     : in  std_logic;
+        pipe_hit       : in  std_logic;
+
+        mode_training  : out std_logic;
         game_active    : out std_logic;
         in_title       : out std_logic;
         in_lose        : out std_logic
     );
-end entity;
+end game_fsm;
 
 architecture Behavioral of game_fsm is
     type state_type is (INIT, TITLE, GAMEPLAY, LOSE);
     signal current_state, next_state : state_type;
+
+    signal mode_training_reg : std_logic := '0'; -- internal register
 begin
 
-    -- STATE REGISTER
+    -- State Register
     process(clk)
     begin
         if rising_edge(clk) then
@@ -32,25 +36,27 @@ begin
         end if;
     end process;
 
-    -- TRANSITION LOGIC
-    process(current_state, start_button, pipe_hit, mode_training)
+    -- State Transitions
+    process(current_state, start_training, start_game, pipe_hit)
     begin
+        next_state <= current_state; -- default
+
         case current_state is
             when INIT =>
                 next_state <= TITLE;
 
             when TITLE =>
-                if start_button = '1' then
+                if start_training = '1' then
                     next_state <= GAMEPLAY;
-                else
-                    next_state <= TITLE;
+                    mode_training_reg <= '1';
+                elsif start_game = '1' then
+                    next_state <= GAMEPLAY;
+                    mode_training_reg <= '0';
                 end if;
 
             when GAMEPLAY =>
-                if pipe_hit = '1' and mode_training = '0' then
+                if pipe_hit = '1' and mode_training_reg = '0' then
                     next_state <= LOSE;
-                else
-                    next_state <= GAMEPLAY;
                 end if;
 
             when LOSE =>
@@ -61,9 +67,10 @@ begin
         end case;
     end process;
 
-    -- OUTPUTS BASED ON STATE
-    game_active <= '1' when current_state = GAMEPLAY else '0';
-    in_title    <= '1' when current_state = TITLE else '0';
-    in_lose     <= '1' when current_state = LOSE else '0';
+    -- Output Assignments
+    mode_training <= mode_training_reg;
+    game_active   <= '1' when current_state = GAMEPLAY else '0';
+    in_title      <= '1' when current_state = TITLE else '0';
+    in_lose       <= '1' when current_state = LOSE else '0';
 
 end Behavioral;

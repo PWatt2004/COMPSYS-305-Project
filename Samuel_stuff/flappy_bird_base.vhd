@@ -90,6 +90,12 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL game_active : STD_LOGIC;
     SIGNAL in_title : STD_LOGIC;
     SIGNAL in_lose : STD_LOGIC;
+
+    SIGNAL start_training : STD_LOGIC;
+    SIGNAL start_game : STD_LOGIC;
+
+    SIGNAL mode_training : STD_LOGIC;
+
 BEGIN
     -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
@@ -167,8 +173,6 @@ BEGIN
             bird_velocity => bird_velocity,
             bird_altitude => number,
             game_active => game_active
-
-
         );
 
     background_inst : ENTITY work.background
@@ -205,6 +209,30 @@ BEGIN
             title_on => SW(0),
             score_on => SW(1),
             hp_on => SW(2)
+        );
+
+    menu_ui : ENTITY work.menu_controller
+        PORT MAP(
+            clk => vsync_internal,
+            in_title => in_title,
+            mouse_x => mouse_col,
+            mouse_y => mouse_row,
+            mouse_click => left_button,
+            start_training => start_training,
+            start_game => start_game
+        );
+
+    fsm_inst : ENTITY work.game_fsm
+        PORT MAP(
+            clk => vsync_internal,
+            reset => NOT RESET_N,
+            start_training => start_training,
+            start_game => start_game,
+            pipe_hit => pipe_hit,
+            mode_training => mode_training, -- output from FSM now
+            game_active => game_active,
+            in_title => in_title,
+            in_lose => in_lose
         );
 
     -- Decode pipe_x_out to pipe_x_array
@@ -249,6 +277,35 @@ BEGIN
             green <= text_rgb_signal(5);
             blue <= text_rgb_signal(0);
         END IF;
+        -- draw buttons on title screen
+        -- Start Training Button (Rectangle, upper)
+        IF in_title = '1' THEN
+            IF unsigned(pixel_column) >= to_unsigned(450, 10) AND unsigned(pixel_column) < to_unsigned(600, 10) AND
+                unsigned(pixel_row) >= to_unsigned(150, 10) AND unsigned(pixel_row) < to_unsigned(200, 10) THEN
+                red <= '1';
+                green <= '1';
+                blue <= '1';
+            END IF;
+
+            -- Start Game Button (Rectangle, lower)
+            IF unsigned(pixel_column) >= to_unsigned(450, 10) AND unsigned(pixel_column) < to_unsigned(600, 10) AND
+                unsigned(pixel_row) >= to_unsigned(220, 10) AND unsigned(pixel_row) < to_unsigned(270, 10) THEN
+                red <= '1';
+                green <= '1';
+                blue <= '1';
+            END IF;
+        END IF;
+
+        -- Draw cursor (5x5 red square)
+        IF to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) AND
+            to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 AND
+            to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) AND
+            to_integer(unsigned(pixel_row)) < to_integer(unsigned(mouse_row)) + 5 THEN
+            red <= '1';
+            green <= '0';
+            blue <= '0';
+        END IF;
+
     END PROCESS;
 
     VGA_R(2 DOWNTO 0) <= (OTHERS => '0');

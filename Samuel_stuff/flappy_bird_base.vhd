@@ -52,7 +52,6 @@ ARCHITECTURE top OF flappy_bird_base IS
             pixel_row : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
             pixel_column : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
             score : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-            health_percentage : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
             text_rgb : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
             text_on : OUT STD_LOGIC
         );
@@ -78,7 +77,6 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL bg_red, bg_green, bg_blue : STD_LOGIC;
 
     SIGNAL score : STD_LOGIC_VECTOR(11 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL health_percentage : STD_LOGIC_VECTOR(11 DOWNTO 0) := (OTHERS => '1');
 
     SIGNAL text_rgb_signal : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL text_on_signal : STD_LOGIC;
@@ -100,6 +98,9 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL label2_on : STD_LOGIC;
 
     SIGNAL bird_limit_hit : STD_LOGIC;
+
+    SIGNAL hp_string : STRING(1 TO 8) := "HP-10000";
+
 
 BEGIN
     -- Instantiate 7-segment decoders
@@ -132,6 +133,8 @@ BEGIN
     LEDR(0) <= left_button;
     LEDR(1) <= pipe_hit AND game_active;  
     LEDR(2) <= bird_limit_hit AND game_active;  
+
+    hp_string <= "HP-09999";
 
     VGA_VS <= vsync_internal;
 
@@ -211,12 +214,12 @@ BEGIN
             pixel_row => pixel_row,
             pixel_column => pixel_column,
             score => score,
-            health_percentage => health_percentage,
             text_rgb => text_rgb_signal,
             text_on => text_on_signal,
             title_on => SW(0),
             score_on => SW(1),
-            hp_on => SW(2)
+            hp_on => SW(2),
+            hp_string     => hp_string
         );
 
     menu_ui : ENTITY work.menu_controller

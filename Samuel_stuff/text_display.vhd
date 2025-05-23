@@ -8,12 +8,12 @@ ENTITY display_text IS
         pixel_row : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
         pixel_column : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
         score : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-        health_percentage : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
         text_rgb : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
         text_on : OUT STD_LOGIC;
         title_on : IN STD_LOGIC;
         score_on : IN STD_LOGIC;
-        hp_on : IN STD_LOGIC
+        hp_on : IN STD_LOGIC;
+        hp_string : in  string(1 to 8)
     );
 END ENTITY;
 
@@ -72,8 +72,6 @@ BEGIN
             row := to_integer(unsigned(pixel_row));
             col := to_integer(unsigned(pixel_column));
             score_val := to_integer(unsigned(score));
-            hp_val := to_integer(unsigned(health_percentage));
-
             ------------------------------------------------------------
             -- 1. FLAPPY BIRD (WHITE, CENTERED, SCALE=2)
             ------------------------------------------------------------
@@ -148,22 +146,14 @@ BEGIN
             ------------------------------------------------------------
             -- 3. HP (RED, TOP-RIGHT, SCALE=1)
             ------------------------------------------------------------
-            temp_str := (OTHERS => ' ');
-            FOR i IN 1 TO INTEGER'image(hp_val)'length LOOP
-                temp_str(i) := INTEGER'image(hp_val)(i);
-            END LOOP;
-            FOR i IN 1 TO 10 LOOP
-                hp_str(i) := temp_str(i);
-            END LOOP;
-
             txt := (OTHERS => ' ');
-            FOR i IN 1 TO HP_LABEL'length LOOP
-                txt(i) := HP_LABEL(i);
+            FOR i IN 1 TO 8 LOOP
+                txt(i) := hp_string(i);
             END LOOP;
-            FOR j IN 1 TO INTEGER'image(hp_val)'length LOOP
-                txt(HP_LABEL'length + j) := hp_str(j);
-            END LOOP;
-            txt_len := HP_LABEL'length + INTEGER'image(hp_val)'length;
+            txt_len := 8;
+            scale := 2;
+            start_x := SCREEN_W - txt_len * CHAR_W * scale - 10;
+            
             scale := 2;
             start_x := SCREEN_W - txt_len * CHAR_W * scale - 10;
             IF hp_on = '1' THEN

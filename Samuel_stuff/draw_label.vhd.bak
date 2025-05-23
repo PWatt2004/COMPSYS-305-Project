@@ -54,18 +54,17 @@ begin
     process(clk)
         variable px, py : integer;
         variable char_index : integer;
-     begin
+    begin
         if rising_edge(clk) then
             pixel_on <= '0';
-        if active = '1' then
-            px := to_integer(unsigned(pixel_x));
-            py := to_integer(unsigned(pixel_y));
+            if active = '1' then
+                px := to_integer(unsigned(pixel_x));
+                py := to_integer(unsigned(pixel_y));
 
-            if py >= start_y and py < start_y + CHAR_HEIGHT and px >= start_x then
-                char_index := (px - start_x) / CHAR_WIDTH + 1;
-                if char_index >= 1 and char_index <= TEXT_LENGTH then
-                    if character'pos(text_string(char_index)) >= 32 and character'pos(text_string(char_index)) <= 95 then
-                        char_code <= std_logic_vector(to_unsigned(character'pos(text_string(char_index)) - 32, 6));
+                if py >= start_y and py < start_y + CHAR_HEIGHT then
+                    char_index := (px - start_x) / CHAR_WIDTH + 1;
+                    if char_index >= 1 and char_index <= TEXT_LENGTH then
+                        char_code <= std_logic_vector(to_unsigned(character'pos(text_string(char_index)), 6));
                         char_x <= (px - start_x) mod CHAR_WIDTH;
                         char_y <= (py - start_y);
                         pixel_on <= pixel_in_char;
@@ -73,6 +72,5 @@ begin
                 end if;
             end if;
         end if;
-    end if;
-end process;
-
+    end process;
+end Behavioral;

@@ -311,42 +311,26 @@ BEGIN
             blue <= text_rgb_signal(0);
         END IF;
         -- draw buttons on title screen
-        -- Start Training Button (Rectangle, upper)
         IF in_title = '1' THEN
-            IF unsigned(pixel_column) >= to_unsigned(450, 10) AND unsigned(pixel_column) < to_unsigned(600, 10) AND
-                unsigned(pixel_row) >= to_unsigned(150, 10) AND unsigned(pixel_row) < to_unsigned(200, 10) THEN
-                red <= '1';
-                green <= '1';
-                blue <= '1';
-            END IF;
-
-            -- Start Game Button (Rectangle, lower)
-            IF unsigned(pixel_column) >= to_unsigned(450, 10) AND unsigned(pixel_column) < to_unsigned(600, 10) AND
-                unsigned(pixel_row) >= to_unsigned(220, 10) AND unsigned(pixel_row) < to_unsigned(270, 10) THEN
-                red <= '1';
-                green <= '1';
-                blue <= '1';
-            END IF;
-        END IF;
-
         -- Draw cursor (5x5 red square)
-        IF to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) AND
-            to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 AND
-            to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) AND
-            to_integer(unsigned(pixel_row)) < to_integer(unsigned(mouse_row)) + 5 THEN
-            red <= '1';
-            green <= '0';
-            blue <= '0';
-        END IF;
-
-        IF label1_on = '1' THEN
-            red <= '1';
-            green <= '1';
-            blue <= '1';
-        ELSIF label2_on = '1' THEN
-            red <= '1';
-            green <= '1';
-            blue <= '1';
+			  IF to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) AND
+					to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 AND
+					to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) AND
+					to_integer(unsigned(pixel_row)) < to_integer(unsigned(mouse_row)) + 5 THEN
+					red <= '1';
+					green <= '0';
+					blue <= '0';
+			  END IF;
+			  
+			  IF label1_on = '1' THEN
+					red <= '0';
+					green <= '0';
+					blue <= '0';
+			  ELSIF label2_on = '1' THEN
+					red <= '0';
+					green <= '0';
+					blue <= '0';
+			  END IF;			  
         END IF;
     END PROCESS;
 

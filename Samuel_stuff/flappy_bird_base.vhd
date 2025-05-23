@@ -99,9 +99,8 @@ ARCHITECTURE top OF flappy_bird_base IS
 
     SIGNAL bird_limit_hit : STD_LOGIC;
 
-    SIGNAL hp_string : STRING(1 TO 8) := "HP-10000";
-
-
+    SIGNAL health : INTEGER := 999;
+    SIGNAL hp_string : STRING(1 TO 8) := "HP-00999"; -- Displayed string
 BEGIN
     -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
@@ -131,11 +130,8 @@ BEGIN
     END PROCESS digit_split;
 
     LEDR(0) <= left_button;
-    LEDR(1) <= pipe_hit AND game_active;  
-    LEDR(2) <= bird_limit_hit AND game_active;  
-
-    hp_string <= "HP-09999";
-
+    LEDR(1) <= pipe_hit AND game_active;
+    LEDR(2) <= bird_limit_hit AND game_active;
     VGA_VS <= vsync_internal;
 
     clk_divider : PROCESS (CLOCK_50)
@@ -147,6 +143,34 @@ BEGIN
         END IF;
     END PROCESS;
 
+    PROCESS (vsync_internal)
+        VARIABLE temp : INTEGER;
+        VARIABLE hp_temp : STRING(1 TO 8);
+    BEGIN
+        IF rising_edge(vsync_internal) THEN
+            -- Handle health logic
+            IF RESET_N = '0' OR in_title = '1' THEN
+                health <= 999;
+            ELSIF game_active = '1' AND mode_training = '1' THEN
+                IF bird_limit_hit = '1' AND health > 0 THEN
+                    health <= health - 1;
+                END IF;
+            END IF;
+
+            -- Format health as string
+            temp := health;
+            hp_temp(1) := 'H';
+            hp_temp(2) := 'P';
+            hp_temp(3) := '-';
+            hp_temp(4) := CHARACTER'VAL((temp / 1000) MOD 10 + CHARACTER'POS('0'));
+            hp_temp(5) := CHARACTER'VAL((temp / 100) MOD 10 + CHARACTER'POS('0'));
+            hp_temp(6) := CHARACTER'VAL((temp / 10) MOD 10 + CHARACTER'POS('0'));
+            hp_temp(7) := CHARACTER'VAL(temp MOD 10 + CHARACTER'POS('0'));
+            hp_temp(8) := ' ';
+
+            hp_string <= hp_temp;
+        END IF;
+    END PROCESS;
     vga_inst : ENTITY work.vga_sync
         PORT MAP(
             clock_25Mhz => clk_25,
@@ -219,7 +243,7 @@ BEGIN
             title_on => SW(0),
             score_on => SW(1),
             hp_on => SW(2),
-            hp_string     => hp_string
+            hp_string => hp_string
         );
 
     menu_ui : ENTITY work.menu_controller
@@ -315,25 +339,25 @@ BEGIN
         END IF;
         -- draw buttons on title screen
         IF in_title = '1' THEN
-        -- Draw cursor (5x5 red square)
-			  IF to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) AND
-					to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 AND
-					to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) AND
-					to_integer(unsigned(pixel_row)) < to_integer(unsigned(mouse_row)) + 5 THEN
-					red <= '1';
-					green <= '0';
-					blue <= '0';
-			  END IF;
-			  
-			  IF label1_on = '1' THEN
-					red <= '0';
-					green <= '0';
-					blue <= '0';
-			  ELSIF label2_on = '1' THEN
-					red <= '0';
-					green <= '0';
-					blue <= '0';
-			  END IF;			  
+            -- Draw cursor (5x5 red square)
+            IF to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) AND
+                to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 AND
+                to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) AND
+                to_integer(unsigned(pixel_row)) < to_integer(unsigned(mouse_row)) + 5 THEN
+                red <= '1';
+                green <= '0';
+                blue <= '0';
+            END IF;
+
+            IF label1_on = '1' THEN
+                red <= '0';
+                green <= '0';
+                blue <= '0';
+            ELSIF label2_on = '1' THEN
+                red <= '0';
+                green <= '0';
+                blue <= '0';
+            END IF;
         END IF;
     END PROCESS;
 

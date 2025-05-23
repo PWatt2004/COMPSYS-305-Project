@@ -1,6 +1,7 @@
 |flappy_bird_base
 CLOCK_50 => clk_25.CLK
 CLOCK_50 => \clk_divider:counter.CLK
+RESET_N => process_2.IN1
 RESET_N => mouse:mouse_inst.reset
 RESET_N => bird_controller:bird_inst.reset
 RESET_N => pipe_controller:pipe_ctrl_inst.reset

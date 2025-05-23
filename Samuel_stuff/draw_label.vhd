@@ -1,78 +1,78 @@
-LIBRARY IEEE;
-USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.NUMERIC_STD.ALL;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
-ENTITY draw_label IS
-    GENERIC (
-        TEXT_LENGTH : INTEGER := 16
+entity draw_label is
+    generic (
+        TEXT_LENGTH : integer := 16
     );
-    PORT (
-        clk : IN STD_LOGIC;
-        active : IN STD_LOGIC;
+    port (
+        clk         : in  std_logic;
+        active      : in  std_logic;
 
-        pixel_x : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-        pixel_y : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+        pixel_x     : in  std_logic_vector(9 downto 0);
+        pixel_y     : in  std_logic_vector(9 downto 0);
 
-        start_x : IN INTEGER;
-        start_y : IN INTEGER;
+        start_x     : in  integer;
+        start_y     : in  integer;
 
-        text_string : IN STRING(1 TO TEXT_LENGTH);
+        text_string : in  string(1 to TEXT_LENGTH);
 
-        pixel_on : OUT STD_LOGIC
+        pixel_on    : out std_logic
     );
-END ENTITY;
+end entity;
 
-ARCHITECTURE Behavioral OF draw_label IS
-    COMPONENT char_rom
-        PORT (
-            character_address : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
-            font_row : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-            font_col : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-            clock : IN STD_LOGIC;
-            rom_mux_output : OUT STD_LOGIC
+architecture Behavioral of draw_label is
+    component char_rom
+        port (
+            character_address : in  std_logic_vector(5 downto 0);
+            font_row          : in  std_logic_vector(2 downto 0);
+            font_col          : in  std_logic_vector(2 downto 0);
+            clock             : in  std_logic;
+            rom_mux_output    : out std_logic
         );
-    END COMPONENT;
+    end component;
 
-    CONSTANT CHAR_WIDTH : INTEGER := 8;
-    CONSTANT CHAR_HEIGHT : INTEGER := 8;
+    constant CHAR_WIDTH  : integer := 8;
+    constant CHAR_HEIGHT : integer := 8;
 
-    SIGNAL char_code : STD_LOGIC_VECTOR(5 DOWNTO 0);
-    SIGNAL char_x : INTEGER;
-    SIGNAL char_y : INTEGER;
-    SIGNAL pixel_in_char : STD_LOGIC;
-BEGIN
+    signal char_code  : std_logic_vector(5 downto 0);
+    signal char_x     : integer;
+    signal char_y     : integer;
+    signal pixel_in_char : std_logic;
+begin
 
     char_rom_inst : char_rom
-    PORT MAP(
-        character_address => char_code,
-        font_row => STD_LOGIC_VECTOR(to_unsigned(char_y, 3)),
-        font_col => STD_LOGIC_VECTOR(to_unsigned(char_x, 3)),
-        clock => clk,
-        rom_mux_output => pixel_in_char
-    );
+        port map (
+            character_address => char_code,
+            font_row          => std_logic_vector(to_unsigned(char_y, 3)),
+            font_col          => std_logic_vector(to_unsigned(char_x, 3)),
+            clock             => clk,
+            rom_mux_output    => pixel_in_char
+        );
 
-    PROCESS (clk)
-        VARIABLE px, py : INTEGER;
-        VARIABLE char_index : INTEGER;
-    BEGIN
-        IF rising_edge(clk) THEN
+    process(clk)
+        variable px, py : integer;
+        variable char_index : integer;
+     begin
+        if rising_edge(clk) then
             pixel_on <= '0';
-            IF active = '1' THEN
-                px := to_integer(unsigned(pixel_x));
-                py := to_integer(unsigned(pixel_y));
+        if active = '1' then
+            px := to_integer(unsigned(pixel_x));
+            py := to_integer(unsigned(pixel_y));
 
-                IF py >= start_y AND py < start_y + CHAR_HEIGHT AND px >= start_x THEN
-                    char_index := (px - start_x) / CHAR_WIDTH + 1;
-                    IF char_index >= 1 AND char_index <= TEXT_LENGTH THEN
-                        IF CHARACTER'pos(text_string(char_index)) >= 32 AND CHARACTER'pos(text_string(char_index)) <= 95 THEN
-                            char_code <= STD_LOGIC_VECTOR(to_unsigned(CHARACTER'pos(text_string(char_index)) - 32, 6));
-                            char_x <= (px - start_x) MOD CHAR_WIDTH;
-                            char_y <= (py - start_y);
-                            pixel_on <= pixel_in_char;
-                        END IF;
-                    END IF;
-                END IF;
-            END IF;
-        END IF;
-    END PROCESS;
-END ARCHITECTURE;
+            if py >= start_y and py < start_y + CHAR_HEIGHT and px >= start_x then
+                char_index := (px - start_x) / CHAR_WIDTH + 1;
+                if char_index >= 1 and char_index <= TEXT_LENGTH then
+                    if character'pos(text_string(char_index)) >= 32 and character'pos(text_string(char_index)) <= 95 then
+                        char_code <= std_logic_vector(to_unsigned(character'pos(text_string(char_index)) - 32, 6));
+                        char_x <= (px - start_x) mod CHAR_WIDTH;
+                        char_y <= (py - start_y);
+                        pixel_on <= pixel_in_char;
+                    end if;
+                end if;
+            end if;
+        end if;
+    end if;
+end process;
+

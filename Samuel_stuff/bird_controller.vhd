@@ -2,6 +2,11 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
+-- =======================
+-- Module: bird_controller
+-- Description: This implements the logic and behaviour of the bird when the game is running
+-- =======================
+
 ENTITY bird_controller IS
     PORT (
         clk : IN STD_LOGIC;
@@ -16,12 +21,20 @@ ENTITY bird_controller IS
 END bird_controller;
 
 ARCHITECTURE behavior OF bird_controller IS
-    SIGNAL velocity : INTEGER := 0;
+    SIGNAL velocity : INTEGER := 0;   
     SIGNAL y_pos : INTEGER := 240;
     SIGNAL alt_temp : INTEGER;
     SIGNAL hit_ceiling_or_floor : STD_LOGIC := '0';
 
+    SIGNAL alt_temp : INTEGER;  -- <== this is redundant, bird_altitude could just just be updated directly
 BEGIN
+
+    -- ================== Process 
+    -- Mechcanics of the Brid/ball falling and flapping
+    -- if reset is not initiated and flap_button is not '1' Brid falls 1 pixal per frame
+    -- if flap_button is pressed '1' velocity goes up by 6 pixals per frame.
+    -- when the Brid reachs the ceiling it stays there, and like wise with the bottom of the screen
+    -- ================== 
     PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
@@ -53,6 +66,10 @@ BEGIN
         END IF;
 
     END PROCESS;
+
+    -- ==================
+    -- Notes for this file
+    -- 
 
     alt_temp <= 480 - y_pos;
     bird_y <= y_pos;

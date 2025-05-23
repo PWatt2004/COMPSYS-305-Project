@@ -69,7 +69,12 @@ BEGIN
 
     -- ==================
     -- Notes for this file
-    -- 
+    -- From ChatGPT:
+    --      - Magic Numbers like -6 for velocity might not make sense for future updates
+    --      - Inconsistance Frame Update: the FPGA base clk is different to the frame rate of the monitor
+    --        this might cause so problems, one thing to mediate this is to implement a clk_counter which updates every (sys_clk/frame_clk) cycle.
+    --        this will make the game run a bit smoother
+    -- ==================   
 
     alt_temp <= 480 - y_pos;
     bird_y <= y_pos;

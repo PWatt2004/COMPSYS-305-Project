@@ -13,7 +13,8 @@ ENTITY display_text IS
         text_on : OUT STD_LOGIC;
         title_on : IN STD_LOGIC;
         score_on : IN STD_LOGIC;
-        hp_on : IN STD_LOGIC
+        hp_on : IN STD_LOGIC;
+        hp_label : IN STRING(1 TO 24)
     );
 END ENTITY;
 
@@ -35,11 +36,11 @@ ARCHITECTURE Behavioral OF display_text IS
 
     CONSTANT TITLE_TEXT : STRING := "FLAPPY BIRD";
     CONSTANT SCORE_LABEL : STRING := "SCORE-000";
-    CONSTANT HP_LABEL : STRING := "HP-100";
 
     SIGNAL character_address : STD_LOGIC_VECTOR(5 DOWNTO 0);
     SIGNAL font_row, font_col : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL rom_pixel : STD_LOGIC;
+	SIGNAL hp_label_signal : STRING(1 TO 24) := "feed me something to display";
 
 BEGIN
 
@@ -64,6 +65,9 @@ BEGIN
         VARIABLE score_str : STRING(1 TO 10);
         VARIABLE hp_str : STRING(1 TO 10);
         VARIABLE temp_str : STRING(1 TO 20);
+
+        
+
     BEGIN
         IF rising_edge(clk) THEN
             text_on <= '0';
@@ -78,8 +82,8 @@ BEGIN
             -- 1. FLAPPY BIRD (WHITE, CENTERED, SCALE=2)
             ------------------------------------------------------------
             txt := (OTHERS => ' ');
-            FOR i IN 1 TO TITLE_TEXT'length LOOP
-                txt(i) := TITLE_TEXT(i);
+            FOR i IN 1 TO hp_label'length LOOP
+                txt(i) := hp_label(i);
             END LOOP;
             txt_len := TITLE_TEXT'length;
             scale := 2;

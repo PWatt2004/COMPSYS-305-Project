@@ -101,6 +101,9 @@ ARCHITECTURE top OF flappy_bird_base IS
 
     SIGNAL bird_limit_hit : STD_LOGIC;
 
+    SIGNAL hp_label_signal : STRING(1 TO 24) := "feed me smethng to dsply";
+
+
 BEGIN
     -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
@@ -216,7 +219,8 @@ BEGIN
             text_on => text_on_signal,
             title_on => SW(0),
             score_on => SW(1),
-            hp_on => SW(2)
+            hp_on => SW(2),
+            hp_label => hp_label_signal
         );
 
     menu_ui : ENTITY work.menu_controller

@@ -26,7 +26,7 @@ ARCHITECTURE behavior OF bird_controller IS
     SIGNAL alt_temp : INTEGER;
     SIGNAL hit_ceiling_or_floor : STD_LOGIC := '0';
 
-    SIGNAL alt_temp : INTEGER;  -- <== this is redundant, bird_altitude could just just be updated directly
+    --SIGNAL alt_temp : INTEGER;  -- <== this is redundant, bird_altitude could just just be updated directly
 BEGIN
 
     -- ================== Process 

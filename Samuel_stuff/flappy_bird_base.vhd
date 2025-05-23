@@ -96,6 +96,11 @@ ARCHITECTURE top OF flappy_bird_base IS
 
     SIGNAL mode_training : STD_LOGIC;
 
+    SIGNAL label1_on : STD_LOGIC;
+    SIGNAL label2_on : STD_LOGIC;
+
+    SIGNAL bird_limit_hit : STD_LOGIC;
+
 BEGIN
     -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
@@ -125,6 +130,8 @@ BEGIN
     END PROCESS digit_split;
 
     LEDR(0) <= left_button;
+    LEDR(1) <= pipe_hit AND game_active;  
+    LEDR(2) <= bird_limit_hit AND game_active;  
 
     VGA_VS <= vsync_internal;
 
@@ -172,7 +179,8 @@ BEGIN
             bird_y => bird_y,
             bird_velocity => bird_velocity,
             bird_altitude => number,
-            game_active => game_active
+            game_active => game_active,
+            bird_limit_hit => bird_limit_hit
         );
 
     background_inst : ENTITY work.background
@@ -235,6 +243,31 @@ BEGIN
             in_lose => in_lose
         );
 
+    label_training : ENTITY work.draw_label
+        GENERIC MAP(TEXT_LENGTH => 13)
+        PORT MAP(
+            clk => clk_25,
+            active => in_title,
+            pixel_x => pixel_column,
+            pixel_y => pixel_row,
+            start_x => 460,
+            start_y => 160,
+            text_string => "TRAINING MODE",
+            pixel_on => label1_on
+        );
+
+    label_game : ENTITY work.draw_label
+        GENERIC MAP(TEXT_LENGTH => 9)
+        PORT MAP(
+            clk => clk_25,
+            active => in_title,
+            pixel_x => pixel_column,
+            pixel_y => pixel_row,
+            start_x => 460,
+            start_y => 230,
+            text_string => "GAME MODE",
+            pixel_on => label2_on
+        );
     -- Decode pipe_x_out to pipe_x_array
     pipe_x_array(0) <= to_integer(unsigned(pipe_x_out(9 DOWNTO 0)));
     pipe_x_array(1) <= to_integer(unsigned(pipe_x_out(19 DOWNTO 10)));
@@ -306,6 +339,15 @@ BEGIN
             blue <= '0';
         END IF;
 
+        IF label1_on = '1' THEN
+            red <= '1';
+            green <= '1';
+            blue <= '1';
+        ELSIF label2_on = '1' THEN
+            red <= '1';
+            green <= '1';
+            blue <= '1';
+        END IF;
     END PROCESS;
 
     VGA_R(2 DOWNTO 0) <= (OTHERS => '0');

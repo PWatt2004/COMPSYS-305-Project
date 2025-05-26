@@ -70,16 +70,18 @@ BEGIN
     PROCESS (bird_x, bird_y, pipe_x, pipe_y)
         VARIABLE hit : STD_LOGIC := '0';
     BEGIN
+        hit := '0'; -- reset the flag at the start
+
         FOR i IN 0 TO 3 LOOP
             IF bird_x + 6 >= pipe_x(i) AND bird_x - 6 <= pipe_x(i) + pipe_width THEN
                 IF bird_y < pipe_y(i) OR bird_y > pipe_y(i) + pipe_gap THEN
-                    hit := '1';
+                    hit := '1'; -- set only if there's overlap
                 END IF;
             END IF;
         END LOOP;
-        pipe_hit <= hit;
-    END PROCESS;
 
+        pipe_hit <= hit; -- assign the result after checking all pipes
+    END PROCESS;
     -- Output encoded pipe positions
     pipe_x_out(9 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(0), 10));
     pipe_x_out(19 DOWNTO 10) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(1), 10));

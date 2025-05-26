@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappy_bird_base
-Mon May 26 12:55:36 2025
+Mon May 26 14:20:25 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 26 12:55:36 2025           ;
+; Analysis & Synthesis Status     ; Successful - Mon May 26 14:20:24 2025           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                ;
 ; Top-level Entity Name           ; flappy_bird_base                                ;
@@ -198,7 +198,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
@@ -266,14 +266,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimate of Logic utilization (ALMs needed) ; 7353       ;
+; Estimate of Logic utilization (ALMs needed) ; 7518       ;
 ;                                             ;            ;
-; Combinational ALUT usage for logic          ; 14340      ;
+; Combinational ALUT usage for logic          ; 14592      ;
 ;     -- 7 input functions                    ; 9          ;
-;     -- 6 input functions                    ; 333        ;
-;     -- 5 input functions                    ; 500        ;
-;     -- 4 input functions                    ; 4004       ;
-;     -- <=3 input functions                  ; 9494       ;
+;     -- 6 input functions                    ; 412        ;
+;     -- 5 input functions                    ; 532        ;
+;     -- 4 input functions                    ; 4005       ;
+;     -- <=3 input functions                  ; 9634       ;
 ;                                             ;            ;
 ; Dedicated logic registers                   ; 520        ;
 ;                                             ;            ;
@@ -284,9 +284,9 @@ refer to the applicable agreement for further details.
 ; Total DSP Blocks                            ; 0          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; health[31] ;
-; Maximum fan-out                             ; 331        ;
-; Total fan-out                               ; 48296      ;
-; Average fan-out                             ; 3.22       ;
+; Maximum fan-out                             ; 330        ;
+; Total fan-out                               ; 49202      ;
+; Average fan-out                             ; 3.23       ;
 +---------------------------------------------+------------+
 
 
@@ -295,13 +295,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                              ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |flappy_bird_base                            ; 14340 (658)         ; 520 (59)                  ; 12288             ; 0          ; 59   ; 0            ; |flappy_bird_base                                                                                                                                ; flappy_bird_base    ; work         ;
+; |flappy_bird_base                            ; 14592 (627)         ; 520 (59)                  ; 12288             ; 0          ; 59   ; 0            ; |flappy_bird_base                                                                                                                                ; flappy_bird_base    ; work         ;
 ;    |BCD_to_SevenSeg:hundred_display|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|BCD_to_SevenSeg:hundred_display                                                                                                ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:one_display|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|BCD_to_SevenSeg:one_display                                                                                                    ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:ten_display|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|BCD_to_SevenSeg:ten_display                                                                                                    ; BCD_to_SevenSeg     ; work         ;
-;    |MOUSE:mouse_inst|                        ; 108 (108)           ; 118 (118)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst                                                                                                               ; MOUSE               ; work         ;
+;    |MOUSE:mouse_inst|                        ; 109 (109)           ; 118 (118)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|MOUSE:mouse_inst                                                                                                               ; MOUSE               ; work         ;
 ;    |VGA_SYNC:vga_inst|                       ; 45 (45)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|VGA_SYNC:vga_inst                                                                                                              ; VGA_SYNC            ; work         ;
-;    |bird_controller:bird_inst|               ; 171 (171)           ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|bird_controller:bird_inst                                                                                                      ; bird_controller     ; work         ;
+;    |bird_controller:bird_inst|               ; 175 (175)           ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|bird_controller:bird_inst                                                                                                      ; bird_controller     ; work         ;
 ;    |display_text:display_text_inst|          ; 416 (414)           ; 15 (15)                   ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst                                                                                                 ; display_text        ; work         ;
 ;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst                                                                          ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component                                          ; altsyncram          ; work         ;
@@ -314,7 +314,7 @@ refer to the applicable agreement for further details.
 ;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|draw_label:label_training|char_rom:char_rom_inst                                                                               ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|draw_label:label_training|char_rom:char_rom_inst|altsyncram:altsyncram_component                                               ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappy_bird_base|draw_label:label_training|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                ; altsyncram_d5g1     ; work         ;
-;    |game_fsm:fsm_inst|                       ; 7 (7)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|game_fsm:fsm_inst                                                                                                              ; game_fsm            ; work         ;
+;    |game_fsm:fsm_inst|                       ; 8 (8)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|game_fsm:fsm_inst                                                                                                              ; game_fsm            ; work         ;
 ;    |lpm_divide:Div0|                         ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div0                                                                                                                ; lpm_divide          ; work         ;
 ;       |lpm_divide_epo:auto_generated|        ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div0|lpm_divide_epo:auto_generated                                                                                  ; lpm_divide_epo      ; work         ;
 ;          |abs_divider_nbg:divider|           ; 640 (56)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider                                                          ; abs_divider_nbg     ; work         ;
@@ -376,7 +376,7 @@ refer to the applicable agreement for further details.
 ;             |alt_u_div_o2f:divider|          ; 1298 (1298)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod6|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider                                    ; alt_u_div_o2f       ; work         ;
 ;             |lpm_abs_4p9:my_abs_num|         ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|lpm_divide:Mod6|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num                                   ; lpm_abs_4p9         ; work         ;
 ;    |menu_controller:menu_ui|                 ; 12 (12)             ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|menu_controller:menu_ui                                                                                                        ; menu_controller     ; work         ;
-;    |pipe_controller:pipe_ctrl_inst|          ; 416 (397)           ; 184 (184)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst                                                                                                 ; pipe_controller     ; work         ;
+;    |pipe_controller:pipe_ctrl_inst|          ; 693 (674)           ; 184 (184)                 ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst                                                                                                 ; pipe_controller     ; work         ;
 ;       |lpm_divide:Mod0|                      ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_d2m:auto_generated|     ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_d2m:auto_generated                                                   ; lpm_divide_d2m      ; work         ;
 ;             |sign_div_unsign_hkh:divider|    ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lpm_divide:Mod0|lpm_divide_d2m:auto_generated|sign_div_unsign_hkh:divider                       ; sign_div_unsign_hkh ; work         ;
@@ -435,45 +435,133 @@ Encoding Type:  One-Hot
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                  ;
-+--------------------------------------------+--------------------------------------------------------+
-; Register name                              ; Reason for Removal                                     ;
-+--------------------------------------------+--------------------------------------------------------+
-; hp_string[1][5]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[1][4]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[1][3]                            ; Stuck at VCC due to stuck port data_in                 ;
-; hp_string[1][2]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[1][1]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[1][0]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[2][5]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[2][4]                            ; Stuck at VCC due to stuck port data_in                 ;
-; hp_string[2][3]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[2][2]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[2][1]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[2][0]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[3][5]                            ; Stuck at VCC due to stuck port data_in                 ;
-; hp_string[3][4]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[3][3]                            ; Stuck at VCC due to stuck port data_in                 ;
-; hp_string[3][2]                            ; Stuck at VCC due to stuck port data_in                 ;
-; hp_string[3][1]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[3][0]                            ; Stuck at VCC due to stuck port data_in                 ;
-; hp_string[8][5]                            ; Stuck at VCC due to stuck port data_in                 ;
-; hp_string[8][2]                            ; Stuck at GND due to stuck port data_in                 ;
-; hp_string[8][1]                            ; Stuck at GND due to stuck port data_in                 ;
-; MOUSE:mouse_inst|CHAROUT[4..7]             ; Stuck at VCC due to stuck port data_in                 ;
-; MOUSE:mouse_inst|CHAROUT[3]                ; Stuck at GND due to stuck port data_in                 ;
-; MOUSE:mouse_inst|CHAROUT[2]                ; Stuck at VCC due to stuck port data_in                 ;
-; MOUSE:mouse_inst|CHAROUT[0,1]              ; Stuck at GND due to stuck port data_in                 ;
-; MOUSE:mouse_inst|SHIFTOUT[10]              ; Stuck at VCC due to stuck port data_in                 ;
-; hp_string[8][0]                            ; Merged with hp_string[8][3]                            ;
-; hp_string[8][3]                            ; Merged with hp_string[8][4]                            ;
-; display_text:display_text_inst|text_rgb[5] ; Merged with display_text:display_text_inst|text_rgb[0] ;
-; MOUSE:mouse_inst|cursor_row[9]             ; Stuck at GND due to stuck port data_in                 ;
-; VGA_SYNC:vga_inst|pixel_row[9]             ; Stuck at GND due to stuck port data_in                 ;
-; draw_label:label_game|char_code[4]         ; Stuck at GND due to stuck port data_in                 ;
-; Total Number of Removed Registers = 36     ;                                                        ;
-+--------------------------------------------+--------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                      ;
++----------------------------------------------+----------------------------------------------------------+
+; Register name                                ; Reason for Removal                                       ;
++----------------------------------------------+----------------------------------------------------------+
+; hp_string[1][5]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[1][4]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[1][3]                              ; Stuck at VCC due to stuck port data_in                   ;
+; hp_string[1][2]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[1][1]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[1][0]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[2][5]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[2][4]                              ; Stuck at VCC due to stuck port data_in                   ;
+; hp_string[2][3]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[2][2]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[2][1]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[2][0]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[3][5]                              ; Stuck at VCC due to stuck port data_in                   ;
+; hp_string[3][4]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[3][3]                              ; Stuck at VCC due to stuck port data_in                   ;
+; hp_string[3][2]                              ; Stuck at VCC due to stuck port data_in                   ;
+; hp_string[3][1]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[3][0]                              ; Stuck at VCC due to stuck port data_in                   ;
+; hp_string[8][5]                              ; Stuck at VCC due to stuck port data_in                   ;
+; hp_string[8][2]                              ; Stuck at GND due to stuck port data_in                   ;
+; hp_string[8][1]                              ; Stuck at GND due to stuck port data_in                   ;
+; MOUSE:mouse_inst|CHAROUT[4..7]               ; Stuck at VCC due to stuck port data_in                   ;
+; MOUSE:mouse_inst|CHAROUT[3]                  ; Stuck at GND due to stuck port data_in                   ;
+; MOUSE:mouse_inst|CHAROUT[2]                  ; Stuck at VCC due to stuck port data_in                   ;
+; MOUSE:mouse_inst|CHAROUT[0,1]                ; Stuck at GND due to stuck port data_in                   ;
+; MOUSE:mouse_inst|SHIFTOUT[10]                ; Stuck at VCC due to stuck port data_in                   ;
+; hp_string[8][0]                              ; Merged with hp_string[8][3]                              ;
+; hp_string[8][3]                              ; Merged with hp_string[8][4]                              ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][11] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][12] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][13] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][14] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][15] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][16] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][17] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][18] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][19] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][20] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][21] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][22] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][23] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][24] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][25] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][26] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][27] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][28] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][29] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][30] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][31] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][11] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][12] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][13] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][14] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][15] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][16] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][17] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][18] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][19] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][20] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][21] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][22] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][23] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][24] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][25] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][26] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][27] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][28] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][29] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][30] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][31] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][11] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][12] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][13] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][14] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][15] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][16] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][17] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][18] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][19] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][20] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][21] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][22] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][23] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][24] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][25] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][26] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][27] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][28] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][29] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][30] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][31] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][11] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][12] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][13] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][14] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][15] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][16] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][17] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][18] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][19] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][20] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][21] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][22] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][23] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][24] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][25] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][26] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][27] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][28] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][29] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][30] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][31] ; Merged with pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ;
+; display_text:display_text_inst|text_rgb[5]   ; Merged with display_text:display_text_inst|text_rgb[0]   ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][10] ; Stuck at GND due to stuck port data_in                   ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][10] ; Stuck at GND due to stuck port data_in                   ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][10] ; Stuck at GND due to stuck port data_in                   ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][10] ; Stuck at GND due to stuck port data_in                   ;
+; MOUSE:mouse_inst|cursor_row[9]               ; Stuck at GND due to stuck port data_in                   ;
+; VGA_SYNC:vga_inst|pixel_row[9]               ; Stuck at GND due to stuck port data_in                   ;
+; draw_label:label_game|char_code[4]           ; Stuck at GND due to stuck port data_in                   ;
+; Total Number of Removed Registers = 124      ;                                                          ;
++----------------------------------------------+----------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -506,44 +594,44 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+---------+
 ; Inverted Register                            ; Fan out ;
 +----------------------------------------------+---------+
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][6]  ; 4       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][5]  ; 4       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][2]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[3][8]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][9]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][8]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][7]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[2][6]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][7]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][6]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][5]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[2][4]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][7]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][6]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[0][3]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][9]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[0][7]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][9]  ; 6       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][8]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[1][5]  ; 5       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][2]  ; 3       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][7]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][6]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][4]  ; 2       ;
-; pipe_controller:pipe_ctrl_inst|pipe_y[1][3]  ; 2       ;
+; bird_controller:bird_inst|y_pos[7]           ; 14      ;
+; bird_controller:bird_inst|y_pos[6]           ; 16      ;
+; bird_controller:bird_inst|y_pos[5]           ; 14      ;
+; bird_controller:bird_inst|y_pos[4]           ; 14      ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][2]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][5]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][8]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[1][9]  ; 8       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][7]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][6]  ; 4       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][4]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[1][3]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][6]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][7]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][8]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[2][9]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][7]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][6]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][5]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[2][4]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][2]  ; 5       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[3][6]  ; 6       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[3][5]  ; 6       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[3][10] ; 6       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[3][8]  ; 4       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[0][7]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_x[0][9]  ; 7       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][7]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][6]  ; 3       ;
+; pipe_controller:pipe_ctrl_inst|pipe_y[0][3]  ; 3       ;
 ; health[9]                                    ; 7       ;
 ; health[8]                                    ; 7       ;
 ; health[7]                                    ; 7       ;
 ; health[6]                                    ; 7       ;
 ; health[5]                                    ; 7       ;
 ; health[2]                                    ; 7       ;
-; health[1]                                    ; 7       ;
-; health[0]                                    ; 7       ;
-; bird_controller:bird_inst|y_pos[4]           ; 4       ;
-; bird_controller:bird_inst|y_pos[7]           ; 4       ;
-; bird_controller:bird_inst|y_pos[6]           ; 4       ;
-; bird_controller:bird_inst|y_pos[5]           ; 4       ;
-; pipe_controller:pipe_ctrl_inst|pipe_x[3][10] ; 4       ;
+; health[1]                                    ; 8       ;
+; health[0]                                    ; 8       ;
 ; pipe_controller:pipe_ctrl_inst|lfsr[0]       ; 3       ;
 ; pipe_controller:pipe_ctrl_inst|lfsr[10]      ; 2       ;
 ; pipe_controller:pipe_ctrl_inst|lfsr[13]      ; 2       ;
@@ -552,11 +640,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; pipe_controller:pipe_ctrl_inst|lfsr[6]       ; 3       ;
 ; pipe_controller:pipe_ctrl_inst|lfsr[5]       ; 3       ;
 ; MOUSE:mouse_inst|send_char                   ; 3       ;
+; pipe_controller:pipe_ctrl_inst|lfsr[11]      ; 1       ;
 ; draw_label:label_training|char_y[0]          ; 1       ;
 ; draw_label:label_training|char_x[0]          ; 1       ;
 ; draw_label:label_game|char_y[0]              ; 1       ;
 ; draw_label:label_game|char_x[0]              ; 1       ;
-; pipe_controller:pipe_ctrl_inst|lfsr[11]      ; 1       ;
 ; hp_string[8][4]                              ; 3       ;
 ; hp_string[6][0]                              ; 1       ;
 ; hp_string[7][0]                              ; 1       ;
@@ -584,46 +672,46 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lfsr[1]              ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |flappy_bird_base|health[21]                                          ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|new_cursor_row[9]                  ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][8]         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][6]         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lfsr[12]             ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][1]         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][4]         ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][1]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][1]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][2]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][1]         ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][5]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][0]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][8]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][4]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][9]         ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][7]         ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][4]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[5]                        ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|velocity[31]              ;
-; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][25]        ;
-; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][11]        ;
-; 4:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][20]        ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][12]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][1]         ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |flappy_bird_base|health[31]                                          ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|new_cursor_row[7]                  ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappy_bird_base|VGA_SYNC:vga_inst|v_count[0]                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|velocity[9]               ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][18]        ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][12]        ;
+; 4:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][26]        ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][9]         ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_row[0]          ;
-; 5:1                ; 28 bits   ; 84 LEs        ; 28 LEs               ; 56 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[25]                 ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[0]                   ;
+; 5:1                ; 28 bits   ; 84 LEs        ; 28 LEs               ; 56 LEs                 ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[11]                 ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[5]                   ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_column[8]                   ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[3]                      ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[4]                      ;
-; 18:1               ; 3 bits    ; 36 LEs        ; 3 LEs                ; 33 LEs                 ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_col[2]          ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[2]                      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|MOUSE:mouse_inst|cursor_row[7]                      ;
+; 18:1               ; 3 bits    ; 36 LEs        ; 3 LEs                ; 33 LEs                 ; Yes        ; |flappy_bird_base|display_text:display_text_inst|font_col[0]          ;
 ; 13:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|text_rgb[0]          ;
-; 32:1               ; 3 bits    ; 63 LEs        ; 60 LEs               ; 3 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[5] ;
-; 32:1               ; 3 bits    ; 63 LEs        ; 60 LEs               ; 3 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[4] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lfsr[7]              ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |flappy_bird_base|health[8]                                           ;
+; 32:1               ; 3 bits    ; 63 LEs        ; 60 LEs               ; 3 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[1] ;
+; 32:1               ; 3 bits    ; 63 LEs        ; 60 LEs               ; 3 LEs                  ; Yes        ; |flappy_bird_base|display_text:display_text_inst|character_address[0] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|lfsr[0]              ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[0][3]         ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][4]         ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][7]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[1][3]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[2][6]         ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_y[3][2]         ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[3][5]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][9]         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |flappy_bird_base|health[6]                                           ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[0][7]         ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[1][9]         ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappy_bird_base|pipe_controller:pipe_ctrl_inst|pipe_x[2][9]         ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappy_bird_base|bird_controller:bird_inst|y_pos[7]                  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:one_display|SevenSeg_out[5]         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:one_display|SevenSeg_out[0]         ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:ten_display|SevenSeg_out[2]         ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|BCD_to_SevenSeg:hundred_display|SevenSeg_out[5]     ;
 ; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappy_bird_base|display_text:display_text_inst|Add3                 ;
@@ -1296,23 +1384,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 5                           ;
 ;     plain             ; 59                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 14340                       ;
-;     arith             ; 6855                        ;
+; arriav_lcell_comb     ; 14592                       ;
+;     arith             ; 6971                        ;
 ;         0 data inputs ; 748                         ;
-;         1 data inputs ; 1073                        ;
-;         2 data inputs ; 542                         ;
+;         1 data inputs ; 1185                        ;
+;         2 data inputs ; 546                         ;
 ;         3 data inputs ; 2111                        ;
 ;         4 data inputs ; 2381                        ;
 ;     extend            ; 9                           ;
 ;         7 data inputs ; 9                           ;
-;     normal            ; 7352                        ;
+;     normal            ; 7488                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 20                          ;
-;         2 data inputs ; 4298                        ;
-;         3 data inputs ; 577                         ;
-;         4 data inputs ; 1623                        ;
-;         5 data inputs ; 500                         ;
-;         6 data inputs ; 333                         ;
+;         2 data inputs ; 4334                        ;
+;         3 data inputs ; 565                         ;
+;         4 data inputs ; 1624                        ;
+;         5 data inputs ; 532                         ;
+;         6 data inputs ; 412                         ;
 ;     shared            ; 124                         ;
 ;         0 data inputs ; 14                          ;
 ;         1 data inputs ; 92                          ;
@@ -1321,7 +1409,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 24                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 145.20                      ;
-; Average LUT depth     ; 108.41                      ;
+; Average LUT depth     ; 106.68                      ;
 +-----------------------+-----------------------------+
 
 
@@ -1330,7 +1418,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:09     ;
+; Top            ; 00:00:17     ;
 +----------------+--------------+
 
 
@@ -1340,7 +1428,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon May 26 12:55:20 2025
+    Info: Processing started: Mon May 26 14:19:49 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -1423,8 +1511,6 @@ Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHARO
 Info (12128): Elaborating entity "bird_controller" for hierarchy "bird_controller:bird_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 209
 Info (12128): Elaborating entity "background" for hierarchy "background:background_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 221
 Info (12128): Elaborating entity "pipe_controller" for hierarchy "pipe_controller:pipe_ctrl_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 231
-Warning (10631): VHDL Process Statement warning at pipe_controller.vhd(70): inferring latch(es) for signal or variable "hit", which holds its previous value in one or more paths through the process File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 70
-Info (10041): Inferred latch for "hit" at pipe_controller.vhd(74) File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/pipe_controller.vhd Line: 74
 Info (12128): Elaborating entity "display_text" for hierarchy "display_text:display_text_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 243
 Info (12128): Elaborating entity "char_rom" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/text_display.vhd Line: 46
 Info (12128): Elaborating entity "altsyncram" for hierarchy "display_text:display_text_inst|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/MiniprojectResources/char_rom.vhd Line: 51
@@ -1812,16 +1898,16 @@ Warning (21074): Design contains 7 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/ylee903/COMPSYS-305-Project/Samuel_stuff/flappy_bird_base.vhd Line: 17
-Info (21057): Implemented 14529 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 14781 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
     Info (21059): Implemented 45 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 14446 logic cells
+    Info (21061): Implemented 14698 logic cells
     Info (21064): Implemented 24 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 294 warnings
-    Info: Peak virtual memory: 5073 megabytes
-    Info: Processing ended: Mon May 26 12:55:36 2025
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:22
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 293 warnings
+    Info: Peak virtual memory: 5108 megabytes
+    Info: Processing ended: Mon May 26 14:20:25 2025
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:00:32
 
 

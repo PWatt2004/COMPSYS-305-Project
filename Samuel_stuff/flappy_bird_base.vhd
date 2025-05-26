@@ -158,7 +158,7 @@ BEGIN
         IF rising_edge(vsync_internal) THEN
             -- Handle health logic
             IF RESET_N = '0' OR in_title = '1' THEN
-                health <= 999;
+                health <= 50;
             ELSIF game_active = '1' AND mode_training = '1' THEN
                 IF bird_limit_hit = '1' AND health > 0 THEN
                     health <= health - 1;

@@ -1,76 +1,85 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
 
-entity game_fsm is
-    port (
-        clk            : in  std_logic;
-        reset          : in  std_logic;
+ENTITY game_fsm IS
+    PORT (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
 
-        start_training : in  std_logic;
-        start_game     : in  std_logic;
-        pipe_hit       : in  std_logic;
+        start_training : IN STD_LOGIC;
+        start_game : IN STD_LOGIC;
+        pipe_hit : IN STD_LOGIC;
+        health_zero : IN STD_LOGIC;
+        click_reset : IN STD_LOGIC; --click to reset from LOSE
+        mode_training : OUT STD_LOGIC;
+        game_active : OUT STD_LOGIC;
+        in_title : OUT STD_LOGIC;
+        in_lose : OUT STD_LOGIC
 
-        mode_training  : out std_logic;
-        game_active    : out std_logic;
-        in_title       : out std_logic;
-        in_lose        : out std_logic
     );
-end game_fsm;
+END game_fsm;
 
-architecture Behavioral of game_fsm is
-    type state_type is (INIT, TITLE, GAMEPLAY, LOSE);
-    signal current_state, next_state : state_type;
+ARCHITECTURE Behavioral OF game_fsm IS
+    TYPE state_type IS (INIT, TITLE, GAMEPLAY, LOSE);
+    SIGNAL current_state, next_state : state_type;
 
-    signal mode_training_reg : std_logic := '0'; -- internal register
-begin
+    SIGNAL mode_training_reg : STD_LOGIC := '0'; -- internal register
+BEGIN
 
     -- State Register
-    process(clk)
-    begin
-        if rising_edge(clk) then
-            if reset = '1' then
+    PROCESS (clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF reset = '1' THEN
                 current_state <= INIT;
-            else
+            ELSE
                 current_state <= next_state;
-            end if;
-        end if;
-    end process;
+            END IF;
+        END IF;
+    END PROCESS;
 
     -- State Transitions
-    process(current_state, start_training, start_game, pipe_hit)
-    begin
+    PROCESS (current_state, start_training, start_game, pipe_hit, health_zero)
+    BEGIN
         next_state <= current_state; -- default
 
-        case current_state is
-            when INIT =>
+        CASE current_state IS
+            WHEN INIT =>
                 next_state <= TITLE;
 
-            when TITLE =>
-                if start_training = '1' then
+            WHEN TITLE =>
+                IF start_training = '1' THEN
                     next_state <= GAMEPLAY;
                     mode_training_reg <= '1';
-                elsif start_game = '1' then
+                ELSIF start_game = '1' THEN
                     next_state <= GAMEPLAY;
                     mode_training_reg <= '0';
-                end if;
+                END IF;
 
-            when GAMEPLAY =>
-                if pipe_hit = '1' and mode_training_reg = '0' then
+            WHEN GAMEPLAY =>
+                IF mode_training_reg = '0' AND pipe_hit = '1' THEN
                     next_state <= LOSE;
-                end if;
+                ELSIF mode_training_reg = '1' AND health_zero = '1' THEN
+                    next_state <= LOSE;
+                END IF;
 
-            when LOSE =>
-                next_state <= TITLE;
+            WHEN LOSE =>
+                IF click_reset = '1' THEN
+                    next_state <= TITLE;
+                END IF;
 
-            when others =>
+            WHEN OTHERS =>
                 next_state <= INIT;
-        end case;
-    end process;
+        END CASE;
+    END PROCESS;
 
     -- Output Assignments
     mode_training <= mode_training_reg;
-    game_active   <= '1' when current_state = GAMEPLAY else '0';
-    in_title      <= '1' when current_state = TITLE else '0';
-    in_lose       <= '1' when current_state = LOSE else '0';
+    game_active <= '1' WHEN current_state = GAMEPLAY ELSE
+        '0';
+    in_title <= '1' WHEN current_state = TITLE ELSE
+        '0';
+    in_lose <= '1' WHEN current_state = LOSE ELSE
+        '0';
 
-end Behavioral;
+END Behavioral;

@@ -63,6 +63,7 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL pixel_row, pixel_column : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL mouse_row, mouse_col : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL left_button, right_button : STD_LOGIC;
+    SIGNAL lose_reset_click : STD_LOGIC;
 
     SIGNAL bird_y : INTEGER;
     SIGNAL bird_velocity : INTEGER;
@@ -101,6 +102,9 @@ ARCHITECTURE top OF flappy_bird_base IS
 
     SIGNAL health : INTEGER := 999;
     SIGNAL hp_string : STRING(1 TO 8) := "HP-00999"; -- Displayed string
+
+    SIGNAL health_zero : STD_LOGIC;
+    
 BEGIN
     -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
@@ -133,6 +137,10 @@ BEGIN
     LEDR(1) <= pipe_hit AND game_active;
     LEDR(2) <= bird_limit_hit AND game_active;
     VGA_VS <= vsync_internal;
+    lose_reset_click <= '1' WHEN (in_lose = '1' AND left_button = '1') ELSE
+        '0';
+    health_zero <= '1' WHEN health <= 0 ELSE
+        '0';
 
     clk_divider : PROCESS (CLOCK_50)
         VARIABLE counter : STD_LOGIC := '0';
@@ -264,10 +272,13 @@ BEGIN
             start_training => start_training,
             start_game => start_game,
             pipe_hit => pipe_hit,
+            click_reset => lose_reset_click,
             mode_training => mode_training, -- output from FSM now
             game_active => game_active,
             in_title => in_title,
-            in_lose => in_lose
+            in_lose => in_lose,
+            health_zero => health_zero
+
         );
 
     label_training : ENTITY work.draw_label
@@ -337,6 +348,18 @@ BEGIN
             green <= text_rgb_signal(5);
             blue <= text_rgb_signal(0);
         END IF;
+
+        -- draw lose screen info
+
+        IF in_lose = '1' THEN
+            IF to_integer(unsigned(pixel_column)) >= 200 AND to_integer(unsigned(pixel_column)) < 440 AND
+                to_integer(unsigned(pixel_row)) >= 150 AND to_integer(unsigned(pixel_row)) < 330 THEN
+                red <= '1';
+                green <= '1';
+                blue <= '1'; -- white rectangle as placeholder
+            END IF;
+        END IF;
+
         -- draw buttons on title screen
         IF in_title = '1' THEN
             -- Draw cursor (5x5 red square)

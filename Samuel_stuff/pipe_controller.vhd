@@ -13,7 +13,9 @@ ENTITY pipe_controller IS
         pipe_y_out : OUT STD_LOGIC_VECTOR(39 DOWNTO 0);
         game_active : IN STD_LOGIC;
         in_title : IN STD_LOGIC;
-        pipe_passed_tick : OUT STD_LOGIC
+        pipe_passed_tick : OUT STD_LOGIC;
+
+        speed : IN INTEGER
     );
 END pipe_controller;
 
@@ -54,13 +56,11 @@ BEGIN
 
                 -- Update LFSR
                 lfsr <= lfsr(14 DOWNTO 0) & (lfsr(15) XOR lfsr(13) XOR lfsr(12) XOR lfsr(10));
-                
-                
-                
+
                 passed_tick <= '0';
                 -- Move and respawn pipes
                 FOR i IN 0 TO 3 LOOP
-                    pipe_x(i) <= pipe_x(i) - 1;
+                    pipe_x(i) <= pipe_x(i) - speed;
 
                     IF pipe_x(i) <- pipe_width THEN
                         pipe_x(i) <= pipe_x(i) + 4 * pipe_spacing;

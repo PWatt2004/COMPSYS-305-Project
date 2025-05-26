@@ -109,6 +109,8 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL score_string : STRING(1 TO 11) := "SCORE-00000"; -- "SC-" + 5-digit score
 
     SIGNAL pipe_passed_tick : STD_LOGIC;
+
+    SIGNAL pipe_speed : INTEGER := 1;
 BEGIN
     -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
@@ -173,6 +175,14 @@ BEGIN
                 IF (bird_limit_hit = '1' OR pipe_hit = '1') AND health > 0 THEN
                     health <= health - 1;
                 END IF;
+            END IF;
+            -- Reset speed on title screen
+            IF RESET_N = '0' OR in_title = '1' THEN
+                pipe_speed <= 1;
+
+                -- Increase speed gradually in game mode
+            ELSIF game_active = '1' AND mode_training = '0' THEN
+                pipe_speed <= 1 + ((score_value / 1) * 4); -- +y speed per x points
             END IF;
 
             -- Format health as string
@@ -272,7 +282,8 @@ BEGIN
             pipe_y_out => pipe_y_out,
             game_active => game_active,
             in_title => in_title,
-            pipe_passed_tick => pipe_passed_tick
+            pipe_passed_tick => pipe_passed_tick,
+            speed => pipe_speed
         );
 
     display_text_inst : ENTITY work.display_text

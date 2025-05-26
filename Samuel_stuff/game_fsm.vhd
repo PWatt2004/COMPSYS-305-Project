@@ -56,12 +56,17 @@ BEGIN
                     mode_training_reg <= '0';
                 END IF;
 
-            WHEN GAMEPLAY =>
-                IF mode_training_reg = '0' AND pipe_hit = '1' THEN
+            -- WHEN GAMEPLAY =>
+            --     IF mode_training_reg = '0' AND pipe_hit = '1' THEN
+            --         next_state <= LOSE;
+            --     ELSIF mode_training_reg = '1' AND health_zero = '1' THEN
+            --         next_state <= LOSE;
+            --     END IF;
+
+            when GAMEPLAY =>
+                if health_zero = '1' then
                     next_state <= LOSE;
-                ELSIF mode_training_reg = '1' AND health_zero = '1' THEN
-                    next_state <= LOSE;
-                END IF;
+                end if;
 
             WHEN LOSE =>
                 IF click_reset = '1' THEN

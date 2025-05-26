@@ -16,12 +16,13 @@ ENTITY bird_controller IS
         bird_velocity : OUT INTEGER;
         bird_altitude : OUT INTEGER;
         game_active : IN STD_LOGIC;
-        bird_limit_hit : OUT STD_LOGIC
+        bird_limit_hit : OUT STD_LOGIC;
+        in_title : IN STD_LOGIC
     );
 END bird_controller;
 
 ARCHITECTURE behavior OF bird_controller IS
-    SIGNAL velocity : INTEGER := 0;   
+    SIGNAL velocity : INTEGER := 0;
     SIGNAL y_pos : INTEGER := 240;
     SIGNAL alt_temp : INTEGER;
     SIGNAL hit_ceiling_or_floor : STD_LOGIC := '0';
@@ -38,7 +39,7 @@ BEGIN
     PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
-            IF reset = '1' THEN
+            IF reset = '1' OR in_title = '1' THEN
                 y_pos <= 240;
                 velocity <= 0;
 

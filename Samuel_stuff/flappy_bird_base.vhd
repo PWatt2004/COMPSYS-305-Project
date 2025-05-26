@@ -100,11 +100,15 @@ ARCHITECTURE top OF flappy_bird_base IS
 
     SIGNAL bird_limit_hit : STD_LOGIC;
 
-    SIGNAL health : INTEGER := 999;
+    SIGNAL health : INTEGER := 50;
     SIGNAL hp_string : STRING(1 TO 8) := "HP-00999"; -- Displayed string
 
     SIGNAL health_zero : STD_LOGIC;
-    
+
+    SIGNAL score_value : INTEGER := 0;
+    SIGNAL score_string : STRING(1 TO 11) := "SCORE-00000"; -- "SC-" + 5-digit score
+
+    SIGNAL pipe_passed_tick : STD_LOGIC;
 BEGIN
     -- Instantiate 7-segment decoders
     hundred_display : ENTITY work.BCD_to_SevenSeg
@@ -154,13 +158,19 @@ BEGIN
     PROCESS (vsync_internal)
         VARIABLE temp : INTEGER;
         VARIABLE hp_temp : STRING(1 TO 8);
+        VARIABLE s_temp : INTEGER;
+        VARIABLE s_text : STRING(1 TO 11);
     BEGIN
         IF rising_edge(vsync_internal) THEN
             -- Handle health logic
             IF RESET_N = '0' OR in_title = '1' THEN
                 health <= 50;
-            ELSIF game_active = '1' AND mode_training = '1' THEN
-                IF bird_limit_hit = '1' AND health > 0 THEN
+                score_value <= 0;
+            ELSIF start_game = '1' THEN
+                health <= 1;
+            ELSIF game_active = '1' THEN
+                -- Decrement health
+                IF (bird_limit_hit = '1' OR pipe_hit = '1') AND health > 0 THEN
                     health <= health - 1;
                 END IF;
             END IF;
@@ -175,10 +185,32 @@ BEGIN
             hp_temp(6) := CHARACTER'VAL((temp / 10) MOD 10 + CHARACTER'POS('0'));
             hp_temp(7) := CHARACTER'VAL(temp MOD 10 + CHARACTER'POS('0'));
             hp_temp(8) := ' ';
-
             hp_string <= hp_temp;
+
+            -- Handle score  logic
+            IF game_active = '1' AND pipe_passed_tick = '1' THEN
+                score_value <= score_value + 1;
+            END IF;
+
+            -- Format score_value into score_string
+
+            s_temp := score_value;
+            s_text(1) := 'S';
+            s_text(2) := 'C';
+            s_text(3) := 'O';
+            s_text(4) := 'R';
+            s_text(5) := 'E';
+            s_text(6) := '-';
+            s_text(7) := CHARACTER'VAL((s_temp / 10000) MOD 10 + CHARACTER'POS('0'));
+            s_text(8) := CHARACTER'VAL((s_temp / 1000) MOD 10 + CHARACTER'POS('0'));
+            s_text(9) := CHARACTER'VAL((s_temp / 100) MOD 10 + CHARACTER'POS('0'));
+            s_text(10) := CHARACTER'VAL((s_temp / 10) MOD 10 + CHARACTER'POS('0'));
+            s_text(11) := CHARACTER'VAL(s_temp MOD 10 + CHARACTER'POS('0'));
+
+            score_string <= s_text;
         END IF;
     END PROCESS;
+
     vga_inst : ENTITY work.vga_sync
         PORT MAP(
             clock_25Mhz => clk_25,
@@ -215,7 +247,8 @@ BEGIN
             bird_velocity => bird_velocity,
             bird_altitude => number,
             game_active => game_active,
-            bird_limit_hit => bird_limit_hit
+            bird_limit_hit => bird_limit_hit,
+            in_title => in_title
         );
 
     background_inst : ENTITY work.background
@@ -237,7 +270,9 @@ BEGIN
             pipe_hit => pipe_hit,
             pipe_x_out => pipe_x_out,
             pipe_y_out => pipe_y_out,
-            game_active => game_active
+            game_active => game_active,
+            in_title => in_title,
+            pipe_passed_tick => pipe_passed_tick
         );
 
     display_text_inst : ENTITY work.display_text
@@ -250,6 +285,7 @@ BEGIN
             text_on => text_on_signal,
             title_on => SW(0),
             score_on => SW(1),
+            score_string => score_string,
             hp_on => SW(2),
             hp_string => hp_string
         );

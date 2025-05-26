@@ -12,8 +12,10 @@ ENTITY display_text IS
         text_on : OUT STD_LOGIC;
         title_on : IN STD_LOGIC;
         score_on : IN STD_LOGIC;
+        score_string : in  string(1 to 11);
         hp_on : IN STD_LOGIC;
         hp_string : in  string(1 to 8)
+
     );
 END ENTITY;
 
@@ -102,24 +104,13 @@ BEGIN
             END IF;
 
             ------------------------------------------------------------
-            -- 2. SCORE (BLACK, CENTERED BELOW, SCALE=1)
+            -- 2. SCORE STRING DISPLAY (BLACK, CENTERED BELOW, SCALE=1)
             ------------------------------------------------------------
-            temp_str := (OTHERS => ' ');
-            FOR i IN 1 TO INTEGER'image(score_val)'length LOOP
-                temp_str(i) := INTEGER'image(score_val)(i);
-            END LOOP;
-            FOR i IN 1 TO 10 LOOP
-                score_str(i) := temp_str(i);
-            END LOOP;
-
             txt := (OTHERS => ' ');
-            FOR i IN 1 TO SCORE_LABEL'length LOOP
-                txt(i) := SCORE_LABEL(i);
+            FOR i IN 1 TO 11 LOOP
+                txt(i) := score_string(i);
             END LOOP;
-            FOR j IN 1 TO INTEGER'image(score_val)'length LOOP
-                txt(SCORE_LABEL'length + j) := score_str(j);
-            END LOOP;
-            txt_len := SCORE_LABEL'length + INTEGER'image(score_val)'length;
+            txt_len := 11;
             scale := 1;
             start_x := (SCREEN_W - txt_len * CHAR_W * scale) / 2;
 

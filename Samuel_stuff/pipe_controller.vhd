@@ -11,7 +11,9 @@ ENTITY pipe_controller IS
         pipe_hit : OUT STD_LOGIC;
         pipe_x_out : OUT STD_LOGIC_VECTOR(39 DOWNTO 0);
         pipe_y_out : OUT STD_LOGIC_VECTOR(39 DOWNTO 0);
-        game_active : IN STD_LOGIC
+        game_active : IN STD_LOGIC;
+        in_title : IN STD_LOGIC;
+        pipe_passed_tick : OUT STD_LOGIC
     );
 END pipe_controller;
 
@@ -33,12 +35,13 @@ ARCHITECTURE behavior OF pipe_controller IS
 
     SIGNAL lfsr : STD_LOGIC_VECTOR(15 DOWNTO 0) := x"ACE1";
 
+    SIGNAL passed_tick : STD_LOGIC := '0';
 BEGIN
 
     PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
-            IF reset = '1' THEN
+            IF reset = '1' OR in_title = '1' THEN
                 -- Reset all pipes to spaced starting positions
                 FOR i IN 0 TO 3 LOOP
                     pipe_x(i) <= screen_width + i * pipe_spacing;
@@ -51,7 +54,10 @@ BEGIN
 
                 -- Update LFSR
                 lfsr <= lfsr(14 DOWNTO 0) & (lfsr(15) XOR lfsr(13) XOR lfsr(12) XOR lfsr(10));
-
+                
+                
+                
+                passed_tick <= '0';
                 -- Move and respawn pipes
                 FOR i IN 0 TO 3 LOOP
                     pipe_x(i) <= pipe_x(i) - 1;
@@ -59,9 +65,9 @@ BEGIN
                     IF pipe_x(i) <- pipe_width THEN
                         pipe_x(i) <= pipe_x(i) + 4 * pipe_spacing;
                         pipe_y(i) <= to_integer(unsigned(lfsr(7 DOWNTO 0))) MOD (480 - pipe_gap - 40) + 20;
+                        passed_tick <= '1'; -- Set the tick
                     END IF;
                 END LOOP;
-
             END IF;
         END IF;
     END PROCESS;
@@ -92,5 +98,6 @@ BEGIN
     pipe_y_out(19 DOWNTO 10) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(1), 10));
     pipe_y_out(29 DOWNTO 20) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(2), 10));
     pipe_y_out(39 DOWNTO 30) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(3), 10));
+    pipe_passed_tick <= passed_tick;
 
 END behavior;

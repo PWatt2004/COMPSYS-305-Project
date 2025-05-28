@@ -1,16 +1,16 @@
-Fitter Status : Successful - Wed May 28 18:43:55 2025
+Fitter Status : Successful - Wed May 28 19:01:33 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : flappy_bird_base
 Top-level Entity Name : flappy_bird_base
 Family : Cyclone V
 Device : 5CEBA4F23C7
 Timing Models : Final
-Logic utilization (in ALMs) : 12,535 / 18,480 ( 68 % )
-Total registers : 622
+Logic utilization (in ALMs) : 13,141 / 18,480 ( 71 % )
+Total registers : 666
 Total pins : 59 / 224 ( 26 % )
 Total virtual pins : 0
-Total block memory bits : 69,888 / 3,153,920 ( 2 % )
-Total RAM Blocks : 15 / 308 ( 5 % )
+Total block memory bits : 80,128 / 3,153,920 ( 3 % )
+Total RAM Blocks : 18 / 308 ( 6 % )
 Total DSP Blocks : 0 / 66 ( 0 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

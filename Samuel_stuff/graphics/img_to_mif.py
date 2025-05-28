@@ -22,7 +22,7 @@ if (len(sys.argv) > 2):
 
     im = Image.open(input_filename)
     im = im.crop(im.getbbox())
-    im = im.resize((640, 480))  # Resize the image to 32x32
+    im = im.resize((80, 60))  # Resize the image to 32x32
     im.show()
 
     f = open(output_filename, 'w');

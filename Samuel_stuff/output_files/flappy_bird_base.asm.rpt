@@ -1,5 +1,5 @@
 Assembler report for flappy_bird_base
-Wed May 28 17:49:07 2025
+Wed May 28 18:44:08 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed May 28 17:49:07 2025 ;
+; Assembler Status      ; Successful - Wed May 28 18:44:08 2025 ;
 ; Revision Name         ; flappy_bird_base                      ;
 ; Top-level Entity Name ; flappy_bird_base                      ;
 ; Family                ; Cyclone V                             ;
@@ -66,8 +66,8 @@ refer to the applicable agreement for further details.
 +----------------+----------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                      ;
 +----------------+----------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x01DDE352                                                                                   ;
-; Checksum       ; 0x01DDE352                                                                                   ;
+; JTAG usercode  ; 0x020A3451                                                                                   ;
+; Checksum       ; 0x020A3451                                                                                   ;
 +----------------+----------------------------------------------------------------------------------------------+
 
 
@@ -77,14 +77,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 28 17:49:01 2025
+    Info: Processing started: Wed May 28 18:44:01 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off flappy_bird_base -c flappy_bird_base
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4971 megabytes
-    Info: Processing ended: Wed May 28 17:49:07 2025
-    Info: Elapsed time: 00:00:06
+    Info: Peak virtual memory: 4981 megabytes
+    Info: Processing ended: Wed May 28 18:44:08 2025
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:05
 
 

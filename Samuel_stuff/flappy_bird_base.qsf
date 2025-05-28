@@ -467,6 +467,9 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE0_CV_Default
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE0_CV_Default -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -entity DE0_CV_Default -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE0_CV_Default -section_id Top
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name VHDL_FILE bg_rom.vhd
 set_global_assignment -name VHDL_FILE draw_label.vhd
 set_global_assignment -name VHDL_FILE menu_controller.vhd
 set_global_assignment -name VHDL_FILE game_fsm.vhd
@@ -483,6 +486,4 @@ set_global_assignment -name CDF_FILE output_files/Chain1.cdf
 set_global_assignment -name VHDL_FILE Background.vhd
 set_global_assignment -name SOURCE_FILE db/flappy_bird_base.cmp.rdb
 set_global_assignment -name VHDL_FILE text_display.vhd
-set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
-set_global_assignment -name SMART_RECOMPILE ON
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

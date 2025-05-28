@@ -40,9 +40,9 @@ ARCHITECTURE top OF flappy_bird_base IS
             clk : IN STD_LOGIC;
             pixel_row : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
             pixel_column : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-            bg_red : OUT STD_LOGIC;
-            bg_green : OUT STD_LOGIC;
-            bg_blue : OUT STD_LOGIC
+            bg_red : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            bg_green : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            bg_blue : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
         );
     END COMPONENT;
 
@@ -59,7 +59,7 @@ ARCHITECTURE top OF flappy_bird_base IS
     TYPE INTEGER_VECTOR IS ARRAY (NATURAL RANGE <>) OF INTEGER;
 
     SIGNAL clk_25 : STD_LOGIC;
-    SIGNAL red, green, blue : STD_LOGIC;
+    SIGNAL red, green, blue : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL pixel_row, pixel_column : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL mouse_row, mouse_col : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL left_button, right_button : STD_LOGIC;
@@ -75,7 +75,7 @@ ARCHITECTURE top OF flappy_bird_base IS
     SIGNAL pipe_y_array : INTEGER_VECTOR(0 TO 3);
 
     SIGNAL vsync_internal : STD_LOGIC;
-    SIGNAL bg_red, bg_green, bg_blue : STD_LOGIC;
+    SIGNAL bg_red, bg_green, bg_blue : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
     SIGNAL score : STD_LOGIC_VECTOR(11 DOWNTO 0) := (OTHERS => '0');
 
@@ -227,9 +227,9 @@ BEGIN
             red => red,
             green => green,
             blue => blue,
-            red_out => VGA_R(3),
-            green_out => VGA_G(3),
-            blue_out => VGA_B(3),
+            red_out => VGA_R,
+            green_out => VGA_G,
+            blue_out => VGA_B,
             horiz_sync_out => VGA_HS,
             vert_sync_out => vsync_internal,
             pixel_row => pixel_row,
@@ -377,23 +377,23 @@ BEGIN
                 to_integer(unsigned(pixel_column)) < pipe_x_array(i) + 20 AND
                 (to_integer(unsigned(pixel_row)) < pipe_y_array(i) OR
                 to_integer(unsigned(pixel_row)) > pipe_y_array(i) + 100)) THEN
-                red <= '0';
-                green <= '1';
-                blue <= '0';
+                red <= "0000";
+                green <= "1111";
+                blue <= "0000";
             END IF;
         END LOOP;
 
         IF ABS(to_integer(unsigned(pixel_column)) - bird_x) < size AND
             ABS(to_integer(unsigned(pixel_row)) - bird_y) < size THEN
-            red <= '1';
-            green <= '1';
-            blue <= '0';
+            red <= "1111";
+            green <= "1111";
+            blue <= "0000";
         END IF;
 
         IF text_on_signal = '1' THEN
-            red <= text_rgb_signal(11);
-            green <= text_rgb_signal(5);
-            blue <= text_rgb_signal(0);
+            red <= (OTHERS => text_rgb_signal(11));
+            green <= (OTHERS => text_rgb_signal(5));
+            blue <= (OTHERS => text_rgb_signal(0));
         END IF;
 
         -- draw lose screen info
@@ -401,9 +401,9 @@ BEGIN
         IF in_lose = '1' THEN
             IF to_integer(unsigned(pixel_column)) >= 200 AND to_integer(unsigned(pixel_column)) < 440 AND
                 to_integer(unsigned(pixel_row)) >= 150 AND to_integer(unsigned(pixel_row)) < 330 THEN
-                red <= '1';
-                green <= '1';
-                blue <= '1'; -- white rectangle as placeholder
+                red <= "1111";
+                green <= "1111";
+                blue <= "1111";-- white rectangle as placeholder
             END IF;
         END IF;
 
@@ -414,25 +414,21 @@ BEGIN
                 to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 AND
                 to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) AND
                 to_integer(unsigned(pixel_row)) < to_integer(unsigned(mouse_row)) + 5 THEN
-                red <= '1';
-                green <= '0';
-                blue <= '0';
+                red <= "1111";
+                green <= "0000";
+                blue <= "0000";
             END IF;
 
             IF label1_on = '1' THEN
-                red <= '0';
-                green <= '0';
-                blue <= '0';
+                red <= "0000";
+                green <= "0000";
+                blue <= "0000";
             ELSIF label2_on = '1' THEN
-                red <= '0';
-                green <= '0';
-                blue <= '0';
+                red <= "0000";
+                green <= "0000";
+                blue <= "0000";
             END IF;
         END IF;
     END PROCESS;
-
-    VGA_R(2 DOWNTO 0) <= (OTHERS => '0');
-    VGA_G(2 DOWNTO 0) <= (OTHERS => '0');
-    VGA_B(2 DOWNTO 0) <= (OTHERS => '0');
 
 END top;

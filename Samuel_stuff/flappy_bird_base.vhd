@@ -97,9 +97,6 @@ ARCHITECTURE top OF flappy_bird_base IS
 
     SIGNAL label1_on : STD_LOGIC;
     SIGNAL label2_on : STD_LOGIC;
-	 SIGNAL label_title_on  : STD_LOGIC;
-	 SIGNAL label_again_on : STD_LOGIC;
-	 SIGNAL label_gameover_on : STD_LOGIC;
 
     SIGNAL bird_limit_hit : STD_LOGIC;
 
@@ -332,7 +329,7 @@ BEGIN
         );
 
     label_training : ENTITY work.draw_label
-        GENERIC MAP(TEXT_LENGTH => 13, SCALE => 1)
+        GENERIC MAP(TEXT_LENGTH => 13)
         PORT MAP(
             clk => clk_25,
             active => in_title,
@@ -345,7 +342,7 @@ BEGIN
         );
 
     label_game : ENTITY work.draw_label
-        GENERIC MAP(TEXT_LENGTH => 12, SCALE => 1)
+        GENERIC MAP(TEXT_LENGTH => 9)
         PORT MAP(
             clk => clk_25,
             active => in_title,
@@ -353,50 +350,9 @@ BEGIN
             pixel_y => pixel_row,
             start_x => 460,
             start_y => 230,
-            text_string => "SINGLEPLAYER",
+            text_string => "GAME MODE",
             pixel_on => label2_on
         );
-		  
-	 label_title : entity work.draw_label
-		 generic map(TEXT_LENGTH => 11, SCALE => 2)
-		 port map (
-			  clk => clk_25,
-			  active => in_title,
-			  pixel_x => pixel_column,
-			  pixel_y => pixel_row,
-			  start_x => 220,
-			  start_y => 80,
-			  text_string => "TOASTY BIRD",
-			  pixel_on => label_title_on
-		 );
-		 
-	  label_again : entity work.draw_label
-		 generic map(TEXT_LENGTH => 17, SCALE => 1)
-		 port map (
-			  clk => clk_25,
-			  active => in_lose,
-			  pixel_x => pixel_column,
-			  pixel_y => pixel_row,
-			  start_x => 240,
-			  start_y => 260,
-			  text_string => "CLICK TO GO AGAIN",
-			  pixel_on => label_again_on
-		 );
-		 
-		 
-		label_gameover : entity work.draw_label
-		 generic map(TEXT_LENGTH => 9, SCALE => 3)
-		 port map (
-			  clk => clk_25,
-			  active => in_lose,
-			  pixel_x => pixel_column,
-			  pixel_y => pixel_row,
-			  start_x => 200,
-			  start_y => 220,
-			  text_string => "GAME OVER",
-			  pixel_on => label_gameover_on
-		 );
-		  
     -- Decode pipe_x_out to pipe_x_array
     pipe_x_array(0) <= to_integer(unsigned(pipe_x_out(9 DOWNTO 0)));
     pipe_x_array(1) <= to_integer(unsigned(pipe_x_out(19 DOWNTO 10)));
@@ -433,44 +389,27 @@ BEGIN
             green <= "1111";
             blue <= "0000";
         END IF;
-        
-		  IF in_title = '1' THEN
-			  IF text_on_signal = '1' THEN
-					red <= (OTHERS => text_rgb_signal(11));
-					green <= (OTHERS => text_rgb_signal(5));
-					blue <= (OTHERS => text_rgb_signal(0));
-			  END IF;
-		  END IF;
+
+        IF text_on_signal = '1' THEN
+            red <= (OTHERS => text_rgb_signal(11));
+            green <= (OTHERS => text_rgb_signal(5));
+            blue <= (OTHERS => text_rgb_signal(0));
+        END IF;
 
         -- draw lose screen info
 
         IF in_lose = '1' THEN
-            IF label_again_on = '1' or label_gameover_on = '1' THEN
-                red <= "0000";
-                green <= "0000";
-                blue <= "0000"; 
-            END IF;
-				
-				-- Draw cursor (5x5 red square)
-            IF to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) AND
-                to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 AND
-                to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) AND
-                to_integer(unsigned(pixel_row)) < to_integer(unsigned(mouse_row)) + 5 THEN
+            IF to_integer(unsigned(pixel_column)) >= 200 AND to_integer(unsigned(pixel_column)) < 440 AND
+                to_integer(unsigned(pixel_row)) >= 150 AND to_integer(unsigned(pixel_row)) < 330 THEN
                 red <= "1111";
-                green <= "0000";
-                blue <= "0000";
+                green <= "1111";
+                blue <= "1111";-- white rectangle as placeholder
             END IF;
         END IF;
 
         -- draw buttons on title screen
         IF in_title = '1' THEN
-				if label_title_on = '1' or label1_on = '1' or label2_on = '1' then
-					 red <= "1111";
-					 green <= "1111";
-					 blue <= "1111";
-				end if;            
-				
-				-- Draw cursor (5x5 red square)
+            -- Draw cursor (5x5 red square)
             IF to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) AND
                 to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 AND
                 to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) AND
@@ -479,6 +418,17 @@ BEGIN
                 green <= "0000";
                 blue <= "0000";
             END IF;
+
+            IF label1_on = '1' THEN
+                red <= "0000";
+                green <= "0000";
+                blue <= "0000";
+            ELSIF label2_on = '1' THEN
+                red <= "0000";
+                green <= "0000";
+                blue <= "0000";
+            END IF;
         END IF;
     END PROCESS;
+
 END top;

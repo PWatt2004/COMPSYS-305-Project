@@ -14,7 +14,6 @@ ENTITY pipe_controller IS
         game_active : IN STD_LOGIC;
         in_title : IN STD_LOGIC;
         pipe_passed_tick : OUT STD_LOGIC;
-
         speed : IN INTEGER
     );
 END pipe_controller;
@@ -33,62 +32,73 @@ ARCHITECTURE behavior OF pipe_controller IS
         screen_width + 2 * pipe_spacing,
         screen_width + 3 * pipe_spacing
     );
-    SIGNAL pipe_y : pipe_array := (200, 220, 240, 260); -- initial gaps
-
-    SIGNAL lfsr : STD_LOGIC_VECTOR(15 DOWNTO 0) := x"ACE1";
+    SIGNAL pipe_y : pipe_array := (200, 220, 240, 260);
 
     SIGNAL passed_tick : STD_LOGIC := '0';
+    SIGNAL rnd_out : STD_LOGIC_VECTOR(1 DOWNTO 0);
+
+    COMPONENT random_number_generator
+        PORT (
+            clk     : IN  STD_LOGIC;
+            reset   : IN  STD_LOGIC;
+            rnd_out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+        );
+    END COMPONENT;
+
 BEGIN
+
+    RNG_INST : random_number_generator
+        PORT MAP (
+            clk => clk,
+            reset => reset,
+            rnd_out => rnd_out
+        );
 
     PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
             IF reset = '1' OR in_title = '1' THEN
-                -- Reset all pipes to spaced starting positions
                 FOR i IN 0 TO 3 LOOP
                     pipe_x(i) <= screen_width + i * pipe_spacing;
                     pipe_y(i) <= 80 + i * 40;
                 END LOOP;
-                lfsr <= x"ACE1";
+                passed_tick <= '0';
 
             ELSIF game_active = '1' THEN
-                -- Only update when gameplay is active
-
-                -- Update LFSR
-                lfsr <= lfsr(14 DOWNTO 0) & (lfsr(15) XOR lfsr(13) XOR lfsr(12) XOR lfsr(10));
-
                 passed_tick <= '0';
-                -- Move and respawn pipes
                 FOR i IN 0 TO 3 LOOP
                     pipe_x(i) <= pipe_x(i) - speed;
 
-                    IF pipe_x(i) <- pipe_width THEN
+                    IF pipe_x(i) < -pipe_width THEN
                         pipe_x(i) <= pipe_x(i) + 4 * pipe_spacing;
-                        pipe_y(i) <= to_integer(unsigned(lfsr(7 DOWNTO 0))) MOD (480 - pipe_gap - 40) + 20;
-                        passed_tick <= '1'; -- Set the tick
+                        CASE rnd_out IS
+                            WHEN "00" => pipe_y(i) <= 80;
+                            WHEN "01" => pipe_y(i) <= 120;
+                            WHEN "10" => pipe_y(i) <= 160;
+                            WHEN OTHERS => pipe_y(i) <= 200;
+                        END CASE;
+                        passed_tick <= '1';
                     END IF;
                 END LOOP;
             END IF;
         END IF;
     END PROCESS;
 
-    -- Collision detection
     PROCESS (bird_x, bird_y, pipe_x, pipe_y)
         VARIABLE hit : STD_LOGIC := '0';
     BEGIN
-        hit := '0'; -- reset the flag at the start
-
+        hit := '0';
         FOR i IN 0 TO 3 LOOP
             IF bird_x + 6 >= pipe_x(i) AND bird_x - 6 <= pipe_x(i) + pipe_width THEN
                 IF bird_y < pipe_y(i) OR bird_y > pipe_y(i) + pipe_gap THEN
-                    hit := '1'; -- set only if there's overlap
+                    hit := '1';
                 END IF;
             END IF;
         END LOOP;
-
-        pipe_hit <= hit; -- assign the result after checking all pipes
+        pipe_hit <= hit;
     END PROCESS;
-    -- Output encoded pipe positions
+
+    -- Output pipe positions
     pipe_x_out(9 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(0), 10));
     pipe_x_out(19 DOWNTO 10) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(1), 10));
     pipe_x_out(29 DOWNTO 20) <= STD_LOGIC_VECTOR(to_unsigned(pipe_x(2), 10));
@@ -98,6 +108,7 @@ BEGIN
     pipe_y_out(19 DOWNTO 10) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(1), 10));
     pipe_y_out(29 DOWNTO 20) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(2), 10));
     pipe_y_out(39 DOWNTO 30) <= STD_LOGIC_VECTOR(to_unsigned(pipe_y(3), 10));
+
     pipe_passed_tick <= passed_tick;
 
 END behavior;

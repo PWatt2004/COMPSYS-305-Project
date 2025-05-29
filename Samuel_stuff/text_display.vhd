@@ -2,6 +2,10 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
+-- To Do List: Must Fix
+-- - Replace Scale w/ Constants
+-- - Get rid of Divisions (replace w/ bit right shift)  
+
 ENTITY display_text IS
     PORT (
         clk : IN STD_LOGIC;

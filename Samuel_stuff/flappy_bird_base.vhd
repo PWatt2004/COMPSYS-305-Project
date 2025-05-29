@@ -97,6 +97,9 @@ architecture top of flappy_bird_base is
 
   signal label1_on : STD_LOGIC;
   signal label2_on : STD_LOGIC;
+  SIGNAL label_title_on  : STD_LOGIC;
+	SIGNAL label_again_on : STD_LOGIC;  
+  SIGNAL label_gameover_on : STD_LOGIC;
 
   signal bird_limit_hit : STD_LOGIC;
 
@@ -329,7 +332,7 @@ begin
     );
 
   label_training: entity work.draw_label
-    generic map (TEXT_LENGTH => 13)
+    generic map (TEXT_LENGTH => 13, SCALE => 1)
     port map (
       clk         => clk_25,
       active      => in_title,
@@ -342,7 +345,7 @@ begin
     );
 
   label_game: entity work.draw_label
-    generic map (TEXT_LENGTH => 9)
+    generic map (TEXT_LENGTH => 12, SCALE => 1)
     port map (
       clk         => clk_25,
       active      => in_title,
@@ -350,9 +353,49 @@ begin
       pixel_y     => pixel_row,
       start_x     => 460,
       start_y     => 230,
-      text_string => "GAME MODE",
+      text_string => "SINGLEPLAYER",
       pixel_on    => label2_on
     );
+
+  label_title: entity work.draw_label
+    generic map (TEXT_LENGTH => 11, SCALE => 2)
+    port map (
+      clk         => clk_25,
+      active      => in_title,
+      pixel_x     => pixel_column,
+      pixel_y     => pixel_row,
+      start_x     => 220,
+      start_y     => 80,
+      text_string => "TOASTY BIRD",
+      pixel_on    => label_title_on
+    );
+
+  label_again: entity work.draw_label
+    generic map (TEXT_LENGTH => 17, SCALE => 1)
+    port map (
+      clk         => clk_25,
+      active      => in_lose,
+      pixel_x     => pixel_column,
+      pixel_y     => pixel_row,
+      start_x     => 240,
+      start_y     => 260,
+      text_string => "CLICK TO GO AGAIN",
+      pixel_on    => label_again_on
+    );
+
+  label_gameover: entity work.draw_label
+    generic map (TEXT_LENGTH => 9, SCALE => 3)
+    port map (
+      clk         => clk_25,
+      active      => in_lose,
+      pixel_x     => pixel_column,
+      pixel_y     => pixel_row,
+      start_x     => 200,
+      start_y     => 220,
+      text_string => "GAME OVER",
+      pixel_on    => label_gameover_on
+    );
+
   -- Decode pipe_x_out to pipe_x_array
   pipe_x_array(0) <= to_integer(unsigned(pipe_x_out(9 downto 0)));
   pipe_x_array(1) <= to_integer(unsigned(pipe_x_out(19 downto 10)));
@@ -442,16 +485,12 @@ begin
 
     -- draw lose screen info
     if in_lose = '1' then
-      if to_integer(unsigned(pixel_column)) >= 200 and to_integer(unsigned(pixel_column)) < 440 and
-         to_integer(unsigned(pixel_row)) >= 150 and to_integer(unsigned(pixel_row)) < 330 then
-        red <= "1111";
-        green <= "1111";
-        blue <= "1111"; -- white rectangle as placeholder
+      if label_again_on = '1' or label_gameover_on = '1' then
+        red <= "0000";
+        green <= "0000";
+        blue <= "0000";
       end if;
-    end if;
 
-    -- draw buttons on title screen
-    if in_title = '1' then
       -- Draw cursor (5x5 red square)
       if to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) and
          to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 and
@@ -461,13 +500,22 @@ begin
         green <= "0000";
         blue <= "0000";
       end if;
+    end if;
 
-      if label1_on = '1' then
-        red <= "0000";
-        green <= "0000";
-        blue <= "0000";
-      elsif label2_on = '1' then
-        red <= "0000";
+    -- draw buttons on title screen
+    if in_title = '1' then
+      if label_title_on = '1' or label1_on = '1' or label2_on = '1' then
+        red <= "1111";
+        green <= "1111";
+        blue <= "1111";
+      end if;
+
+      -- Draw cursor (5x5 red square)
+      if to_integer(unsigned(pixel_column)) >= to_integer(unsigned(mouse_col)) and
+         to_integer(unsigned(pixel_column)) < to_integer(unsigned(mouse_col)) + 5 and
+         to_integer(unsigned(pixel_row)) >= to_integer(unsigned(mouse_row)) and
+         to_integer(unsigned(pixel_row)) < to_integer(unsigned(mouse_row)) + 5 then
+        red <= "1111";
         green <= "0000";
         blue <= "0000";
       end if;

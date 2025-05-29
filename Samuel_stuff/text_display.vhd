@@ -57,7 +57,6 @@ BEGIN
     PROCESS (clk)
         VARIABLE row, col : INTEGER;
         VARIABLE char_x, char_y : INTEGER;
-        VARIABLE txt : STRING(1 TO 20);
         VARIABLE txt_len : INTEGER;
         VARIABLE start_x : INTEGER;
         VARIABLE scale : INTEGER;
@@ -77,10 +76,7 @@ BEGIN
             ------------------------------------------------------------
             -- 1. FLAPPY BIRD (WHITE, CENTERED, SCALE=2)
             ------------------------------------------------------------
-            txt := (OTHERS => ' ');
-            FOR i IN 1 TO TITLE_TEXT'length LOOP
-                txt(i) := TITLE_TEXT(i);
-            END LOOP;
+
             txt_len := TITLE_TEXT'length;
             scale := 2;
             start_x := (SCREEN_W - txt_len * CHAR_W * scale) / 2;
@@ -93,7 +89,7 @@ BEGIN
                             char_x := (col - (start_x + i * CHAR_W * scale)) / scale;
                             font_row <= STD_LOGIC_VECTOR(to_unsigned(char_y, 3));
                             font_col <= STD_LOGIC_VECTOR(to_unsigned(char_x, 3));
-                            character_address <= STD_LOGIC_VECTOR(to_unsigned(CHARACTER'pos(txt(i + 1)), 6));
+                            character_address <= STD_LOGIC_VECTOR(to_unsigned(CHARACTER'pos(TITLE_TEXT(i + 1)), 6));
                             IF rom_pixel = '1' THEN
                                 text_on <= '1';
                                 text_rgb <= "111111111111"; -- white
@@ -106,10 +102,7 @@ BEGIN
             ------------------------------------------------------------
             -- 2. SCORE STRING DISPLAY (BLACK, CENTERED BELOW, SCALE=1)
             ------------------------------------------------------------
-            txt := (OTHERS => ' ');
-            FOR i IN 1 TO 11 LOOP
-                txt(i) := score_string(i);
-            END LOOP;
+
             txt_len := 11;
             scale := 1;
             start_x := (SCREEN_W - txt_len * CHAR_W * scale) / 2;
@@ -123,7 +116,7 @@ BEGIN
                             char_x := (col - (start_x + i * CHAR_W * scale)) / scale;
                             font_row <= STD_LOGIC_VECTOR(to_unsigned(char_y, 3));
                             font_col <= STD_LOGIC_VECTOR(to_unsigned(char_x, 3));
-                            character_address <= STD_LOGIC_VECTOR(to_unsigned(CHARACTER'pos(txt(i + 1)), 6));
+                            character_address <= STD_LOGIC_VECTOR(to_unsigned(CHARACTER'pos(score_string(i + 1)), 6));
                             IF rom_pixel = '1' THEN
                                 text_on <= '1';
                                 text_rgb <= "000000000000"; -- black
@@ -137,25 +130,19 @@ BEGIN
             ------------------------------------------------------------
             -- 3. HP (RED, TOP-RIGHT, SCALE=1)
             ------------------------------------------------------------
-            txt := (OTHERS => ' ');
-            FOR i IN 1 TO 8 LOOP
-                txt(i) := hp_string(i);
-            END LOOP;
+
             txt_len := 8;
             scale := 2;
             start_x := SCREEN_W - txt_len * CHAR_W * scale - 10;
-            
-            scale := 2;
-            start_x := SCREEN_W - txt_len * CHAR_W * scale - 10;
             IF hp_on = '1' THEN
-                IF row >= 10 AND row < 10 + CHAR_H * scale THEN
+                IF (row >= 10 AND row < 10 + CHAR_H * scale) THEN
                     FOR i IN 0 TO txt_len - 1 LOOP
                         IF col >= start_x + i * CHAR_W * scale AND col < start_x + (i + 1) * CHAR_W * scale THEN
                             char_y := (row - 10) / scale;
                             char_x := (col - (start_x + i * CHAR_W * scale)) / scale;
                             font_row <= STD_LOGIC_VECTOR(to_unsigned(char_y, 3));
                             font_col <= STD_LOGIC_VECTOR(to_unsigned(char_x, 3));
-                            character_address <= STD_LOGIC_VECTOR(to_unsigned(CHARACTER'pos(txt(i + 1)), 6));
+                            character_address <= STD_LOGIC_VECTOR(to_unsigned(CHARACTER'pos(hp_string(i + 1)), 6));
                             IF rom_pixel = '1' THEN
                                 text_on <= '1';
                                 text_rgb <= "111100000000"; -- red

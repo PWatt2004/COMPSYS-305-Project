@@ -1,5 +1,5 @@
 Flow report for flappy_bird_base
-Thu May 29 21:14:24 2025
+Fri May 30 14:24:31 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,25 +40,25 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Thu May 29 21:14:23 2025           ;
+; Flow Status                     ; Successful - Fri May 30 14:23:48 2025           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappy_bird_base                                ;
 ; Top-level Entity Name           ; flappy_bird_base                                ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CEBA4F23C7                                     ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 695                                             ;
-; Total pins                      ; 59                                              ;
+; Logic utilization (in ALMs)     ; 13,451 / 18,480 ( 73 % )                        ;
+; Total registers                 ; 725                                             ;
+; Total pins                      ; 59 / 224 ( 26 % )                               ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 150,016                                         ;
-; Total DSP Blocks                ; 0                                               ;
+; Total block memory bits         ; 150,016 / 3,153,920 ( 5 % )                     ;
+; Total DSP Blocks                ; 0 / 66 ( 0 % )                                  ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
 ; Total HSSI TX PCSs              ; 0                                               ;
 ; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 0                                               ;
-; Total DLLs                      ; 0                                               ;
+; Total PLLs                      ; 0 / 4 ( 0 % )                                   ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
 +---------------------------------+-------------------------------------------------+
 
 
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/29/2025 21:13:37 ;
+; Start date & time ; 05/30/2025 14:11:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; flappy_bird_base    ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 224948462351117.174851001725384        ; --            ; --             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 224948462351117.174857109506776        ; --            ; --             ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE0_CV_Default ; Top        ;
@@ -101,8 +101,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:43     ; 1.0                     ; 5189 MB             ; 00:00:31                           ;
-; Total                ; 00:00:43     ; --                      ; --                  ; 00:00:31                           ;
+; Analysis & Synthesis ; 00:00:46     ; 1.0                     ; 5181 MB             ; 00:00:46                           ;
+; Fitter               ; 00:10:49     ; 1.4                     ; 7867 MB             ; 01:00:01                           ;
+; Assembler            ; 00:00:12     ; 1.0                     ; 4992 MB             ; 00:00:09                           ;
+; Timing Analyzer      ; 00:00:40     ; 4.0                     ; 5548 MB             ; 00:01:58                           ;
+; Total                ; 00:12:27     ; --                      ; --                  ; 01:02:54                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -112,6 +115,9 @@ refer to the applicable agreement for further details.
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
 ; Analysis & Synthesis ; EN453046         ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; EN453046         ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; EN453046         ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; EN453046         ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -119,6 +125,9 @@ refer to the applicable agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off flappy_bird_base -c flappy_bird_base
+quartus_fit --read_settings_files=off --write_settings_files=off flappy_bird_base -c flappy_bird_base
+quartus_asm --read_settings_files=off --write_settings_files=off flappy_bird_base -c flappy_bird_base
+quartus_sta flappy_bird_base -c flappy_bird_base
 
 
 
